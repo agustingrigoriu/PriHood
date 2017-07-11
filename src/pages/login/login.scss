@@ -1,3 +1,58 @@
 page-login {
 
+ #page {
+    height: 100%;
+    background-color : #003777;
+ }
+
+ .spacer{
+     width:100%;
+     height:50%;
+ }
+
+.contenedorSuperior{
+     height:40%;
+ }
+ 
+ .contenedorInferior{
+     height:50%;
+ }
+
+ #logo {
+   display:block;
+   align-content: center;
+   width:80%;
+   height:auto;
+   margin-left:auto;
+   margin-right:auto;
+ }
+
+ .item.item-input {
+    background-color: transparent;
+    color: #ffffff;
+ }
+
+ .botonIngreso {
+    width:80%;
+    align-content: center;
+    margin-left:auto;
+    margin-right:auto;
+    background-color : #ffffff;
+ }
+
+ .button-outline-md{
+     color: #003777;
+ }
+
+ .list-md .item-input:last-child{
+     border-bottom: 0px
+ }
+
+ .userInput {
+    width:90%;
+    align-content: center;
+    margin-left:auto;
+    margin-right:auto;
+ }
+
 }
