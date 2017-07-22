@@ -8,10 +8,20 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 
+import { NoRegistradoPage } from '../pages/noRegistrado/noRegistrado'
+import { VisitasPage } from '../pages/visitas/visitas'
+import { VisitasActualesTab } from '../pages/visitas/visitasActuales/visitasActuales';
+import { VisitasFrecuentesTab } from '../pages/visitas/visitasFrecuentes/visitasFrecuentes';
+
+
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage
+    LoginPage,
+    NoRegistradoPage,
+    VisitasPage,
+    VisitasActualesTab,
+    VisitasFrecuentesTab
   ],
   imports: [
     BrowserModule,
@@ -21,7 +31,11 @@ import { LoginPage } from '../pages/login/login';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    LoginPage,
+    NoRegistradoPage,
+    VisitasPage,
+    VisitasActualesTab,
+    VisitasFrecuentesTab
   ],
   providers: [
     StatusBar,

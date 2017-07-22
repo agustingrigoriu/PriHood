@@ -16,13 +16,14 @@
         </ion-item>
       </ion-list>
     </div>
-    <div class="botonIngreso" id="btnIngresarUsuario">
+    <div class="btnIngreso" id="btnIngresarUsuario">
       <button ion-button outline block>Ingresar</button>
     </div>
     <div>
       <br>
-      <button ion-button clear block>No estoy Registrado</button>
-      <button ion-button clear block>Olvidé mi contraseña</button>
+      <button ion-button clear block class="btnExtra" (click)="pushPage()">No estoy registrado</button>
+      <button ion-button clear block class="btnExtra">Olvidé mi contraseña</button>
+      <button ion-button clear block class="btnExtra" (click)="pushPageVisitas()">VISITAS</button>
     </div>
   </div>
 </ion-content>
