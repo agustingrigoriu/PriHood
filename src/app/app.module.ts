@@ -13,6 +13,8 @@ import { VisitasPage } from '../pages/visitas/visitas'
 import { VisitasActualesTab } from '../pages/visitas/visitasActuales/visitasActuales';
 import { VisitasFrecuentesTab } from '../pages/visitas/visitasFrecuentes/visitasFrecuentes';
 
+import { DataExampleService } from './services/data.service';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { VisitasFrecuentesTab } from '../pages/visitas/visitasFrecuentes/visitas
   providers: [
     StatusBar,
     SplashScreen,
+    DataExampleService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

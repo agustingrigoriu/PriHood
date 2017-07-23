@@ -1,7 +1,24 @@
   <ion-header>
     <ion-navbar>
-      <ion-title>Visitas Actuales</ion-title>
+      <ion-title class="visitasTitulo">Visitas Actuales</ion-title>
+      <button ion-button class="btn-menu" (click)="menu()"><img src="assets/img/pruebas/logo_pruebas.png"></button>
     </ion-navbar>
   </ion-header>
 
-  <ion-content>Tab para visitas Actuales</ion-content>
+  <ion-content>
+      <ion-list>
+        <ion-item *ngFor="let visita of visitas">
+          <ion-avatar item-start>
+            <img src="{{visita.imagen}}">
+          </ion-avatar>
+          <h2>{{visita.nombre}}</h2>
+          <p><b>{{visita.dni}}</b></p>
+          <p>{{visita.horario}}</p>
+          <button ion-button clear item-end>Ver</button>
+        </ion-item>
+      </ion-list>
+      <button ion-button class="btn-agregarVisita" (click)="agregarVisita()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+
+  </ion-content>
