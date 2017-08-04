@@ -8,10 +8,12 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 
-import { NoRegistradoPage } from '../pages/noRegistrado/noRegistrado'
+import { NoRegistradoPage } from '../pages/usuario/noRegistrado/noRegistrado'
 import { VisitasPage } from '../pages/visitas/visitas'
 import { VisitasActualesTab } from '../pages/visitas/visitasActuales/visitasActuales';
 import { VisitasFrecuentesTab } from '../pages/visitas/visitasFrecuentes/visitasFrecuentes';
+import { RegistroUsuarioPage } from '../pages/usuario/registroUsuario/registroUsuario';
+import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegistro';
 
 import { DataExampleService } from './services/data.service';
 
@@ -23,7 +25,9 @@ import { DataExampleService } from './services/data.service';
     NoRegistradoPage,
     VisitasPage,
     VisitasActualesTab,
-    VisitasFrecuentesTab
+    VisitasFrecuentesTab,
+    RegistroUsuarioPage,
+    CodigoRegistroPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,11 @@ import { DataExampleService } from './services/data.service';
     NoRegistradoPage,
     VisitasPage,
     VisitasActualesTab,
-    VisitasFrecuentesTab
+    VisitasFrecuentesTab,
+    RegistroUsuarioPage,
+    CodigoRegistroPage
+
+    
   ],
   providers: [
     StatusBar,

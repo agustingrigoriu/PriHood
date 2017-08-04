@@ -1,0 +1,58 @@
+ .userInput {
+    width:90%;
+    align-content: center;
+    margin-left:auto;
+    margin-right:auto;
+ }
+
+.detalleRegistro{
+  align-content: center;
+  p {
+      padding: 0 40px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #003777;
+  }
+ }
+ .separadorSuperior{
+     height:25%;
+ }
+
+ .separadorInferior{
+     height:5%;
+ }
+ .contenedorImagen{
+     text-align: center;
+     align-content: center;
+     height:20%;
+ }
+ 
+  .btnVerificar {
+    width:80%;
+    align-content: center;
+    margin-left:auto;
+    margin-right:auto;
+    background-color : #003777;
+ }
+
+ #btnVerificarCodigo{
+     color:#ffffff;
+ }
+
+ .image-registro {
+    margin: -50px 0;
+}
+
+.logo-footer {
+  max-width: 25%;
+}
+
+.contenedorFooter {
+  align-content: center;
+  text-align: center;
+}
+
+.codigoInput{
+  padding-left: 22% !important;
+}

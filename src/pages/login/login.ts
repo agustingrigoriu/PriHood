@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { NoRegistradoPage } from '../noRegistrado/noRegistrado'
+import { NoRegistradoPage } from '../usuario/noRegistrado/noRegistrado'
 import { VisitasPage } from '../visitas/visitas'
 
 @Component({

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="title-page">Ingresar codigo</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="separadorSuperior"></div>
+  <div class="contenedorImagen">
+    <img src="assets/img/slides/codigoRegistro.png" class="image-registro" />
+  </div>
+  <div class="separadorInferior"></div>
+  
+  <div class="userInput">
+    <ion-list inset>
+      <ion-item class="codigoInput">
+        <ion-label>Código</ion-label>
+        <ion-input type="text" placeholder="XXXX-XXXX" id="codigoRegistroUsuario"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="detalleRegistro">
+    <p>Ingrese el código que figura en su tarjeta para poder acceder al registro de usuario</p>
+  </div>
+  <div class="btnVerificar">
+    <button ion-button outline block id="btnVerificarCodigo">Verificar</button>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="contenedorFooter">
+      <img src="assets/img/logo_dark.png" class="logo-footer" />
+    </div>
+  </ion-toolbar>
+</ion-footer>

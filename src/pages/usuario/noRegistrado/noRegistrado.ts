@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ModalController} from 'ionic-angular';
+import { CodigoRegistroPage } from '../codigoRegistro/codigoRegistro'
 
 @Component({
   selector: 'page-noRegistrado',
@@ -7,8 +8,13 @@ import { NavController } from 'ionic-angular';
 })
 export class NoRegistradoPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public modalCtrl: ModalController) {
 
+  }
+
+  ingresarCodigo() {
+    let modal = this.modalCtrl.create(CodigoRegistroPage);
+    modal.present();
   }
 
   slides = [
