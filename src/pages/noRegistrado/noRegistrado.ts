@@ -13,12 +13,9 @@ export class NoRegistradoPage {
 
   slides = [
     {
-      title: "Comunicarse con el Administrador!",
-      description: "Debes <b>comunicarte con la administracion</b> para ...",
-    },
-    {
-      title: "Ver como explicar",
-      description: "<b>Describir</b> la forma de obtener un usuario",
+      title: "Obtené tu código",
+      description: "Debes <b>comunicarte con la administracion</b> de tu barrio para obtener el código de registro ",
+      image: "assets/img/slides/tarjeta_codigoUsuario.png"
     }
   ];
 

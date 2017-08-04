@@ -46,6 +46,48 @@ export class VisitasActualesTab {
           patente: "ASD 123",
           horario: "16:00 a 21:00 hs",
           imagen: "assets/img/pruebas/fondoAzul.png"
+        },
+        {
+          nombre: "Belen Valdivia",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/fondoAzul.png"
+        },
+        {
+          nombre: "Belen Valdivia",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/fondoAzul.png"
+        },
+        {
+          nombre: "Belen Valdivia",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/fondoAzul.png"
+        },
+        {
+          nombre: "Belen Valdivia",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/fondoAzul.png"
+        },
+        {
+          nombre: "Belen Valdivia",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/fondoAzul.png"
+        },
+        {
+          nombre: "Belen Valdivia",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/fondoAzul.png"
         }
     ]
   }

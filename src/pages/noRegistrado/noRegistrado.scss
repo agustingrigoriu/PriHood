@@ -1,17 +1,19 @@
 .slideRegistrarUsuario {
     background-color: #003777;
     color: #ffffff;
+    border-color: transparent;
  }
 
-p {
-    padding: 0 40px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #ffffff;
-}
+ .slide-zoom {
+    height: 100%;
+  }
 
 .slide-title {
-    margin-top: 2.8rem;
+    margin-top: 0.2rem;
+}
+
+.slides-title {
+    color: #003777 !important;
 }
 
 .slide-image {
@@ -19,3 +21,33 @@ p {
     max-width: 60%;
     margin: 18px 0;
 }
+
+ #logo {
+   display:block;
+   align-content: center;
+   width:80%;
+   height:auto;
+   margin-left:auto;
+   margin-right:auto;
+ }
+
+ p {
+    padding: 0 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ffffff;
+
+    b {
+      color: #007aff;
+    }
+}
+
+b {
+    font-weight: 500;
+}
+
+.top20 {
+    height: 20%;
+}
+
+

@@ -45,6 +45,48 @@ export class VisitasFrecuentesTab {
           patente: "ASD 123",
           horario: "16:00 a 21:00 hs",
           imagen: "assets/img/pruebas/messi.png"
+          },
+        {
+          nombre: "Patricio Perez",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/messi.png"
+          },
+        {
+          nombre: "Patricio Perez",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/messi.png"
+          },
+        {
+          nombre: "Patricio Perez",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/messi.png"
+          },
+        {
+          nombre: "Patricio Perez",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/messi.png"
+          },
+        {
+          nombre: "Patricio Perez",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/messi.png"
+          },
+        {
+          nombre: "Patricio Perez",
+          dni: "38509890",
+          patente: "ASD 123",
+          horario: "16:00 a 21:00 hs",
+          imagen: "assets/img/pruebas/messi.png"
           }
     ]
   }

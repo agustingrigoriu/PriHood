@@ -13,7 +13,7 @@ export class LoginService {
     var datos = JSON.stringify({usuario:'Lucas',password:'123'})
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.restApiURL_Users, datos,{headers:headers})
+    return this.http.post(this.restApiURL_Users, datos,{headers})
     //Incompleto
   }
 }  
