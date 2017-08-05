@@ -15,7 +15,7 @@ export class VisitasFrecuentesTab {
   menu() {
       let alert = this.alertCtrl.create({
         title: 'Menu Principal',
-        message: 'Estamos trabajando en su construccion. Presidencia de la Nacion',
+        message: 'Estamos trabajando en su construccion.',
         buttons: ['Ok']
     });
     alert.present()
@@ -24,7 +24,7 @@ export class VisitasFrecuentesTab {
   agregarVisita() {
       let alert = this.alertCtrl.create({
         title: 'Agregar visita frecuente',
-        message: 'Estamos trabajando en su construccion. Presidencia de la Nacion',
+        message: 'Estamos trabajando en su construccion.',
         buttons: ['Ok']
     });
     alert.present()

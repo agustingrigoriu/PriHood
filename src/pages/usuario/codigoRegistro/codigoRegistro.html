@@ -21,15 +21,15 @@
     <ion-list inset>
       <ion-item class="codigoInput">
         <ion-label>Código</ion-label>
-        <ion-input type="text" placeholder="XXXX-XXXX" id="codigoRegistroUsuario"></ion-input>
+        <ion-input type="text" placeholder="XXXX-XXXX" id="codigoRegistroUsuario" [(ngModel)]="codigoRegistro"></ion-input>
       </ion-item>
     </ion-list>
   </div>
   <div class="detalleRegistro">
-    <p>Ingrese el código que figura en su tarjeta para poder acceder al registro de usuario</p>
+    <p>Ingrese el código que figura en su tarjeta para poder acceder al registro de usuario (Para probar: 1234-5678 funciona)</p>
   </div>
   <div class="btnVerificar">
-    <button ion-button outline block id="btnVerificarCodigo">Verificar</button>
+    <button ion-button outline block id="btnVerificarCodigo" (click)='verificarCodigo()'>Verificar</button>
   </div>
 
 </ion-content>

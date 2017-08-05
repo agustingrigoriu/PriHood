@@ -16,7 +16,7 @@ export class VisitasActualesTab {
     menu() {
       let alert = this.alertCtrl.create({
         title: 'Menu Principal',
-        message: 'Estamos trabajando en su construccion. Presidencia de la Nacion',
+        message: 'Estamos trabajando en su construccion.',
         buttons: ['Ok']
     });
     alert.present()
@@ -25,7 +25,7 @@ export class VisitasActualesTab {
   agregarVisita() {
       let alert = this.alertCtrl.create({
         title: 'Agregar visita',
-        message: 'Estamos trabajando en su construccion. Presidencia de la Nacion',
+        message: 'Estamos trabajando en su construccion.',
         buttons: ['Ok']
     });
     alert.present()

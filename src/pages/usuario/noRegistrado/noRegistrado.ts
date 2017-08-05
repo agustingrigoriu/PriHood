@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController} from 'ionic-angular';
-import { CodigoRegistroPage } from '../codigoRegistro/codigoRegistro'
+import { CodigoRegistroPage } from '../codigoRegistro/codigoRegistro';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-noRegistrado',
@@ -8,13 +9,22 @@ import { CodigoRegistroPage } from '../codigoRegistro/codigoRegistro'
 })
 export class NoRegistradoPage {
 
-  constructor(public modalCtrl: ModalController) {
-
+  constructor(public modalCtrl: ModalController, public alertCtrl: AlertController) {
+    
   }
 
   ingresarCodigo() {
     let modal = this.modalCtrl.create(CodigoRegistroPage);
     modal.present();
+  }
+
+  escanearCodigo() {
+    let alert = this.alertCtrl.create({
+        title: 'Escanear codigoQR',
+        message: 'Todavia no ha sido implementado.',
+        buttons: ['Ok']
+    });
+    alert.present()
   }
 
   slides = [

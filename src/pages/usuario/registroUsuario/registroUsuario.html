@@ -5,5 +5,46 @@
 </ion-header>
 
 <ion-content>
-  <h1>FUNCIONA</h1>
+
+
+
+  <div class="informacionBarrio-contenedor">
+    <h3 class="informacionResidencia-titulo">Barrio <b>{{idBarrio}}</b></h3>
+    <h4 class="informacionResidencia-titulo">Residencia <b>{{idResidencia}}</b></h4>
+  </div>
+
+  <div class="imagenUsuario-contenedor">
+    <button ion-button clear class="imagenUsuario-btn">
+      <ion-icon name="contact" class="imagenUsuario"></ion-icon>
+    </button>
+  </div>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Nombre y Apellido</ion-label>
+      <ion-input id="nombreUsuario" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input id="emailUsuario" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Contraseña</ion-label>
+      <ion-input id="passwordUsuario" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Confirme contraseña</ion-label>
+      <ion-input id="confirmacionPasswordUsuario" type="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div class="btnRegistrar">
+    <button ion-button outline block id="btnRegistrarUsuario" (click)='registrarUsuario()'>Registrar</button>
+  </div>
+
 </ion-content>
