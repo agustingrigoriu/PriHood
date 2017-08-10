@@ -15,9 +15,6 @@ import { VisitasFrecuentesTab } from '../pages/visitas/visitasFrecuentes/visitas
 import { RegistroUsuarioPage } from '../pages/usuario/registroUsuario/registroUsuario';
 import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegistro';
 
-import { DataExampleService } from './services/data.service';
-
-
 @NgModule({
   declarations: [
     MyApp,
@@ -44,13 +41,10 @@ import { DataExampleService } from './services/data.service';
     VisitasFrecuentesTab,
     RegistroUsuarioPage,
     CodigoRegistroPage
-
-    
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    DataExampleService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -1,37 +1,36 @@
 import { Component } from '@angular/core';
 import { AlertController } from 'ionic-angular';
-import { DataExampleService } from '../../../app/services/data.service';
 
 @Component({
   templateUrl: 'visitasActuales.html'
 })
 
 export class VisitasActualesTab {
-    public visitas: any;
+  public visitas: any;
 
-    constructor(public alertCtrl: AlertController, public dataExampleService: DataExampleService) {
-      this.cargarVisitasPrueba();
-    }
+  constructor(public alertCtrl: AlertController) {
+    this.cargarVisitasPrueba();
+  }
 
-    menu() {
-      let alert = this.alertCtrl.create({
-        title: 'Menu Principal',
-        message: 'Estamos trabajando en su construccion.',
-        buttons: ['Ok']
+  menu() {
+    let alert = this.alertCtrl.create({
+      title: 'Menu Principal',
+      message: 'Estamos trabajando en su construccion.',
+      buttons: ['Ok']
     });
     alert.present()
   }
 
   agregarVisita() {
-      let alert = this.alertCtrl.create({
-        title: 'Agregar visita',
-        message: 'Estamos trabajando en su construccion.',
-        buttons: ['Ok']
+    let alert = this.alertCtrl.create({
+      title: 'Agregar visita',
+      message: 'Estamos trabajando en su construccion.',
+      buttons: ['Ok']
     });
     alert.present()
   }
 
-  cargarVisitasPrueba(){
+  cargarVisitasPrueba() {
     this.visitas = [
       {
         nombre: "Gabriela Caballero",
@@ -39,65 +38,57 @@ export class VisitasActualesTab {
         horario: "Todo el dia",
         patente: "ASD 123",
         imagen: "assets/img/pruebas/fondoAzul.png"
-        },
-        {
-          nombre: "Belen Valdivia",
-          dni: "38509890",
-          patente: "ASD 123",
-          horario: "16:00 a 21:00 hs",
-          imagen: "assets/img/pruebas/fondoAzul.png"
-        },
-        {
-          nombre: "Belen Valdivia",
-          dni: "38509890",
-          patente: "ASD 123",
-          horario: "16:00 a 21:00 hs",
-          imagen: "assets/img/pruebas/fondoAzul.png"
-        },
-        {
-          nombre: "Belen Valdivia",
-          dni: "38509890",
-          patente: "ASD 123",
-          horario: "16:00 a 21:00 hs",
-          imagen: "assets/img/pruebas/fondoAzul.png"
-        },
-        {
-          nombre: "Belen Valdivia",
-          dni: "38509890",
-          patente: "ASD 123",
-          horario: "16:00 a 21:00 hs",
-          imagen: "assets/img/pruebas/fondoAzul.png"
-        },
-        {
-          nombre: "Belen Valdivia",
-          dni: "38509890",
-          patente: "ASD 123",
-          horario: "16:00 a 21:00 hs",
-          imagen: "assets/img/pruebas/fondoAzul.png"
-        },
-        {
-          nombre: "Belen Valdivia",
-          dni: "38509890",
-          patente: "ASD 123",
-          horario: "16:00 a 21:00 hs",
-          imagen: "assets/img/pruebas/fondoAzul.png"
-        },
-        {
-          nombre: "Belen Valdivia",
-          dni: "38509890",
-          patente: "ASD 123",
-          horario: "16:00 a 21:00 hs",
-          imagen: "assets/img/pruebas/fondoAzul.png"
-        }
+      },
+      {
+        nombre: "Belen Valdivia",
+        dni: "38509890",
+        patente: "ASD 123",
+        horario: "16:00 a 21:00 hs",
+        imagen: "assets/img/pruebas/fondoAzul.png"
+      },
+      {
+        nombre: "Belen Valdivia",
+        dni: "38509890",
+        patente: "ASD 123",
+        horario: "16:00 a 21:00 hs",
+        imagen: "assets/img/pruebas/fondoAzul.png"
+      },
+      {
+        nombre: "Belen Valdivia",
+        dni: "38509890",
+        patente: "ASD 123",
+        horario: "16:00 a 21:00 hs",
+        imagen: "assets/img/pruebas/fondoAzul.png"
+      },
+      {
+        nombre: "Belen Valdivia",
+        dni: "38509890",
+        patente: "ASD 123",
+        horario: "16:00 a 21:00 hs",
+        imagen: "assets/img/pruebas/fondoAzul.png"
+      },
+      {
+        nombre: "Belen Valdivia",
+        dni: "38509890",
+        patente: "ASD 123",
+        horario: "16:00 a 21:00 hs",
+        imagen: "assets/img/pruebas/fondoAzul.png"
+      },
+      {
+        nombre: "Belen Valdivia",
+        dni: "38509890",
+        patente: "ASD 123",
+        horario: "16:00 a 21:00 hs",
+        imagen: "assets/img/pruebas/fondoAzul.png"
+      },
+      {
+        nombre: "Belen Valdivia",
+        dni: "38509890",
+        patente: "ASD 123",
+        horario: "16:00 a 21:00 hs",
+        imagen: "assets/img/pruebas/fondoAzul.png"
+      }
     ]
   }
 
-    cargarVisitas(){
-      this.dataExampleService.getData()
-      .subscribe(data => {
-        this.visitas = data.frecuentes;
-      });
-}
-  
-    
 }
