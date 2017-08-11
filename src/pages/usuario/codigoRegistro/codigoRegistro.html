@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="title-page">Ingresar codigo</ion-title>
+    <ion-title>Ingresar código</ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">Cancel</span>
@@ -29,7 +29,7 @@
     <p>Ingrese el código que figura en su tarjeta para poder acceder al registro de usuario</p>
   </div>
   <div class="btnVerificar">
-    <button ion-button outline block id="btnVerificarCodigo" (click)='verificarCodigo()'>Verificar</button>
+    <button ion-button outline block id="btnVerificarCodigo" (click)='verificarCodigo(codigoRegistro)'>Verificar</button>
   </div>
 
 </ion-content>

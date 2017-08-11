@@ -1,50 +1,88 @@
 <ion-header>
   <ion-navbar>
-    <ion-title class="title-page">Registrar usuario</ion-title>
+    <ion-title>Registrar usuario</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-
-
-  <div class="informacionBarrio-contenedor">
-    <h3 class="informacionResidencia-titulo">Barrio <b>{{idBarrio}}</b></h3>
-    <h4 class="informacionResidencia-titulo">Residencia <b>{{idResidencia}}</b></h4>
-  </div>
-
-  <div class="imagenUsuario-contenedor">
-    <button ion-button clear class="imagenUsuario-btn">
-      <ion-icon name="contact" class="imagenUsuario"></ion-icon>
-    </button>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-8>
+        <div class="informacionBarrio-contenedor">
+          <p class="informacionBarrio-titulo">"<b>{{barrio.nombre}}</b>"</p>
+          <p class="informacionResidencia-titulo">Residencia <b>{{residencia.nombre}}</b></p>
+        </div>
+      </ion-col>
+      <ion-col col-4>
+        <div class="imagenUsuario-contenedor">
+          <button ion-button clear class="imagenUsuario-btn">
+            <ion-icon name="contact" class="imagenUsuario"></ion-icon>
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <ion-list>
-
-    <ion-item>
-      <ion-label stacked>Nombre y Apellido</ion-label>
-      <ion-input id="nombreUsuario" type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input id="emailUsuario" type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Contraseña</ion-label>
-      <ion-input id="passwordUsuario" type="password"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Confirme contraseña</ion-label>
-      <ion-input id="confirmacionPasswordUsuario" type="password"></ion-input>
-    </ion-item>
-
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label stacked>Nombre</ion-label>
+            <ion-input id="nombreUsuario" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label stacked>Apellido</ion-label>
+            <ion-input id="apellidoUsuario" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input id="emailUsuario" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label stacked>Contraseña</ion-label>
+            <ion-input id="passwordUsuario" type="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label stacked>Confirme contraseña</ion-label>
+            <ion-input id="confirmacionPasswordUsuario" type="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label stacked>Fecha de Nacimiento</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="fechaNacimientoUsuario"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label stacked>Tel. Móvil</ion-label>
+            <ion-input id="telefonoUsuario" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-list>
 
   <div class="btnRegistrar">
-    <button ion-button outline block id="btnRegistrarUsuario" (click)='registrarUsuario()'>Registrar</button>
+    <button ion-button outline block id="btnRegistrarUsuario" (click)='registrarUsuario()'>Siguiente</button>
   </div>
 
 </ion-content>
