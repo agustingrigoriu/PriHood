@@ -21,6 +21,7 @@ import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegist
 //Services
 import { ApiRequestService } from '../services/api.request.service';
 import { CodigoRegistroService } from '../pages/usuario/codigoRegistro/codigoRegistro.service';
+import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registroUsuario.service';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { CodigoRegistroService } from '../pages/usuario/codigoRegistro/codigoReg
     SplashScreen,
     ApiRequestService,
     CodigoRegistroService,
+    RegistroUsuarioService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

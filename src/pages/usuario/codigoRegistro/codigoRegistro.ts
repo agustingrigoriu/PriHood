@@ -49,8 +49,8 @@ export class CodigoRegistroPage implements OnInit {
 
   pushRegistroUsuarioPage() {
     this.navCtrl.push(RegistroUsuarioPage, {
-      barrio: this.residencia,
-      residencia: this.barrio
+      barrio: this.barrio,
+      residencia: this.residencia
     });
   }
 

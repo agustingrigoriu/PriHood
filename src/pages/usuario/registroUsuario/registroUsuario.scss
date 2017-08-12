@@ -13,12 +13,12 @@
 }
 
 .imagenUsuario{
-  font-size: 70px;
+  font-size: 75px;
 }
 
 .imagenUsuario-btn{
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
 }
 
 .btnRegistrar{
@@ -35,10 +35,20 @@
 
 .informacionResidencia-titulo{
   color: #003777;  
+  font-size: 14px;
+  line-height: 0.50;
+  
 }
 
 .informacionBarrio-titulo{
   color: #003777;  
-  font-size: 16px;
-  line-height: 0.75;
+  font-size: 17px;
+  line-height: 0.50;
+}
+
+.informacionResidencia-ubicacion{
+  color: lightslategrey;  
+  font-size: 12px;  
+  line-height: 0;
+  
 }

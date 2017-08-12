@@ -11,7 +11,7 @@ export class RegistroUsuarioService {
   constructor(protected request: ApiRequestService) { }
 
   registrarUsuario(data) {
-
+    return this.request.post<any>(`usuarios/usuarioresidente`, data);
   }
 
 }

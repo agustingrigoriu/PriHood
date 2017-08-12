@@ -2,7 +2,8 @@ export interface Persona {
   id?: number;
   nombre: string;
   apellido: string;
-  telefonoMovil: string;
-  fechaNacimiento: string;
-  //ver si incluir tipoDNi y numeroDni
+  telefono: string;
+  fechaNacimiento: Date;
+  idTipoDocumento: number;
+  numeroDocumento: string;
 }
