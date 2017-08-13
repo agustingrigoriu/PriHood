@@ -11,6 +11,7 @@ import { HttpClientModule} from '@angular/common/http';
 
 //Pages
 import { LoginPage } from '../pages/login/login';
+import { MenuPage } from '../pages/menu/menu';
 import { NoRegistradoPage } from '../pages/usuario/noRegistrado/noRegistrado'
 import { VisitasPage } from '../pages/visitas/visitas'
 import { VisitasActualesTab } from '../pages/visitas/visitasActuales/visitasActuales';
@@ -33,7 +34,8 @@ import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registr
     VisitasActualesTab,
     VisitasFrecuentesTab,
     RegistroUsuarioPage,
-    CodigoRegistroPage
+    CodigoRegistroPage,
+    MenuPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registr
     VisitasActualesTab,
     VisitasFrecuentesTab,
     RegistroUsuarioPage,
-    CodigoRegistroPage
+    CodigoRegistroPage,
+    MenuPage
   ],
   providers: [
     StatusBar,

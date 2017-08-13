@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { NoRegistradoPage } from '../usuario/noRegistrado/noRegistrado'
-import { VisitasPage } from '../visitas/visitas'
+import { MenuPage } from '../menu/menu'
 
 @Component({
   selector: 'page-login',
@@ -9,16 +9,24 @@ import { VisitasPage } from '../visitas/visitas'
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
   }
 
-  pushPage(){
+  pushPageNoRegistrado() {
     this.navCtrl.push(NoRegistradoPage);
   }
 
-  pushPageVisitas(){
-    this.navCtrl.push(VisitasPage);
+  pushPageMenu(nombreUsuario: any, passwordUsuario: any) {
+    if (nombreUsuario == 'lucas' && passwordUsuario == '123456') {
+      this.navCtrl.push(MenuPage);
+    } else {
+      let alert = this.alertCtrl.create({
+      title: 'Datos incorrectos',
+      message: 'Compruebe nombre de usuario y contraseña ingresados',
+      buttons: ['Ok']
+    });
+    alert.present()
+    }
   }
 
 }
