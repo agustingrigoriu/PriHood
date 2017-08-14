@@ -6,8 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
-import { HttpClientModule} from '@angular/common/http';
-
+import { HttpClientModule } from '@angular/common/http';
 
 //Pages
 import { LoginPage } from '../pages/login/login';
@@ -21,21 +20,26 @@ import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegist
 
 //Services
 import { ApiRequestService } from '../services/api.request.service';
+import { LoginService } from '../services/login.service';
 import { CodigoRegistroService } from '../pages/usuario/codigoRegistro/codigoRegistro.service';
 import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registroUsuario.service';
 
+// Incluir las paginas acá
+const pages = [
+  MyApp,
+  LoginPage,
+  NoRegistradoPage,
+  VisitasPage,
+  VisitasActualesTab,
+  VisitasFrecuentesTab,
+  RegistroUsuarioPage,
+  CodigoRegistroPage,
+  MenuPage
+];
 
 @NgModule({
   declarations: [
-    MyApp,
-    LoginPage,
-    NoRegistradoPage,
-    VisitasPage,
-    VisitasActualesTab,
-    VisitasFrecuentesTab,
-    RegistroUsuarioPage,
-    CodigoRegistroPage,
-    MenuPage
+    ...pages
   ],
   imports: [
     BrowserModule,
@@ -45,15 +49,7 @@ import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registr
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    LoginPage,
-    NoRegistradoPage,
-    VisitasPage,
-    VisitasActualesTab,
-    VisitasFrecuentesTab,
-    RegistroUsuarioPage,
-    CodigoRegistroPage,
-    MenuPage
+    ...pages
   ],
   providers: [
     StatusBar,
@@ -61,7 +57,8 @@ import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registr
     ApiRequestService,
     CodigoRegistroService,
     RegistroUsuarioService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    LoginService,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }

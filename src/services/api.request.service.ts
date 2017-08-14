@@ -10,7 +10,7 @@ export class ApiRequestService {
   public BASE_URL = 'http://localhost:5000';
 
   post<T>(api, data?, params?: HttpParams): Promise<Request<T>> {
-    return this.http.post<Request<T>>(`${this.BASE_URL}/pepe/${api}`, data, { params }).toPromise().catch(this.handlerError);
+    return this.http.post<Request<T>>(`${this.BASE_URL}/api/${api}`, data, { params }).toPromise().catch(this.handlerError);
   }
 
   put<T>(api, data?, params?: HttpParams): Promise<Request<T>> {

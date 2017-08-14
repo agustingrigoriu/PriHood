@@ -1,19 +1,47 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { ApiRequestService } from './api.request.service';
+import { Usuario } from '../app/models/usuario.model';
+import { Login } from '../app/models/login.model';
 
 @Injectable()
 export class LoginService {
-  private restApiURL_Users = 'http://localhost:8080';
+  constructor(private api: ApiRequestService) { }
 
-  constructor(private http: Http){
+  postUserCredentials(usuario: Usuario) {
+    return this.api.post<Login>('token', usuario);
   }
 
-  postUserCredentials(): Observable<Response>{
-    var datos = JSON.stringify({usuario:'Lucas',password:'123'})
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post(this.restApiURL_Users, datos,{headers})
-    //Incompleto
+  private key: string = 'SessionPrihood';
+
+  saveSession(obj: Login): boolean {
+    try {
+      const json = JSON.stringify(obj);
+
+      window.localStorage.setItem(this.key, json);
+
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  getSession(): Login {
+    try {
+      const json = window.localStorage.getItem(this.key);
+
+      return JSON.parse(json);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  clearSession(): boolean {
+    try {
+      window.localStorage.removeItem(this.key);
+
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 }  

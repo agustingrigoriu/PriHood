@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ToastController } from 'ionic-angular';
-import { NavParams, AlertController } from 'ionic-angular';
+import { NavParams, AlertController, NavController } from 'ionic-angular';
+
 import { RegistroUsuarioService } from './registroUsuario.service';
 import { Residencia } from '../../../app/models/residencia.model';
 import { Barrio } from '../../../app/models/barrio.model';
-import { Persona } from '../../../app/models/persona.model';
-import { Usuario } from '../../../app/models/usuario.model';
-import { Residente } from '../../../app/models/residente.model';
+
+import { LoginPage } from '../../login/login';
 
 @Component({
   templateUrl: 'registroUsuario.html'
@@ -17,44 +17,41 @@ export class RegistroUsuarioPage {
   public residencia: Residencia;
 
   constructor(public navParams: NavParams, public alertCtrl: AlertController,
-    public toastCtrl: ToastController, private RegistroUsuarioService: RegistroUsuarioService) {
+    public toastCtrl: ToastController, private RegistroUsuarioService: RegistroUsuarioService, private navCtrl: NavController) {
     this.barrio = navParams.get("barrio");
     this.residencia = navParams.get("residencia");
-    this.presentToast();
+
+    this.presentToast('Código de verificación correcto');
   }
 
   registrarUsuario(nombre, apellido, idTipoDocumento, numeroDocumento, telefono, fechaNacimiento, email, password) {
-    const persona: Persona = {
+    const usuario = {
       nombre: nombre,
       apellido: apellido,
-      idTipoDocumento: idTipoDocumento,
-      numeroDocumento: numeroDocumento,
+      id_tipoDocumento: idTipoDocumento,
+      nroDocumento: numeroDocumento,
       telefono: telefono,
-      fechaNacimiento: fechaNacimiento
-    };
-    const usuario: Usuario = {
+      fecha_nacimiento: fechaNacimiento,
       email: email,
-      password: password
-    };
-    const residente: Residente = {
-      idResidencia: this.residencia.id,
+      password: password,
+      id_residencia: this.residencia.id
     };
 
-    this.RegistroUsuarioService.registrarUsuario({ persona: persona, usuario: usuario, residente: residente })
-      .then(response => {
-        if (response.error) {
-          alert('No se pudo completar el registro de usuario.');
-        } else {
-          alert('El usuario se ha registrado correctamente.');
-        }
-      });
+    this.RegistroUsuarioService.registrarUsuario(usuario).then(response => {
+      if (response.error) {
+        this.presentToast('No se pudo completar el registro de usuario.');
+      } else {
+        this.presentToast('El usuario se ha registrado correctamente.');
+        this.navCtrl.setRoot(LoginPage);
+      }
+    });
   }
 
-  presentToast() {
-    let toast = this.toastCtrl.create({
-      message: 'Código de verificación correcto',
+  presentToast(message: string) {
+    const toast = this.toastCtrl.create({
+      message,
       duration: 3000,
-      position: 'top',
+      position: 'bottom',
     });
     toast.present();
   }
