@@ -24,14 +24,14 @@ export class RegistroUsuarioPage {
     this.presentToast('Código de verificación correcto');
   }
 
-  registrarUsuario(nombre, apellido, idTipoDocumento, numeroDocumento, telefono, fechaNacimiento, email, password) {
+  registrarUsuario(nombre, apellido, id_tipo_documento, numero_documento, telefono, fecha_nacimiento, email, password) {
     const usuario = {
       nombre: nombre,
       apellido: apellido,
-      id_tipoDocumento: idTipoDocumento,
-      nroDocumento: numeroDocumento,
+      id_tipo_documento: id_tipo_documento,
+      numero_documento: numero_documento,
       telefono: telefono,
-      fecha_nacimiento: fechaNacimiento,
+      fecha_nacimiento: fecha_nacimiento,
       email: email,
       password: password,
       id_residencia: this.residencia.id
