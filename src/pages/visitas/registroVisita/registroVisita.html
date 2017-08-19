@@ -13,19 +13,15 @@
 
 <ion-content>
 
-  <form (ngSubmit)="registrarVisita()">
+  <form (ngSubmit)="registrarVisita(visita)">
 
     <ion-list>
       <ion-row>
         <ion-col col-4></ion-col>
         <ion-col col-4>
-
-          <div class="imagenVisita-contenedor">
-            <ion-avatar>
-              <img src="assets/img/user_avatar.png">
-            </ion-avatar>
-          </div>
-
+          <button class="visita-img" (click)="fotoUpload()">
+            <img class="visita-img" src="assets/img/user_avatar.png">
+          </button>
         </ion-col>
         <ion-col col-4></ion-col>
       </ion-row>
@@ -35,13 +31,13 @@
           <ion-col col-6>
             <ion-item>
               <ion-label stacked>Nombre</ion-label>
-              <ion-input [(ngModel)]="nombreVisita" type="text" name="nombreVisita"></ion-input>
+              <ion-input [(ngModel)]="visita.nombre" type="text" name="nombreVisita"></ion-input>
             </ion-item>
           </ion-col>
           <ion-col col-6>
             <ion-item>
               <ion-label stacked>Apellido</ion-label>
-              <ion-input [(ngModel)]="apellidoVisita" type="text" name="apellidoVisita"></ion-input>
+              <ion-input [(ngModel)]="visita.apellido" type="text" name="apellidoVisita"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -49,7 +45,7 @@
           <ion-col col-5>
             <ion-item>
               <ion-label stacked>Tipo Documento</ion-label>
-              <ion-select [(ngModel)]="tipoDocumentoVisita" name="tipoDocumentoVisita">
+              <ion-select [(ngModel)]="visita.tipo_documento" name="tipoDocumentoVisita">
                 <ion-option value="1">DNI</ion-option>
                 <ion-option value="2">LE</ion-option>
                 <ion-option value="3">CI</ion-option>
@@ -60,7 +56,7 @@
           <ion-col col-7>
             <ion-item>
               <ion-label stacked>Número</ion-label>
-              <ion-input [(ngModel)]="numeroDocumentoVisita" type="number" name="numeroDocumentoVisita"></ion-input>
+              <ion-input [(ngModel)]="visita.numero_documento" type="number" name="numeroDocumentoVisita"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -68,7 +64,24 @@
           <ion-col col-12>
             <ion-item>
               <ion-label stacked>Patente</ion-label>
-              <ion-input [(ngModel)]="patenteVisita" type="text" name="patenteVisita"></ion-input>
+              <ion-input [(ngModel)]="visita.patente" type="text" name="patenteVisita"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="!esVisitaFrecuente()">
+          <ion-col col-12>
+            <ion-item>
+              <ion-label stacked>Fecha de visita</ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="visita.fecha_visita" name="fechaVisita"></ion-datetime>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <ion-label stacked>Observaciones</ion-label>
+              <ion-textarea [(ngModel)]="visita.observaciones" type="text" name="observacionesVisita"></ion-textarea>
+              
             </ion-item>
           </ion-col>
         </ion-row>

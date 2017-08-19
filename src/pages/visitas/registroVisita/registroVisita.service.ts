@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { ApiRequestService } from '../../../services/api.request.service';
 
 @Injectable()
-export class RegistroUsuarioService {
+export class RegistroVisitaService {
   constructor(protected request: ApiRequestService) { }
 
-  registrarUsuario(data) {
-    return this.request.post<any>(`usuarios/residente`, data);
+  registrarVisita(data) {
+    return this.request.post<any>(`visitas`, data);
   }
 
 }

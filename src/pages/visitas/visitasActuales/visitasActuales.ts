@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App, AlertController, NavController } from 'ionic-angular';
+import { App, AlertController, NavController, NavParams } from 'ionic-angular';
 
 import { RegistroVisitaPage } from '../registroVisita/registroVisita';
 
@@ -9,8 +9,10 @@ import { RegistroVisitaPage } from '../registroVisita/registroVisita';
 
 export class VisitasActualesTab {
   public visitas: any;
+    id_Tab = 2; //Tab de Visitas Actuales
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public app: App) {
+
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public app: App, public navParams:NavParams) {
     this.cargarVisitasPrueba();
   }
 
@@ -24,7 +26,9 @@ export class VisitasActualesTab {
   }
 
   pageRegistrarVisita() {
-    this.app.getRootNav().push(RegistroVisitaPage);
+    this.app.getRootNav().push(RegistroVisitaPage, {
+      id_Tab: this.id_Tab
+    });;
   }
 
   cargarVisitasPrueba() {
