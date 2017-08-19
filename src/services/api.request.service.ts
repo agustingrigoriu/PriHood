@@ -8,7 +8,6 @@ export class ApiRequestService {
   constructor(protected http: HttpClient) { }
 
   public BASE_URL = 'http://localhost:5000';
-
   post<T>(api, data?, params?: HttpParams): Promise<Request<T>> {
     return this.http.post<Request<T>>(`${this.BASE_URL}/api/${api}`, data, { params }).toPromise().catch(this.handlerError);
   }

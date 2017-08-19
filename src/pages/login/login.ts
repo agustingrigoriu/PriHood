@@ -35,4 +35,13 @@ export class LoginPage {
       this.navCtrl.push(MenuPage);
     });
   }
+
+  alertForgotPassword(){
+    let alert = this.alertCtrl.create({
+      title: 'Restablecer contraseña',
+      message: 'Comunicarse con la administracion para restablecer tu contraseña',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
 }
