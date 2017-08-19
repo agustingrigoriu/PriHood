@@ -1,24 +1,27 @@
-  <ion-header>
-    <ion-navbar>
-      <ion-title class="title-page">Visitas Actuales</ion-title>
-      <button ion-button class="btn-menu" (click)="menu()"><img class="logoMenu-img" src="assets/img/pruebas/logo_pruebas.png"></button>
-    </ion-navbar>
-  </ion-header>
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title class='title-page'>Visitas</ion-title>
+    <ion-buttons start>
+      <button ion-button class="btn-menu" (click)="menu()"><img class="logoMenu-img" src="assets/img/logo_menu.png"></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-content>
-      <ion-list>
-        <ion-item *ngFor="let visita of visitas">
-          <ion-avatar item-start>
-            <img src="{{visita.imagen}}">
-          </ion-avatar>
-          <h2>{{visita.nombre}}</h2>
-          <p><b>{{visita.dni}}</b></p>
-          <p>{{visita.horario}}</p>
-          <button ion-button clear item-end>Ver</button>
-        </ion-item>
-      </ion-list>
-      <button ion-button class="btn-agregarVisita" (click)="agregarVisita()">
-        <ion-icon name="add"></ion-icon>
-      </button>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let visita of visitas">
+      <ion-avatar item-start>
+        <img src="{{visita.imagen}}">
+      </ion-avatar>
+      <h2>{{visita.nombre}}</h2>
+      <p><b>{{visita.dni}}</b></p>
+      <p>{{visita.horario}}</p>
+      <button ion-button clear item-end>Ver</button>
+    </ion-item>
+  </ion-list>
 
-  </ion-content>
+  <ion-fab bottom right>
+    <button ion-fab (click)="pageRegistrarVisita()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>
