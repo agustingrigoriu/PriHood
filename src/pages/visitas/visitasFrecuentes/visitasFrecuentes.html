@@ -2,7 +2,7 @@
   <ion-toolbar color="prihood">
     <ion-title class='title-page'>Visitas</ion-title>
     <ion-buttons start>
-      <button ion-button class="btn-menu" (click)="menu()"><img class="logoMenu-img" src="assets/img/pruebas/logo_pruebas.png"></button>
+      <button ion-button class="btn-menu" (click)="menu()"><img class="logoMenu-img" src="assets/img/logo_menu.png"></button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -22,7 +22,7 @@
     </ion-item>
   </ion-list>
   <ion-fab bottom right>
-    <button ion-fab><ion-icon name="add" (click)="agregarVisita()"></ion-icon></button>
+    <button ion-fab (click)="pageRegistrarVisita()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
 </ion-content>

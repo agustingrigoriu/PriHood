@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { App, AlertController, NavController } from 'ionic-angular';
+
+import { RegistroVisitaPage } from '../registroVisita/registroVisita';
 
 @Component({
   templateUrl: 'visitasFrecuentes.html'
@@ -8,7 +10,7 @@ import { AlertController } from 'ionic-angular';
 export class VisitasFrecuentesTab {
   public visitas: any;
 
-  constructor(public alertCtrl: AlertController) {
+  constructor(public alertCtrl: AlertController, public app: App) {
     this.cargarVisitasPrueba();
   }
 
@@ -28,6 +30,10 @@ export class VisitasFrecuentesTab {
       buttons: ['Ok']
     });
     alert.present()
+  }
+
+  pageRegistrarVisita() {
+    this.app.getRootNav().push(RegistroVisitaPage);
   }
 
   cargarVisitasPrueba() {

@@ -17,6 +17,8 @@ import { VisitasActualesTab } from '../pages/visitas/visitasActuales/visitasActu
 import { VisitasFrecuentesTab } from '../pages/visitas/visitasFrecuentes/visitasFrecuentes';
 import { RegistroUsuarioPage } from '../pages/usuario/registroUsuario/registroUsuario';
 import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegistro';
+import { RegistroVisitaPage } from '../pages/visitas/registroVisita/registroVisita';
+
 
 //Services
 import { ApiRequestService } from '../services/api.request.service';
@@ -34,6 +36,7 @@ const pages = [
   VisitasFrecuentesTab,
   RegistroUsuarioPage,
   CodigoRegistroPage,
+  RegistroVisitaPage,
   MenuPage
 ];
 
