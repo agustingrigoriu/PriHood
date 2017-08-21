@@ -39,7 +39,7 @@ export class LoginPage {
   alertForgotPassword(){
     let alert = this.alertCtrl.create({
       title: 'Restablecer contraseña',
-      message: 'Comunicarse con la administracion para restablecer tu contraseña',
+      message: 'Comunícate con la administracion para restablecer tu contraseña',
       buttons: ['Ok']
     });
     alert.present();

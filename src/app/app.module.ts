@@ -29,7 +29,7 @@ import { ApiRequestService } from '../services/api.request.service';
 import { LoginService } from '../services/login.service';
 import { CodigoRegistroService } from '../pages/usuario/codigoRegistro/codigoRegistro.service';
 import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registroUsuario.service';
-import { RegistroVisitaService } from '../pages/visitas/registroVisita/registroVisita.service';
+import { VisitanteService } from '../pages/visitas/visitas.service';
 
 // Incluir las paginas acá
 const pages = [
@@ -70,7 +70,7 @@ const pages = [
     CodigoRegistroService,
     RegistroUsuarioService,
     LoginService,
-    RegistroVisitaService,
+    VisitanteService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
