@@ -12,7 +12,14 @@
 
 <ion-content>
   <div class="spacer"></div>
-  <ion-row>
+  <ion-row *ngIf="!esVisitaFrecuente()">
+    <ion-col col-12 class='infoRegistroVisita-container'>
+      <p class="infoRegistroVisita">
+        Ingrese los datos de la visita, que serán validados para su ingreso al barrio
+      </p>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="esVisitaFrecuente()">
     <ion-col col-8 class='infoRegistroVisita-container'>
       <p class="infoRegistroVisita">
         Ingrese los datos de la visita, que serán validados para su ingreso al barrio

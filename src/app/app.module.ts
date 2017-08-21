@@ -19,6 +19,9 @@ import { RegistroUsuarioPage } from '../pages/usuario/registroUsuario/registroUs
 import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegistro';
 import { RegistroVisitaPage } from '../pages/visitas/registroVisita/registroVisita';
 import { AlertasPage } from '../pages/alertas/alertas';
+import { AmenitiesPage } from '../pages/amenities/amenities';
+import { CarpoolingPage } from '../pages/carpooling/carpooling';
+import { ExpensasPage } from '../pages/expensas/expensas';
 
 
 //Services
@@ -40,6 +43,9 @@ const pages = [
   CodigoRegistroPage,
   RegistroVisitaPage,
   AlertasPage,
+  CarpoolingPage,
+  AmenitiesPage,
+  ExpensasPage,
   MenuPage
 ];
 

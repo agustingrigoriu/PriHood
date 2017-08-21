@@ -12,17 +12,23 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content padding id="menuPrincipal-contenido">
+
     <ion-list>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)" menuClose="menuPrincipal">
-        {{p.title}}
+        <ion-icon name={{p.icon}} item-start></ion-icon>{{p.title}}
       </button>
+
+
       <button ion-item (click)="logout()" menuClose="menuPrincipal" detail-none>
-        Cerrar Sesión
+         <ion-icon name='exit' item-end></ion-icon>Cerrar Sesión
       </button>
     </ion-list>
   </ion-content>
 
+  <ion-footer class='footer-contenedor'>
+    <img class='footer-logo' src="../../assets/img/logo_title.png">
+  </ion-footer>
 </ion-menu>
 
 <ion-nav [root]="root" #content swipeBackEnabled="false"></ion-nav>
