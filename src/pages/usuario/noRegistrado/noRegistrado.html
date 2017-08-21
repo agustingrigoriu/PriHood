@@ -1,3 +1,15 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title>Registro de usuario</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="volver()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <ion-slides pager>
 
@@ -8,7 +20,7 @@
     </ion-slide>
 
     <ion-slide class="slideRegistrarUsuario">
-      <div class="top20"></div>
+      <div class="top15"></div>
       <img src="assets/img/logo_transparente.png" class="slide-image" />
       <h2 class="slide-title">¿Ya lo tenés?</h2>
       <p>Ingresá al código que figura en la tarjeta o escaneá el código QR de la misma</p>

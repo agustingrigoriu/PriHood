@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ModalController} from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { CodigoRegistroPage } from '../codigoRegistro/codigoRegistro';
-import { AlertController } from 'ionic-angular';
+import { AlertController, NavController } from 'ionic-angular';
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 
 @Component({
   selector: 'page-noRegistrado',
@@ -9,8 +10,11 @@ import { AlertController } from 'ionic-angular';
 })
 export class NoRegistradoPage {
 
-  constructor(public modalCtrl: ModalController, public alertCtrl: AlertController) {
-    
+  constructor(public modalCtrl: ModalController,
+    public navCtrl: NavController,
+    public alertCtrl: AlertController,
+    private qrScanner: QRScanner) {
+
   }
 
   ingresarCodigo() {
@@ -18,14 +22,38 @@ export class NoRegistradoPage {
     modal.present();
   }
 
-  escanearCodigo() {
+  volver() {
+    this.navCtrl.pop();
+  }
+
+  errorVerificacionCodigo() {
     let alert = this.alertCtrl.create({
-        title: 'Escanear codigoQR',
-        message: 'Todavia no ha sido implementado.',
-        buttons: ['Ok']
+      title: 'Código no encontrado',
+      message: 'No se ha podido escanear el código QR.',
+      buttons: ['Ok']
     });
     alert.present()
   }
+
+  escanearCodigo() {
+    this.qrScanner.prepare()
+      .then((status: QRScannerStatus) => {
+        if (status.authorized) {
+          let scanSub = this.qrScanner.scan().subscribe((codigo: string) => {
+            this.verificarCodigo(codigo);
+            this.qrScanner.hide();
+            scanSub.unsubscribe();
+          });
+          this.qrScanner.show();
+        }
+      })
+      .catch((e: any) => this.errorVerificacionCodigo());
+  }
+
+  verificarCodigo(codigo: any) {
+    console.log('Codigo escaneado: ' + codigo)
+  }
+
 
   slides = [
     {

@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { QRScanner } from '@ionic-native/qr-scanner';
 
 //Pages
 import { LoginPage } from '../pages/login/login';
@@ -66,6 +67,7 @@ const pages = [
   providers: [
     StatusBar,
     SplashScreen,
+    QRScanner,
     ApiRequestService,
     CodigoRegistroService,
     RegistroUsuarioService,
