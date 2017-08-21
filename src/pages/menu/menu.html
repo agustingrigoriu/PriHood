@@ -1,5 +1,28 @@
-<ion-content padding id="menuPage">
+<!--<ion-content padding id="menuPage">
   <h4 class="tituloMenu">Menu Principal</h4>
   <button ion-button large (click)="pushPageVisitas()">Visitas</button>
   <button ion-button large (click)="logout()">Cerrar sesión</button>
-</ion-content>
+</ion-content>-->
+
+<ion-menu [content]="content" id="menuPrincipal" persistent type='overlay'>
+
+  <ion-header>
+    <ion-toolbar color="prihood">
+      <ion-title>Menú Principal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let p of pages" (click)="openPage(p)" menuClose="menuPrincipal">
+        {{p.title}}
+      </button>
+      <button ion-item (click)="logout()" menuClose="menuPrincipal" detail-none>
+        Cerrar Sesión
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="root" #content swipeBackEnabled="false"></ion-nav>

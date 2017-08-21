@@ -18,6 +18,7 @@ import { VisitasFrecuentesTab } from '../pages/visitas/visitasFrecuentes/visitas
 import { RegistroUsuarioPage } from '../pages/usuario/registroUsuario/registroUsuario';
 import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegistro';
 import { RegistroVisitaPage } from '../pages/visitas/registroVisita/registroVisita';
+import { AlertasPage } from '../pages/alertas/alertas';
 
 
 //Services
@@ -38,6 +39,7 @@ const pages = [
   RegistroUsuarioPage,
   CodigoRegistroPage,
   RegistroVisitaPage,
+  AlertasPage,
   MenuPage
 ];
 

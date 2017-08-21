@@ -2,12 +2,19 @@
   <ion-toolbar color="prihood">
     <ion-title class='title-page'>Visitas</ion-title>
     <ion-buttons start>
-      <button ion-button class="btn-menu" (click)="menu()"><img class="logoMenu-img" src="assets/img/logo_menu.png"></button>
+      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
+        <img class="logoMenu-img" src="assets/img/logo_menu.png">
+        </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="infoVisitas-contenedor">
+    <p class="infoVisitas">
+      A continuación se encuentran las visitas registradas para los próximos días
+    </p>
+  </div>
   <ion-list>
     <ion-item *ngFor="let visita of visitas">
       <ion-avatar item-start>
