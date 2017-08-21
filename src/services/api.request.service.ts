@@ -39,9 +39,7 @@ export class ApiRequestService {
     try {
       const json = window.localStorage.getItem('SessionPrihood');
       const session: Login = JSON.parse(json);
-      const params = new HttpParams();
-
-      params.set('access_token', session.token);
+      const params = new HttpParams().set('access_token', session.token);
 
       return params;
     } catch (error) {
