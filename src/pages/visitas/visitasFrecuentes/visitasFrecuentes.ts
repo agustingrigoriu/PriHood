@@ -37,11 +37,6 @@ export class VisitasFrecuentesTab {
     });
   }
 
-  detalleVisita() {
-    console.log("Resolver Detalle visita");
-    //this.app.getRootNav().push(VisitasDetallePage);
-  }
-
   cargarVisitasPrueba() {
     this.visitas = [
       {
