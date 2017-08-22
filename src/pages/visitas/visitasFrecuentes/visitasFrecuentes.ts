@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { App, AlertController, NavController, NavParams } from 'ionic-angular';
+import { App, AlertController, NavController, NavParams} from 'ionic-angular';
 
+import { VisitasDetallePage } from '../visitasDetalle/visitasDetalle';
 import { RegistroVisitaPage } from '../registroVisita/registroVisita';
 import { VisitanteService } from '../visitas.service'
 
@@ -13,8 +14,9 @@ export class VisitasFrecuentesTab {
 
   id_Tab = 1; //Tab de Visitas Frecuentes
 
-  constructor(public alertCtrl: AlertController, public app: App, public navParams: NavParams,
-    private VisitanteService: VisitanteService, ) {
+  constructor(public alertCtrl: AlertController, public app: App, 
+  public navParams: NavParams,
+  private VisitanteService: VisitanteService) {
     this.cargarVisitasPrueba();
   }
 
@@ -35,28 +37,39 @@ export class VisitasFrecuentesTab {
     });
   }
 
+  detalleVisita() {
+    console.log("Resolver Detalle visita");
+    //this.app.getRootNav().push(VisitasDetallePage);
+  }
+
   cargarVisitasPrueba() {
     this.visitas = [
       {
-        nombre: "Agustin Gregorieu",
-        dni: "38509890",
-        horario: "Todo el dia",
+        nombre: "Agustin",
+        apellido: "Gregorieu",
+        tipo_documento: "DNI",
+        numero_documento: "38509890",
         patente: "ASD 123",
-        imagen: "assets/img/pruebas/ronaldo.png"
+        imagen: "assets/img/pruebas/ronaldo.png",
+        observaciones: "No existen observaciones"
       },
       {
-        nombre: "Patricio Perez",
-        dni: "38509890",
-        patente: "ASD 123",
-        horario: "16:00 a 21:00 hs",
-        imagen: "assets/img/pruebas/messi.png"
+        nombre: "Patricio",
+        apellido: "Perez",
+        tipo_documento: "DNI",
+        numero_documento: "38650209",
+        patente: "FJA 999",
+        imagen: "assets/img/pruebas/messi.png",
+        observaciones: "No existen observaciones"
       },
       {
-        nombre: "Patricio Perez",
-        dni: "38509890",
-        patente: "ASD 123",
-        horario: "16:00 a 21:00 hs",
-        imagen: "assets/img/pruebas/messi.png"
+        nombre: "Patricio",
+        apellido: "Perez",
+        tipo_documento: "DNI",
+        numero_documento: "38650209",
+        patente: "FJA 999",
+        imagen: "assets/img/pruebas/messi.png",
+        observaciones: "No existen observaciones"
       }
     ]
   }

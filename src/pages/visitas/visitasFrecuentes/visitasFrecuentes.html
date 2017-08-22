@@ -20,11 +20,10 @@
       <ion-avatar item-start>
         <img src="{{visita.imagen}}">
       </ion-avatar>
-      <h2>{{visita.nombre}}</h2>
+      <h2>{{visita.nombre}} {{visita.apellido}}</h2>
       <p>Patente: <b>{{visita.patente}}</b></p>
-      <p>DNI: {{visita.dni}}</p>
-      <p>{{visita.horario}}</p>
-      <button ion-button clear item-end>Ver</button>
+      <p>{{visita.tipo_documento}}: {{visita.numero_documento}}</p>
+      <button ion-button clear item-end (click)="detalleVisita()">Ver</button>
     </ion-item>
   </ion-list>
   <ion-fab bottom right>

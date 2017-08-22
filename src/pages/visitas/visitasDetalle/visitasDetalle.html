@@ -1,0 +1,11 @@
+<ion-list>
+  <ion-item *ngFor="let visita of visitas">
+    <ion-avatar item-start>
+      <img src="{{visita.imagen}}">
+    </ion-avatar>
+    <h2>{{visita.nombre}} {{visita.apellido}}</h2>
+    <p>Patente: <b>{{visita.patente}}</b></p>
+    <p>{{visita.tipo_documento}}: {{visita.numero_documento}}</p>
+    <button ion-button clear item-end (click)="detalleVisita()">Ver</button>
+  </ion-item>
+</ion-list>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common'
 import { App, AlertController, NavController, NavParams } from 'ionic-angular';
 
 import { RegistroVisitaPage } from '../registroVisita/registroVisita';
@@ -34,32 +35,20 @@ export class VisitasActualesTab {
   cargarVisitasPrueba() {
     this.visitas = [
       {
-        nombre: "Gabriela Caballero",
-        dni: "38509890",
-        horario: "Todo el dia",
-        patente: "ASD 123",
-        imagen: "assets/img/pruebas/fondoAzul.png"
+        nombre: "Gabriela",
+        apellido: "Caballero",
+        tipo_documento: "DNI",
+        numero_documento: "38509890",
+        fecha: new Date(),
+        observaciones: "No existen",
       },
       {
-        nombre: "Belen Valdivia",
-        dni: "38509890",
-        patente: "ASD 123",
-        horario: "16:00 a 21:00 hs",
-        imagen: "assets/img/pruebas/fondoAzul.png"
-      },
-      {
-        nombre: "Belen Valdivia",
-        dni: "38509890",
-        patente: "ASD 123",
-        horario: "16:00 a 21:00 hs",
-        imagen: "assets/img/pruebas/fondoAzul.png"
-      },
-      {
-        nombre: "Belen Valdivia",
-        dni: "38509890",
-        patente: "ASD 123",
-        horario: "16:00 a 21:00 hs",
-        imagen: "assets/img/pruebas/fondoAzul.png"
+        nombre: "Belen",
+        apellido: "Valdivia",
+        tipo_documento: "DNI",
+        numero_documento: "38909878",
+        fecha: new Date(),
+        observaciones: "No existen",
       }
     ]
   }

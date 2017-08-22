@@ -16,6 +16,7 @@ import { NoRegistradoPage } from '../pages/usuario/noRegistrado/noRegistrado'
 import { VisitasPage } from '../pages/visitas/visitas'
 import { VisitasActualesTab } from '../pages/visitas/visitasActuales/visitasActuales';
 import { VisitasFrecuentesTab } from '../pages/visitas/visitasFrecuentes/visitasFrecuentes';
+import { VisitasDetallePage } from '../pages/visitas/visitasDetalle/visitasDetalle';
 import { RegistroUsuarioPage } from '../pages/usuario/registroUsuario/registroUsuario';
 import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegistro';
 import { RegistroVisitaPage } from '../pages/visitas/registroVisita/registroVisita';
@@ -47,6 +48,7 @@ const pages = [
   CarpoolingPage,
   AmenitiesPage,
   ExpensasPage,
+  VisitasDetallePage,
   MenuPage
 ];
 
