@@ -10,7 +10,6 @@ build_android:
   script:
     - npm install -g ionic@latest
     - npm install
-    - ionic login
     - ionic package build android
   only:
     - master
@@ -20,7 +19,6 @@ download:
   script:
     - npm install -g ionic@latest
     - npm install
-    - ionic login
     - mkdir builds
     - ionic package download -d ./builds/
   artifacts:
@@ -34,7 +32,6 @@ build_android_prod:
   script:
     - npm install -g ionic@latest
     - npm install
-    - ionic login
     - ionic package build android --release --prod
     - mkdir builds
     - ionic package download -d ./builds/
