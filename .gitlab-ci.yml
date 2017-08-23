@@ -8,8 +8,8 @@ stages:
 build_android:
   stage: build
   script:
-    - npm install -g ionic@latest
-    - npm install
+    - npm install -g ionic@latest cordova 
+    - npm install --silent
     - ionic package build android
   only:
     - master
@@ -17,8 +17,8 @@ build_android:
 download:
   stage: download
   script:
-    - npm install -g ionic@latest
-    - npm install
+    - npm install -g ionic@latest cordova
+    - npm install --silent
     - mkdir builds
     - ionic package download -d ./builds/
   artifacts:
@@ -30,8 +30,8 @@ download:
 build_android_prod:
   stage: build_prod
   script:
-    - npm install -g ionic@latest
-    - npm install
+    - npm install -g ionic@latest cordova
+    - npm install --silent
     - ionic package build android --release --prod
     - mkdir builds
     - ionic package download -d ./builds/
