@@ -11,8 +11,8 @@ export class VisitanteService {
   }
 
   //Ver planteo de APIs
-  getVisitas(idResidente: Number, idTipoVisita: Number){
-    return this.request.get<Visitante[]>(`visitas/${idTipoVisita}/${idResidente}`);
+  getVisitas(idTipoVisita: Number){
+    return this.request.get<Visitante[]>(`visitas/tipo-visita/${idTipoVisita}`);
   }
 
 }

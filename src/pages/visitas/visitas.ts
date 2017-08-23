@@ -8,6 +8,7 @@ import { VisitasFrecuentesTab } from './visitasFrecuentes/visitasFrecuentes';
 })
 export class VisitasPage {
 
+
   visitasActuales: any;
   visitasFrecuentes: any;
 

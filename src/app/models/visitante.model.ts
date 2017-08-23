@@ -1,7 +1,8 @@
 export interface Visitante {
   id?: number;
-  id_tipo_visita: number;
+  id_tipo_visita?: number;
   nombre: string;
+  apellido: string;
   id_tipo_documento?: number;
   numero_documento?: number;
   patente: string;

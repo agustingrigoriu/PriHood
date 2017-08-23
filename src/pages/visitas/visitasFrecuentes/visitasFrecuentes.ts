@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App, AlertController, NavController, NavParams} from 'ionic-angular';
+import { App, AlertController, NavController, NavParams } from 'ionic-angular';
 
 import { VisitasDetallePage } from '../visitasDetalle/visitasDetalle';
 import { RegistroVisitaPage } from '../registroVisita/registroVisita';
@@ -10,14 +10,19 @@ import { VisitanteService } from '../visitas.service'
 })
 
 export class VisitasFrecuentesTab {
-  private visitas: any;
+  private visitantes: any;
 
   id_Tab = 1; //Tab de Visitas Frecuentes
+  nombre_tipo_documento = ["DNI", "LE", "LC", "Otro"];
 
-  constructor(public alertCtrl: AlertController, public app: App, 
-  public navParams: NavParams,
-  private VisitanteService: VisitanteService) {
-    this.cargarVisitasPrueba();
+
+  constructor(public alertCtrl: AlertController, public app: App,
+    public navParams: NavParams,
+    private VisitanteService: VisitanteService) {
+  }
+
+  ionViewWillEnter() {
+    this.actualizar();
   }
 
   pageRegistrarVisita() {
@@ -27,18 +32,17 @@ export class VisitasFrecuentesTab {
   }
 
   actualizar() {
-    const id_residente = 1; //Ver planteo de api
-    this.VisitanteService.getVisitas(id_residente, 1).then(response => {
+    this.VisitanteService.getVisitas(1).then(response => {
       if (response.error) {
         alert('No se obtener las visitas registradas');
       } else {
-        this.visitas = response.data;
+        this.visitantes = response.data;
       }
     });
   }
 
   cargarVisitasPrueba() {
-    this.visitas = [
+    this.visitantes = [
       {
         nombre: "Agustin",
         apellido: "Gregorieu",
@@ -68,6 +72,8 @@ export class VisitasFrecuentesTab {
       }
     ]
   }
+
+
 
 
 }
