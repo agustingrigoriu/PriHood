@@ -23,7 +23,7 @@ download:
     - ionic package download -d ./builds/
   artifacts:
     paths:
-      - builds/MyApp.apk
+      - builds/Prihood.apk
   only:
     - master
 
@@ -37,7 +37,7 @@ build_android_prod:
     - ionic package download -d ./builds/
   artifacts:
     paths:
-      - builds/MyApp.apk
+      - builds/Prihood.apk
   when: manual
   only:
     - master
