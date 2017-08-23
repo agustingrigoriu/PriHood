@@ -13,7 +13,7 @@ import { ExpensasPage } from '../expensas/expensas'
   templateUrl: 'menu.html'
 })
 export class MenuPage {
-  @ViewChild(Nav) nav: Nav;
+@ViewChild(Nav) nav: NavController;
 
   pages: Array<{ title: string, component: any, icon: string }>;
   root = VisitasPage;

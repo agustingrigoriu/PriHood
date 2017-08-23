@@ -10,7 +10,6 @@ export class VisitanteService {
     return this.request.post<any>(`visitas`, data);
   }
 
-  //Ver planteo de APIs
   getVisitas(idTipoVisita: Number){
     return this.request.get<Visitante[]>(`visitas/tipo-visita/${idTipoVisita}`);
   }
