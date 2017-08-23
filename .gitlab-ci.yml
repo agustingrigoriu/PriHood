@@ -1,0 +1,44 @@
+stages:
+  - build
+  - download
+  - build_prod
+
+build_android:
+  stage: build
+  script:
+    - npm install -g ionic@latest
+    - npm install
+    - ionic login
+    - ionic package build android
+  only:
+    - master
+
+download:
+  stage: download
+  script:
+    - npm install -g ionic@latest
+    - npm install
+    - ionic login
+    - mkdir builds
+    - ionic package download -d ./builds/
+  artifacts:
+    paths:
+      - builds/MyApp.apk
+  only:
+    - master
+
+build_android_prod:
+  stage: build_prod
+  script:
+    - npm install -g ionic@latest
+    - npm install
+    - ionic login
+    - ionic package build android --release --prod
+    - mkdir builds
+    - ionic package download -d ./builds/
+  artifacts:
+    paths:
+      - builds/MyApp.apk
+  when: manual
+  only:
+    - master
