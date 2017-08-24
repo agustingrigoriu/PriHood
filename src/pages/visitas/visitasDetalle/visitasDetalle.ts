@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'visitasDetalle.html'
@@ -7,9 +7,15 @@ import { NavParams } from 'ionic-angular';
 })
 export class VisitasDetallePage {
 
-  visita: any;
+  visitante: any;
 
-  constructor() {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.visitante = navParams.get("visitante");
   }
+
+  dismiss() {
+    this.navCtrl.pop();
+  }
+
 
 }

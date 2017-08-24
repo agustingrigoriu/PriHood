@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { App, AlertController, NavController, NavParams } from 'ionic-angular';
 
+import { Visitante } from '../../../app/models/visitante.model'
+
 import { VisitasDetallePage } from '../visitasDetalle/visitasDetalle';
 import { RegistroVisitaPage } from '../registroVisita/registroVisita';
 import { VisitanteService } from '../visitas.service'
@@ -11,14 +13,15 @@ import { VisitanteService } from '../visitas.service'
 
 export class VisitasFrecuentesTab {
   private visitantes: any;
+  private visitante: any;
 
   id_Tab = 1; //Tab de Visitas Frecuentes
   nombre_tipo_documento = ["DNI", "LE", "LC", "Otro"];
 
-
   constructor(public alertCtrl: AlertController, public app: App,
     public navParams: NavParams,
-    private VisitanteService: VisitanteService) {
+    private VisitanteService: VisitanteService,
+    private navCtlr: NavController) {
   }
 
   ionViewWillEnter() {
@@ -32,7 +35,7 @@ export class VisitasFrecuentesTab {
   }
 
   actualizar() {
-    this.VisitanteService.getVisitas(1).then(response => {
+    this.VisitanteService.getVisitas(this.id_Tab).then(response => {
       if (response.error) {
         alert('No se obtener las visitas registradas');
       } else {
@@ -41,39 +44,15 @@ export class VisitasFrecuentesTab {
     });
   }
 
-  cargarVisitasPrueba() {
-    this.visitantes = [
-      {
-        nombre: "Agustin",
-        apellido: "Gregorieu",
-        tipo_documento: "DNI",
-        numero_documento: "38509890",
-        patente: "ASD 123",
-        imagen: "assets/img/pruebas/ronaldo.png",
-        observaciones: "No existen observaciones"
-      },
-      {
-        nombre: "Patricio",
-        apellido: "Perez",
-        tipo_documento: "DNI",
-        numero_documento: "38650209",
-        patente: "FJA 999",
-        imagen: "assets/img/pruebas/messi.png",
-        observaciones: "No existen observaciones"
-      },
-      {
-        nombre: "Patricio",
-        apellido: "Perez",
-        tipo_documento: "DNI",
-        numero_documento: "38650209",
-        patente: "FJA 999",
-        imagen: "assets/img/pruebas/messi.png",
-        observaciones: "No existen observaciones"
-      }
-    ]
+  onSelectVisitante(visitante) {
+    this.visitante = visitante;
+    this.pageDetalleVisita();
   }
 
-
-
+  pageDetalleVisita() {
+    this.app.getRootNav().push(VisitasDetallePage, {
+      visitante: this.visitante
+    });;
+  }
 
 }
