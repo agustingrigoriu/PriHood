@@ -12,6 +12,7 @@ import { VisitanteService } from '../visitas.service'
 
 export class VisitasActualesTab {
   private visitantes: any;
+  private visitante: any;
 
   id_Tab = 2; //Tab de Visitas Actuales
   nombre_tipo_documento = ["DNI", "LE", "LC", "Otro"];
@@ -38,6 +39,18 @@ export class VisitasActualesTab {
         this.visitantes = response.data;
       }
     });
+  }
+
+  onSelectVisitante(visitante) {
+    this.visitante = visitante;
+    this.pageDetalleVisita();
+  }
+
+  pageDetalleVisita() {
+    this.app.getRootNav().push(VisitasDetallePage, {
+      visitante: this.visitante,
+      id_Tab: this.id_Tab
+    });;
   }
 
 }

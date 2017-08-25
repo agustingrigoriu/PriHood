@@ -51,7 +51,8 @@ export class VisitasFrecuentesTab {
 
   pageDetalleVisita() {
     this.app.getRootNav().push(VisitasDetallePage, {
-      visitante: this.visitante
+      visitante: this.visitante,
+      id_Tab: this.id_Tab
     });;
   }
 

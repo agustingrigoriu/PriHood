@@ -10,8 +10,47 @@
   </ion-toolbar>
 </ion-header>
 
+<!--
+FALTA DETALLE DE VISITA ACTUAL
+-->
 
-<ion-content>
-  <h1>{{visitante.apellido}}, {{visitante.nombre}}</h1>
-  <h1></h1>
+<ion-content class='detalle-visitante'>
+  <div class='spacer-card'></div>
+  <ion-card class='card-visitante'>
+    <ion-item *ngIf='esVisitanteFrecuente()'>
+      <ion-avatar class='avatar-visitante'>
+        <img class='img-visitante' src='{{visitante.avatar}}'>
+      </ion-avatar>
+    </ion-item>
+    <ion-item *ngIf='!esVisitanteFrecuente()'>
+        <ion-icon name='person' item-start></ion-icon>
+    </ion-item>
+    <div class='nombre-visitante'>
+      <h1 class='nombre-visitante-texto'><b>{{visitante.apellido}}, {{visitante.nombre}}</b></h1>
+      <p>(Visita Frecuente)</p>
+    </div>
+    <ion-card-content>
+      <div class='info-visitante'>
+        <h3 class='texto-visitante'>{{nombre_tipo_documento[visitante.id_tipo_documento - 1]}}: <b>{{visitante.numero_documento}}</b></h3>
+        <h3 class='texto-visitante'>Pantente: <b>{{visitante.patente}}</b></h3>
+        <div class='spacer'></div>
+        <p>Observaciones:</p>
+        <p>{{visitante.observaciones}}</p>
+      </div>
+    </ion-card-content>
+
+    <ion-item>
+      <span item-left>
+          <button ion-button icon-left clear small>
+            <ion-icon name="create"></ion-icon>
+            <div>Editar</div>
+          </button>
+        </span>
+      <button ion-button icon-right clear item-end>
+          <div>Borrar</div>
+          <ion-icon name="trash"></ion-icon>
+        </button>
+    </ion-item>
+  </ion-card>
+
 </ion-content>
