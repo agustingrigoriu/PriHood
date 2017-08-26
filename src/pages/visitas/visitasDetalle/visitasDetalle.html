@@ -10,10 +10,6 @@
   </ion-toolbar>
 </ion-header>
 
-<!--
-FALTA DETALLE DE VISITA ACTUAL
--->
-
 <ion-content class='detalle-visitante'>
   <div class='spacer-card'></div>
   <ion-card class='card-visitante'>
@@ -22,23 +18,25 @@ FALTA DETALLE DE VISITA ACTUAL
         <img class='img-visitante' src='{{visitante.avatar}}'>
       </ion-avatar>
     </ion-item>
-    <ion-item *ngIf='!esVisitanteFrecuente()'>
-        <ion-icon name='person' item-start></ion-icon>
-    </ion-item>
+    <div class='contenedor-iconVisitante' *ngIf='!esVisitanteFrecuente()'>
+      <ion-icon name='person' item-start class='icon-visitante'></ion-icon>
+    </div>
     <div class='nombre-visitante'>
       <h1 class='nombre-visitante-texto'><b>{{visitante.apellido}}, {{visitante.nombre}}</b></h1>
-      <p>(Visita Frecuente)</p>
+      <p *ngIf='esVisitanteFrecuente()'>(Visita Frecuente)</p>
+      <p *ngIf='!esVisitanteFrecuente()'>(Visita próxima)</p>
     </div>
     <ion-card-content>
       <div class='info-visitante'>
         <h3 class='texto-visitante'>{{nombre_tipo_documento[visitante.id_tipo_documento - 1]}}: <b>{{visitante.numero_documento}}</b></h3>
-        <h3 class='texto-visitante'>Pantente: <b>{{visitante.patente}}</b></h3>
+        <h3 class='texto-visitante' *ngIf='esVisitanteFrecuente()'>Pantente: <b>{{visitante.patente}}</b></h3>
+        <h3 class='texto-visitante' *ngIf='!esVisitanteFrecuente()'>Fecha: <b>{{visitante.fecha_visita | date}}</b></h3>
         <div class='spacer'></div>
         <p>Observaciones:</p>
         <p>{{visitante.observaciones}}</p>
+        <p *ngIf='noExistenObservaciones()'>Ninguna</p>
       </div>
     </ion-card-content>
-
     <ion-item>
       <span item-left>
           <button ion-button icon-left clear small>

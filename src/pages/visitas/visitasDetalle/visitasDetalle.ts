@@ -22,8 +22,11 @@ export class VisitasDetallePage {
   }
 
   esVisitanteFrecuente() {
-    if (this.id_Tipo_Visita = 1) return true
-    else return false;
+    return (this.id_Tipo_Visita === 1);
+  }
+
+  noExistenObservaciones(){
+    return (this.visitante.observaciones === null);
   }
 
 

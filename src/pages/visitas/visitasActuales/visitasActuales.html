@@ -17,11 +17,13 @@
   </div>
   <ion-list>
     <ion-item *ngFor="let visitante of visitantes">
-      <ion-icon name='person' item-start></ion-icon>
-      <h2>{{visitante.nombre}} {{visitante.apellido}}</h2>
-      <p><b>{{nombre_tipo_documento[visitante.id_tipo_documento - 1]}}: {{visitante.numero_documento}}</b></p>
-      <p>{{visitante.fecha_visita | date}}</p>
-      <button ion-button clear item-end  (click)="onSelectVisitante(visitante)">Ver</button>
+      <ion-icon class='icon-list' name='person' item-start></ion-icon>
+      <h2 class='texto-nombre'>{{visitante.nombre}} {{visitante.apellido}}</h2>
+      <p class='texto-lista'><b>{{nombre_tipo_documento[visitante.id_tipo_documento - 1]}}: {{visitante.numero_documento}}</b></p>
+      <p class='texto-lista'>{{visitante.fecha_visita | date}}</p>
+      <button ion-button clear item-end (click)="onSelectVisitante(visitante)">
+        <ion-icon name="more"></ion-icon>
+      </button>
     </ion-item>
   </ion-list>
 

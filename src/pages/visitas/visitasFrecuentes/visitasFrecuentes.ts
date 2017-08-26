@@ -37,7 +37,7 @@ export class VisitasFrecuentesTab {
   actualizar() {
     this.VisitanteService.getVisitas(this.id_Tab).then(response => {
       if (response.error) {
-        alert('No se obtener las visitas registradas');
+        alert('No se logró obtener las visitas registradas');
       } else {
         this.visitantes = response.data;
       }
