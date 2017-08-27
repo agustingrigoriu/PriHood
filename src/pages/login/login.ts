@@ -31,6 +31,10 @@ export class LoginPage {
       // guardo la session
       this.loginService.saveSession(response.data);
 
+      // guardo el push token en background
+      const pushToken = this.loginService.getPushToken();
+      this.loginService.postPushToken(pushToken);
+
       // redirijo al usuario al menu principal
       this.navCtrl.push(MenuPage);
     });
