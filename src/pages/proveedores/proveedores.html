@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title class='title-page'>Servicios</ion-title>
+    <ion-buttons start>
+      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
+        <img class="logoMenu-img" src="assets/img/logo_menu.png">
+        </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar class='barraBusqueda' [(ngModel)]="myInput" (ionInput)="onInput($event)">
+  </ion-searchbar>
+
+  <ion-list>
+    <ion-item class='tipoServicio'>
+      <ion-label class='tipoServicio-texto'>Tipo de Servicio</ion-label>
+      <ion-select [(ngModel)]="tipo_servicio" interface='popover'>
+        <ion-option value="{{tipo_servicio.id}}" *ngFor='let tipo_servicio of tipos_servicio'>{{tipo_servicio.nombre}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-card *ngFor='let proveedor of proveedores'>
+    <ion-item>
+      <h2>{{proveedor.nombre}}</h2>
+    </ion-item>
+    <img src="{{proveedor.imagen}}">
+    <ion-card-content>
+      <p>{{proveedor.descripcion}}</p>
+    </ion-card-content>
+    <ion-item>
+      <span item-left>{{proveedor.telefono}}</span>
+      <span item-right>{{proveedor.direccion}}</span>
+    </ion-item>
+  </ion-card>
+
+  <ion-fab bottom right>
+    <button ion-fab  (click)="pageRegistrarProveedor()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+
+</ion-content>
+
+<ion-footer>
+</ion-footer>

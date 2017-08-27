@@ -14,7 +14,14 @@
     <p class="infoVisitas">
       A continuación se encuentran las visitas registradas para los próximos días
     </p>
+    <div *ngIf='noHayVisitas()'>
+      <p class='infoVisitas'>No hay visitas registradas</p>
+    </div>
+    <div *ngIf='loading'>
+      <ion-spinner></ion-spinner>
+    </div>
   </div>
+
   <ion-list>
     <ion-item *ngFor="let visitante of visitantes">
       <ion-icon class='icon-list' name='person' item-start></ion-icon>

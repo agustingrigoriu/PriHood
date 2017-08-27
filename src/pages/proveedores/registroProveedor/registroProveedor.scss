@@ -1,0 +1,39 @@
+.btnRegistrar{
+    width:80%;
+    align-content: center;
+    margin-left:auto;
+    margin-right:auto;
+    background-color : #003777;
+ }
+
+ #btnRegistrarProveedor{
+   color: #ffffff;
+ }
+
+.infoRegistroProveedor{
+  color: #003777;
+  font-size: 12px;
+}
+
+.infoRegistroProveedor-container{
+  text-align: center;
+}
+
+.foto-icon{
+    color: #000 !important;
+    font-size: 4.8rem;
+    border-radius: 15px;
+    background: #E1E1E1;
+    padding: 5%;
+    margin: 0 5px;
+    display: block;
+}
+
+.foto-icon-container{
+  text-align: right;
+}
+
+.ion-md-cloud-upload:before {
+  text-align: center;
+  display: inherit;
+}

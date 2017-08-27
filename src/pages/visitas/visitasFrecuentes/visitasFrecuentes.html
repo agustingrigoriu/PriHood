@@ -15,6 +15,9 @@
       A continuación se encuentran las visitas de frecuente acceso al barrio
     </p>
   </div>
+  <div *ngIf='noHayVisitas()'>
+    <p>No hay visitas registradas</p>
+  </div>
   <ion-list>
     <ion-item *ngFor="let visitante of visitantes">
       <ion-avatar item-start>

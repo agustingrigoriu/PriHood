@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title>Registrar servicio</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="volver()">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col col-12 class='infoRegistroProveedor-container'>
+      <p class="infoRegistroProveedor">
+        Ingresa los datos del proveedor de servicio y ayuda a tus vecinos a descubrirlos
+      </p>
+    </ion-col>
+  </ion-row>
+
+  <form (ngSubmit)="registrarProveedor(proveedor)">
+    <ion-list>
+      <ion-grid>
+
+        <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <ion-label stacked>Tipo de Servicio</ion-label>
+              <ion-select [(ngModel)]="proveedor.id_tipo_servicio" name="idTipoServicio">
+                <ion-option value="1">Jardinería</ion-option>
+                <ion-option value="2">Piscinas</ion-option>
+                <ion-option value="3">Plomería</ion-option>
+                <ion-option value="4">Gasista</ion-option>
+                <ion-option value="5">Fumigación</ion-option>
+                <ion-option value="6">Otro</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label stacked>Nombre</ion-label>
+              <ion-input type="text" [(ngModel)]="proveedor.nombre" type="text" name="proveedorNombre"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label stacked>Teléfono</ion-label>
+              <ion-input type="number" [(ngModel)]="proveedor.telefono" type="text" name="proveedorTelefono"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <ion-label stacked>Descripcion</ion-label>
+              <ion-textarea [(ngModel)]="proveedor.descripcion" type="text" name="descripcionProveedor"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <ion-label stacked>Dirección</ion-label>
+              <ion-input [(ngModel)]="proveedor.direccion" type="text" name="direccionProveedor"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+          </ion-col>
+        </ion-row>
+
+        <ion-icon class='foto-icon' name="cloud-upload" (click)='uploadImage()'></ion-icon>
+
+      </ion-grid>
+    </ion-list>
+
+    <div class="btnRegistrar">
+      <button ion-button block outline block type="submit" id="btnRegistrarProveedor">Registrar</button>
+    </div>
+  </form>
+
+</ion-content>

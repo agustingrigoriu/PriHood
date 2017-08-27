@@ -11,8 +11,9 @@ import { VisitanteService } from '../visitas.service'
 })
 
 export class VisitasActualesTab {
-  private visitantes: any;
+  private visitantes: any[] = [];
   private visitante: any;
+  private loading: boolean = true;
 
   id_Tab = 2; //Tab de Visitas Actuales
   nombre_tipo_documento = ["DNI", "LE", "LC", "Otro"];
@@ -32,11 +33,13 @@ export class VisitasActualesTab {
   }
 
   actualizar() {
+    this.loading = true;
     this.VisitanteService.getVisitas(this.id_Tab).then(response => {
       if (response.error) {
-        alert('No se obtener las visitas registradas');
+        alert('No se logró obtener las visitas registradas');
       } else {
         this.visitantes = response.data;
+        this.loading = false;
       }
     });
   }
@@ -51,6 +54,10 @@ export class VisitasActualesTab {
       visitante: this.visitante,
       id_Tab: this.id_Tab
     });;
+  }
+
+  noHayVisitas() {
+    return (!this.loading && this.visitantes.length === 0);
   }
 
 }

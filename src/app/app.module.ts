@@ -22,8 +22,11 @@ import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegist
 import { RegistroVisitaPage } from '../pages/visitas/registroVisita/registroVisita';
 import { AlertasPage } from '../pages/alertas/alertas';
 import { AmenitiesPage } from '../pages/amenities/amenities';
+import { ProveedoresPage } from '../pages/proveedores/proveedores';
+import { RegistroProveedorPage } from '../pages/proveedores/registroProveedor/registroProveedor';
 import { CarpoolingPage } from '../pages/carpooling/carpooling';
 import { ExpensasPage } from '../pages/expensas/expensas';
+
 
 
 //Services
@@ -31,6 +34,7 @@ import { ApiRequestService } from '../services/api.request.service';
 import { LoginService } from '../services/login.service';
 import { CodigoRegistroService } from '../pages/usuario/codigoRegistro/codigoRegistro.service';
 import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registroUsuario.service';
+import { ProveedorService } from '../pages/proveedores/proveedores.service';
 import { VisitanteService } from '../pages/visitas/visitas.service';
 
 // Incluir las paginas acá
@@ -47,6 +51,8 @@ const pages = [
   AlertasPage,
   CarpoolingPage,
   AmenitiesPage,
+  ProveedoresPage,
+  RegistroProveedorPage,
   ExpensasPage,
   VisitasDetallePage,
   MenuPage
@@ -73,6 +79,7 @@ const pages = [
     ApiRequestService,
     CodigoRegistroService,
     RegistroUsuarioService,
+    ProveedorService,
     LoginService,
     VisitanteService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
