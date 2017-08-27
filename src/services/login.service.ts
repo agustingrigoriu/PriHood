@@ -11,7 +11,12 @@ export class LoginService {
     return this.api.post<Login>('token', usuario);
   }
 
+  postPushToken(token: string) {
+    return this.api.post<any>('usuarios/push/token', { token });
+  }
+
   private key: string = 'SessionPrihood';
+  private _token: string = 'PushPrihood';
 
   saveSession(obj: Login): boolean {
     try {
@@ -23,6 +28,20 @@ export class LoginService {
     } catch (error) {
       return false;
     }
+  }
+
+  savePushToken(token: string): Boolean {
+    try {
+      window.localStorage.setItem(this._token, token);
+
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  getPushToken(): string {
+    return window.localStorage.getItem(this._token) ||  '';
   }
 
   getSession(): Login {
