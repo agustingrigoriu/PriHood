@@ -27,13 +27,8 @@
           <ion-col col-12>
             <ion-item>
               <ion-label stacked>Tipo de Servicio</ion-label>
-              <ion-select [(ngModel)]="proveedor.id_tipo_servicio" name="idTipoServicio">
-                <ion-option value="1">Jardinería</ion-option>
-                <ion-option value="2">Piscinas</ion-option>
-                <ion-option value="3">Plomería</ion-option>
-                <ion-option value="4">Gasista</ion-option>
-                <ion-option value="5">Fumigación</ion-option>
-                <ion-option value="6">Otro</ion-option>
+              <ion-select [(ngModel)]="proveedor.id_tipo_servicio" interface='popover' name="idTipoServicio">
+                <ion-option value="{{tipo_servicio.id}}" *ngFor='let tipo_servicio of tipos_servicio'>{{tipo_servicio.descripcion}}</ion-option>
               </ion-select>
             </ion-item>
           </ion-col>
@@ -64,20 +59,41 @@
         </ion-row>
 
         <ion-row>
-          <ion-col col-12>
+          <ion-col col-8>
             <ion-item>
               <ion-label stacked>Dirección</ion-label>
               <ion-input [(ngModel)]="proveedor.direccion" type="text" name="direccionProveedor"></ion-input>
             </ion-item>
           </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col col-12>
+          <ion-col col-4>
+            <ion-icon class='foto-icon' name="cloud-upload" (click)='uploadImage()'></ion-icon>
           </ion-col>
         </ion-row>
 
-        <ion-icon class='foto-icon' name="cloud-upload" (click)='uploadImage()'></ion-icon>
+        <ion-row>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label stacked>Tipo de Servicio</ion-label>
+              <ion-select [(ngModel)]="proveedor.rating_total" interface='popover' name="ratingTotal">
+                <ion-option value='1'>1</ion-option>
+                <ion-option value='2'>2</ion-option>
+                <ion-option value='3'>3</ion-option>
+                <ion-option value='4'>4</ion-option>
+                <ion-option value='5'>5</ion-option>
+              </ion-select>
+            </ion-item>
+            <!--ESTA HECHO RAPIDAMENTE, DEBE CAMBIAR-->
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label stacked>Comentario</ion-label>
+              <ion-input type="text" name="comentario"></ion-input>
+            </ion-item>
+          </ion-col>
+          <!--SOLO SE LO USA PARA COMPLETAR LA VISTA, ACTUALMENTE SE HARDCODEA LA CANTIDAD DE VOTOS COMO = 1-->
+          <!--NO INSERTA EL COMENTARIO, DEBE HACER USO DEL SERVICIO EINSERTAR EN LA TABLA REGISTRO_VOTOS -->
+        </ion-row>
+
 
       </ion-grid>
     </ion-list>

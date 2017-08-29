@@ -17,17 +17,21 @@
   <ion-list>
     <ion-item class='tipoServicio'>
       <ion-label class='tipoServicio-texto'>Tipo de Servicio</ion-label>
-      <ion-select [(ngModel)]="tipo_servicio" interface='popover'>
-        <ion-option value="{{tipo_servicio.id}}" *ngFor='let tipo_servicio of tipos_servicio'>{{tipo_servicio.nombre}}</ion-option>
+      <ion-select [(ngModel)]="tipo_servicio" interface='popover' (ionChange)="servicioSeleccionado($event)">
+        <ion-option value="{{tipo_servicio.id}}" *ngFor='let tipo_servicio of tipos_servicio'>{{tipo_servicio.descripcion}}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
+
+  <div *ngIf='noHayProveedores()' class='infoProveedores-contenedor'>
+    <p class='infoProveedores'>No hay servicios registrados</p>
+  </div>
 
   <ion-card *ngFor='let proveedor of proveedores'>
     <ion-item>
       <h2>{{proveedor.nombre}}</h2>
     </ion-item>
-    <img src="{{proveedor.imagen}}">
+    <img src="{{proveedor.avatar}}">
     <ion-card-content>
       <p>{{proveedor.descripcion}}</p>
     </ion-card-content>
@@ -38,7 +42,7 @@
   </ion-card>
 
   <ion-fab bottom right>
-    <button ion-fab  (click)="pageRegistrarProveedor()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab (click)="pageRegistrarProveedor()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
 

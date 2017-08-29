@@ -17,7 +17,7 @@ export class MenuPage {
 @ViewChild(Nav) nav: NavController;
 
   pages: Array<{ title: string, component: any, icon: string }>;
-  root = ProveedoresPage;
+  root = VisitasPage;
 
   constructor(public loginService: LoginService) {
     //Declarar aqui las paginas a incluir en el Menu Principal
