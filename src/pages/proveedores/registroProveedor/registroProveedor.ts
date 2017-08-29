@@ -14,7 +14,7 @@ export class RegistroProveedorPage {
   private tipos_servicio: any[] = [];
 
   proveedor = {
-    id_tipo_servicio: 1,
+    id_tipo_servicio: '',
     cantidad_votos: 1,
     avatar: 'assets/img/pruebas/proveedores/piscinas.png'
   };
@@ -30,7 +30,6 @@ export class RegistroProveedorPage {
   }
 
   registrarProveedor(proveedor) {
-    this.cambiarImagen(this.proveedor.id_tipo_servicio);
     this.ProveedorService.registrarProveedor(proveedor).then(response => {
       if (response.error) {
         this.presentToast('No se pudo completar el registro del servicio.');
@@ -47,13 +46,22 @@ export class RegistroProveedorPage {
 
   //hardcodeo solo para mostrar en presentacion
   cambiarImagen(id_tipo_servicio) {
+    console.log(id_tipo_servicio);
     switch (id_tipo_servicio) {
-      case 1: this.proveedor.avatar = 'assets/img/pruebas/proveedores/piscinas.png';
-      case 2: this.proveedor.avatar = 'assets/img/pruebas/proveedores/jardineria.png';
-      case 3: this.proveedor.avatar = 'assets/img/pruebas/proveedores/plomero.png';
-      case 4: this.proveedor.avatar = 'assets/img/pruebas/proveedores/gasista.png';
-      case 5: this.proveedor.avatar = 'assets/img/pruebas/proveedores/fumigacion.png';
+      case '1': this.proveedor.avatar = 'assets/img/pruebas/proveedores/piscinas.png';
+        break;
+      case '2': this.proveedor.avatar = 'assets/img/pruebas/proveedores/jardineria.png';
+        break;
+      case '3': this.proveedor.avatar = 'assets/img/pruebas/proveedores/plomero.png';
+        break;
+      case '4': this.proveedor.avatar = 'assets/img/pruebas/proveedores/gasista.png';
+        break;
+      case '5': this.proveedor.avatar = 'assets/img/pruebas/proveedores/fumigacion.png';
+        break;
+      default: this.proveedor.avatar = 'assets/img/pruebas/proveedores/piscinas.png';
+        break;
     }
+    console.log(this.proveedor.avatar);
 
   }
 
@@ -74,6 +82,11 @@ export class RegistroProveedorPage {
         this.tipos_servicio = response.data;
       }
     });
+  }
+
+  servicioSeleccionado(tipo_servicio) {
+    this.proveedor.id_tipo_servicio = tipo_servicio;
+    this.cambiarImagen(this.proveedor.id_tipo_servicio);
   }
 
   ngOnInit() {
