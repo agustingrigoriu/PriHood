@@ -12,7 +12,8 @@ export class RegistroVisitaPage {
 
   visita = {
     fecha_visita: new Date().toISOString(),
-    id_tipo_visita: '1' //1 = "Tab Visitas Frecuentes" , 2 = "Tab Visitas Actuales"
+    id_tipo_visita: '1',//1 = "Tab Visitas Frecuentes" , 2 = "Tab Visitas Actuales"
+    avatar: 'assets/img/pruebas/visitas/gabi.png'
   };
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,

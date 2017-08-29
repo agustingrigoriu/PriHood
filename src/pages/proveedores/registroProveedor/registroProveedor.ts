@@ -46,7 +46,6 @@ export class RegistroProveedorPage {
 
   //hardcodeo solo para mostrar en presentacion
   cambiarImagen(id_tipo_servicio) {
-    console.log(id_tipo_servicio);
     switch (id_tipo_servicio) {
       case '1': this.proveedor.avatar = 'assets/img/pruebas/proveedores/piscinas.png';
         break;
@@ -61,7 +60,6 @@ export class RegistroProveedorPage {
       default: this.proveedor.avatar = 'assets/img/pruebas/proveedores/piscinas.png';
         break;
     }
-    console.log(this.proveedor.avatar);
 
   }
 
