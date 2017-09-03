@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { QRScanner } from '@ionic-native/qr-scanner';
 
 //Pages
+import { QRScannerPage } from '../pages/usuario/qrscanner/qrscanner';
 import { LoginPage } from '../pages/login/login';
 import { MenuPage } from '../pages/menu/menu';
 import { NoRegistradoPage } from '../pages/usuario/noRegistrado/noRegistrado'
@@ -55,7 +56,8 @@ const pages = [
   RegistroProveedorPage,
   ExpensasPage,
   VisitasDetallePage,
-  MenuPage
+  MenuPage,
+  QRScannerPage
 ];
 
 @NgModule({
