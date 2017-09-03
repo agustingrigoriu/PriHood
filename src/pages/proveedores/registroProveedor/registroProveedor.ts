@@ -15,7 +15,6 @@ export class RegistroProveedorPage {
 
   proveedor = {
     id_tipo_servicio: '',
-    cantidad_votos: 1,
     avatar: 'assets/img/pruebas/proveedores/piscinas.png'
   };
 

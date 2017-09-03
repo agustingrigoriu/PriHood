@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title>Valoración de servicio</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="volver()">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor='let comentario of comentarios'>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{comentario.avatar}}">
+      </ion-avatar>
+      <h2>{{comentario.nommbre}},{{comentario.apellido}}</h2>
+      <p>{{comentario.fecha | date}}</p>
+    </ion-item>
+    <ion-card-content>
+      <p>{{comentario.mensaje}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <form (ngSubmit)='votar(voto)'>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label stacked>Comentario</ion-label>
+            <ion-textarea [(ngModel)]="voto.comentario" type="text" name="comentario"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label stacked>Rating</ion-label>
+            <ion-input type="number" [(ngModel)]="voto.rating" name="rating"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <div class="btnRegistrar">
+        <button ion-button block outline block type="submit" id="btnRegistrarProveedor">Registrar</button>
+      </div>
+    </ion-grid>
+  </form>
+
+  <rating [(ngModel)]="voto.rating"></rating>
+
+
+
+
+    <!--<ion-card>
+  <ion-card-header>
+    Header
+  </ion-card-header>
+  <ion-card-content>
+    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+  </ion-card-content>
+</ion-card>-->
+</ion-content>

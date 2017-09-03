@@ -39,6 +39,21 @@
       <span item-left>{{proveedor.telefono}}</span>
       <span item-right>{{proveedor.direccion}}</span>
     </ion-item>
+    <ion-item>
+      <span item-left>
+          <button ion-button icon-left clear small>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+          </button>
+        </span>
+      <button ion-button icon-right clear item-end (click)='onSelectProveedor(proveedor)' >
+        <div>Comentar</div>
+          <ion-icon name="arrow-dropright-circle"></ion-icon>
+        </button>
+    </ion-item>
   </ion-card>
 
   <ion-fab bottom right>

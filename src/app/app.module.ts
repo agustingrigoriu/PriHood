@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QRScanner } from '@ionic-native/qr-scanner';
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 //Pages
 import { LoginPage } from '../pages/login/login';
@@ -24,10 +25,9 @@ import { AlertasPage } from '../pages/alertas/alertas';
 import { AmenitiesPage } from '../pages/amenities/amenities';
 import { ProveedoresPage } from '../pages/proveedores/proveedores';
 import { RegistroProveedorPage } from '../pages/proveedores/registroProveedor/registroProveedor';
+import { ValorarProveedorPage } from '../pages/proveedores/valorarProveedor/valorarProveedor';
 import { CarpoolingPage } from '../pages/carpooling/carpooling';
 import { ExpensasPage } from '../pages/expensas/expensas';
-
-
 
 //Services
 import { ApiRequestService } from '../services/api.request.service';
@@ -54,6 +54,7 @@ const pages = [
   ProveedoresPage,
   RegistroProveedorPage,
   ExpensasPage,
+  ValorarProveedorPage,
   VisitasDetallePage,
   MenuPage
 ];
@@ -66,6 +67,7 @@ const pages = [
     BrowserModule,
     HttpModule,
     HttpClientModule,
+    Ionic2RatingModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
