@@ -11,6 +11,7 @@ import { QRScanner } from '@ionic-native/qr-scanner';
 import { Ionic2RatingModule } from 'ionic2-rating';
 
 //Pages
+import { QRScannerPage } from '../pages/usuario/qrscanner/qrscanner';
 import { LoginPage } from '../pages/login/login';
 import { MenuPage } from '../pages/menu/menu';
 import { NoRegistradoPage } from '../pages/usuario/noRegistrado/noRegistrado'
@@ -56,7 +57,8 @@ const pages = [
   ExpensasPage,
   ValorarProveedorPage,
   VisitasDetallePage,
-  MenuPage
+  MenuPage,
+  QRScannerPage
 ];
 
 @NgModule({
