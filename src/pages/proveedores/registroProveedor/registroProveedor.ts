@@ -21,6 +21,7 @@ export class RegistroProveedorPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
+    public alertCtrl: AlertController,
     public ProveedorService: ProveedorService) {
   }
 
@@ -74,7 +75,12 @@ export class RegistroProveedorPage {
   cargarTiposDeServicio() {
     this.ProveedorService.getTiposServicios().then(response => {
       if (response.error) {
-        alert('No se logró obtener los tipos de servicios');
+          const alertMessage = this.alertCtrl.create({
+          title: 'Sin conexión',
+          message: 'No se pudo cargar los servicios',
+          buttons: ['Ok']
+        });
+        alertMessage.present();
       } else {
         this.tipos_servicio = response.data;
       }

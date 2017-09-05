@@ -3,7 +3,7 @@
 }
 
 .tipoServicio{
-  background-color: #E1E1E1 !important;
+  background-color: #fff !important;
 }
 
 .tipoServicio-texto{
@@ -19,6 +19,37 @@
   text-align: center;
 }
 
+.comentarios{
+  color: #000;
+}
+
+.item-ios .item-button {
+    padding: 0 0;
+}
+
+.spacer{
+    height: 50px; 
+}
+
+.iconProveedor{
+  color: #908989;
+  padding: 3px 3px;
+}
+
 proveedores ion-content{
   background-color: #E1E1E1 !important;
+}
+
+ul {
+  padding: 0px;
+ 
+  &.rating li {
+    padding: 1px 2px !important;
+    background: none;
+    color: #ffb400;
+ 
+    ion-icon {
+      font-size: 20px;
+    }
+  }
 }

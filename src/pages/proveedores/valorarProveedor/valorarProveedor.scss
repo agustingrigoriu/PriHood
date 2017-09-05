@@ -1,0 +1,39 @@
+.stars{
+    padding: 0 0 !important;
+    background: none;
+    color: #ffb400 !important;
+    font-size: 15px;
+}
+
+.comentario{
+  padding: 0 0 !important;
+}
+
+.fechaComentario{
+  padding: 0 0 !important;
+}
+
+
+valorarProveedor ion-content{
+  background-color: #E1E1E1 !important;
+}
+
+valorarProveedor ion-footer form {
+  padding-bottom: 10px;
+}
+
+.rating-wrapper {
+  text-align: center;
+  display: block;
+
+  .calificacionStars {
+    display: inline-block;
+
+    ion-icon {
+      color: #007aff !important;
+      padding: 0 0;
+      font-size: 25px;
+    }
+  }
+}
+

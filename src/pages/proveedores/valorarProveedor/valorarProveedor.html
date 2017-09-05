@@ -16,44 +16,50 @@
       <ion-avatar item-start>
         <img src="{{comentario.avatar}}">
       </ion-avatar>
-      <h2>{{comentario.nommbre}},{{comentario.apellido}}</h2>
-      <p>{{comentario.fecha | date}}</p>
+      <h3>{{comentario.nombre}} {{comentario.apellido}}</h3>
     </ion-item>
     <ion-card-content>
-      <p>{{comentario.mensaje}}</p>
+      <p class='comentario'>"{{comentario.mensaje}}."</p>
     </ion-card-content>
+    <ion-item>
+      <span item-left>
+        <rating [(ngModel)]="comentario.rating" readOnly="true" class='stars'></rating>
+      </span>
+      <p icon-right clear item-end class='fechaComentario'>{{comentario.fecha | date}}</p>
+    </ion-item>
   </ion-card>
+</ion-content>
 
-  <form (ngSubmit)='votar(voto)'>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-12>
-          <ion-item>
-            <ion-label stacked>Comentario</ion-label>
-            <ion-textarea [(ngModel)]="voto.comentario" type="text" name="comentario"></ion-textarea>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12>
-          <ion-item>
-            <ion-label stacked>Rating</ion-label>
-            <ion-input type="number" [(ngModel)]="voto.rating" name="rating"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <div class="btnRegistrar">
-        <button ion-button block outline block type="submit" id="btnRegistrarProveedor">Registrar</button>
+
+<ion-footer>
+  <ion-toolbar>
+    <form (ngSubmit)='votar(voto)'>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <ion-item no-lines>
+              <ion-label stacked>Comentario</ion-label>
+              <ion-textarea [(ngModel)]="voto.comentario" type="text" name="comentario"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="rating-wrapper">
+        <rating [(ngModel)]="voto.rating" name='rating' class='calificacionStars'></rating>
       </div>
-    </ion-grid>
-  </form>
+      <ion-fab bottom right>
+        <button ion-fab mini type="submit" id="btnRegistrarProveedor">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-fab>
+    </form>
+  </ion-toolbar>
+</ion-footer>
 
-  <rating [(ngModel)]="voto.rating"></rating>
 
 
-
-
-    <!--<ion-card>
+<!--<ion-card>
   <ion-card-header>
     Header
   </ion-card-header>
@@ -61,4 +67,3 @@
     The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
   </ion-card-content>
 </ion-card>-->
-</ion-content>

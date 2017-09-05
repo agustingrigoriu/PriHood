@@ -11,8 +11,8 @@
 
 <ion-content>
 
-  <ion-searchbar class='barraBusqueda' [(ngModel)]="myInput" (ionInput)="onInput($event)">
-  </ion-searchbar>
+<!--  <ion-searchbar class='barraBusqueda' [(ngModel)]="myInput" (ionInput)="onInput($event)">
+  </ion-searchbar>-->
 
   <ion-list>
     <ion-item class='tipoServicio'>
@@ -36,21 +36,21 @@
       <p>{{proveedor.descripcion}}</p>
     </ion-card-content>
     <ion-item>
-      <span item-left>{{proveedor.telefono}}</span>
-      <span item-right>{{proveedor.direccion}}</span>
+      <span item-left>
+        <ion-icon name="call" class='iconProveedor'></ion-icon>
+          {{proveedor.telefono}}
+      </span>
+      <span item-right>
+        {{proveedor.direccion}}
+        <ion-icon name="pin" class='iconProveedor'></ion-icon>
+      </span>
     </ion-item>
     <ion-item>
       <span item-left>
-          <button ion-button icon-left clear small>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-          </button>
+          <rating [(ngModel)]="proveedor.rating" readOnly="true"></rating>
         </span>
-      <button ion-button icon-right clear item-end (click)='onSelectProveedor(proveedor)' >
-        <div>Comentar</div>
+      <button ion-button icon-right clear item-end (click)='onSelectProveedor(proveedor)'>
+        <div class='comentarios'>Comentarios</div>
           <ion-icon name="arrow-dropright-circle"></ion-icon>
         </button>
     </ion-item>
@@ -59,6 +59,8 @@
   <ion-fab bottom right>
     <button ion-fab (click)="pageRegistrarProveedor()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
+
+  <div class="spacer"></div>
 
 
 </ion-content>

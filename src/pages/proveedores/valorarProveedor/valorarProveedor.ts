@@ -5,6 +5,7 @@ import { Voto } from '../../../app/models/voto.model';
 import { ProveedorService } from '../proveedores.service';
 
 @Component({
+  selector: 'valorarProveedor',
   templateUrl: 'valorarProveedor.html'
 })
 
@@ -21,6 +22,7 @@ export class ValorarProveedorPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
+    public alertCtrl: AlertController,
     public ProveedorService: ProveedorService) {
     this.proveedor = navParams.get("proveedor");
   }
@@ -35,7 +37,12 @@ export class ValorarProveedorPage {
       if (response.error) throw 'error';
       this.comentarios = response.data;
     } catch (error) {
-      alert('No se pudo obtener los comentarios')
+      const alertMessage = this.alertCtrl.create({
+        title: 'Sin conexión',
+        message: 'No se pudo cargar los comentarios de este servicio',
+        buttons: ['Ok']
+      });
+      alertMessage.present();
     }
   }
 
@@ -44,12 +51,33 @@ export class ValorarProveedorPage {
       const response = await this.ProveedorService.votar(this.proveedor.id, voto);
       if (response.error) throw 'error';
       this.getComentarios();
+      this.presentToast('Su calificación ha sido registrada.');
+      this.limpiarVoto();
     } catch (error) {
-      alert('No se pudo registrar la valoración')
+      const alertMessage = this.alertCtrl.create({
+        title: 'Calificación no registrada',
+        message: 'No es posible calificar nuevamente a este servicio',
+        buttons: ['Ok']
+      });
+      alertMessage.present();
     }
   }
 
   ionViewWillEnter() {
     this.getComentarios();
+  }
+
+  limpiarVoto() {
+    this.voto.comentario = '';
+    this.voto.rating = 3;
+  }
+
+  presentToast(message: string) {
+    const toast = this.toastCtrl.create({
+      message,
+      duration: 3000,
+      position: 'bottom',
+    });
+    toast.present();
   }
 }
