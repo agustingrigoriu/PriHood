@@ -37,6 +37,7 @@ import { CodigoRegistroService } from '../pages/usuario/codigoRegistro/codigoReg
 import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registroUsuario.service';
 import { ProveedorService } from '../pages/proveedores/proveedores.service';
 import { VisitanteService } from '../pages/visitas/visitas.service';
+import { AmenitiesService } from '../pages/amenities/amenities.service';
 
 // Incluir las paginas acá
 const pages = [
@@ -79,6 +80,7 @@ const pages = [
   providers: [
     StatusBar,
     SplashScreen,
+    AmenitiesService,
     QRScanner,
     ApiRequestService,
     CodigoRegistroService,

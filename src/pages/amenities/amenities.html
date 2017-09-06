@@ -9,8 +9,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <p class='infoModulo'>
-    Este es el modulo de Reserva de turnos de Amenities
-  </p>
+<ion-content class="card-background-page">
+
+  <ion-card  *ngFor='let amenity of tipos_amenities'>
+    <img src="{{amenity.imagen}}" />
+    <div class="card-title">{{amenity.descripcion}}</div>
+  </ion-card>
+
 </ion-content>
