@@ -23,7 +23,8 @@
   <ion-card *ngFor='let amenity of amenities' (click)='onSelectAmenity(amenity)'>
     <ion-card-header>
       <ion-item class='icono-amenity-item'>
-        <h2>{{amenity.nombre}}</h2>
+        <h2 item-start>{{amenity.nombre}}</h2>
+        <ion-icon item-end name="arrow-dropright-circle" class='iconButton'></ion-icon>
       </ion-item>
     </ion-card-header>
 
@@ -38,6 +39,9 @@
         <span item-left class='descripcionAmenity'>
           <p class='infoAmenity'>{{amenity.descripcion}}</p>
       </span>
+      </ion-item>
+      <ion-item>
+        <p item-end class='estadoAmenity'>Disponible</p>
       </ion-item>
     </ion-card-content>
   </ion-card>
