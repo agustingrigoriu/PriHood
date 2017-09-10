@@ -11,7 +11,11 @@
 
 <ion-content class="card-background-page">
 
-  <ion-card  *ngFor='let amenity of tipos_amenities'>
+  <div *ngIf='noHayAmenities()' class='infoAmenities-contenedor'>
+    <p class='infoAmenities'>No hay amenities registrados</p>
+  </div>
+
+  <ion-card *ngFor='let amenity of tipos_amenities' (click)='openAmenitiesListPage(amenity)'>
     <img src="{{amenity.imagen}}" />
     <div class="card-title">{{amenity.descripcion}}</div>
   </ion-card>

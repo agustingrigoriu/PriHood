@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AmenitiesService } from './amenities.service';
-import { AlertController } from 'ionic-angular';
+import { NavController, AlertController, App } from 'ionic-angular';
+import { Amenity } from '../../app/models/amenity.model';
+import { ListaAmenitiesPage } from './listaAmenities/listaAmenities';
 
 @Component({
   templateUrl: 'amenities.html'
@@ -10,7 +12,9 @@ export class AmenitiesPage {
 
   private tipos_amenities: any[] = [];
 
-  constructor(private AmenitiesService: AmenitiesService, public alertCtrl: AlertController) {
+  constructor(private AmenitiesService: AmenitiesService,
+    public alertCtrl: AlertController,
+    public navCtrl: NavController) {
   }
 
   async getTiposAmenities() {
@@ -26,6 +30,16 @@ export class AmenitiesPage {
       });
       alertMessage.present();
     }
+  }
+
+  openAmenitiesListPage(tipoAmenity: Amenity) {
+    this.navCtrl.push(ListaAmenitiesPage, {
+      tipo_amenity: tipoAmenity
+    });;
+  }
+
+  noHayAmenities() {
+    return (this.tipos_amenities.length === 0);
   }
 
   ionViewWillEnter() {

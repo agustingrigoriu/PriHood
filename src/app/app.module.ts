@@ -29,6 +29,7 @@ import { RegistroProveedorPage } from '../pages/proveedores/registroProveedor/re
 import { ValorarProveedorPage } from '../pages/proveedores/valorarProveedor/valorarProveedor';
 import { CarpoolingPage } from '../pages/carpooling/carpooling';
 import { ExpensasPage } from '../pages/expensas/expensas';
+import { ListaAmenitiesPage } from '../pages/amenities/listaAmenities/listaAmenities';
 
 //Services
 import { ApiRequestService } from '../services/api.request.service';
@@ -57,6 +58,7 @@ const pages = [
   RegistroProveedorPage,
   ExpensasPage,
   ValorarProveedorPage,
+  ListaAmenitiesPage,
   VisitasDetallePage,
   MenuPage,
   QRScannerPage

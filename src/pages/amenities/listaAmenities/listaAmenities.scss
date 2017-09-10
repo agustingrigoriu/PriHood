@@ -1,0 +1,36 @@
+.icono-amenity{
+  width: 50px;
+  opacity: 0.8;
+
+}
+
+.infoAmenity{
+  padding: 0 0;
+}
+
+.iconAmenity{
+  color: #908989;
+  padding: 3px 3px;
+}
+
+.descripcionAmenity{
+  margin: 8px 0px 8px 0;
+}
+
+.card-background-page .card-title {
+  font-weight: normal !important;
+}
+
+listaAmenities ion-content{
+  background-color: #E1E1E1 !important;
+}
+
+listaAmenities ion-card{
+  border-top: 5px solid #007aff;
+  text-align: left !important;
+}
+
+listaAmenities ion-item{
+  font-size: 1.4rem !important;
+  color: #8e9093;
+}
