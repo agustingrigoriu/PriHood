@@ -23,12 +23,15 @@ import { RegistroUsuarioPage } from '../pages/usuario/registroUsuario/registroUs
 import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegistro';
 import { RegistroVisitaPage } from '../pages/visitas/registroVisita/registroVisita';
 import { AlertasPage } from '../pages/alertas/alertas';
+import { TurnosAmenityPage } from '../pages/amenities/turnosAmenity/turnosAmenity';
 import { AmenitiesPage } from '../pages/amenities/amenities';
 import { ProveedoresPage } from '../pages/proveedores/proveedores';
 import { RegistroProveedorPage } from '../pages/proveedores/registroProveedor/registroProveedor';
 import { ValorarProveedorPage } from '../pages/proveedores/valorarProveedor/valorarProveedor';
 import { CarpoolingPage } from '../pages/carpooling/carpooling';
 import { ExpensasPage } from '../pages/expensas/expensas';
+import { ComunicacionPage } from '../pages/comunicacion/comunicacion';
+import { EventosPage } from '../pages/eventos/eventos';
 import { ListaAmenitiesPage } from '../pages/amenities/listaAmenities/listaAmenities';
 
 //Services
@@ -54,12 +57,15 @@ const pages = [
   AlertasPage,
   CarpoolingPage,
   AmenitiesPage,
+  TurnosAmenityPage,
   ProveedoresPage,
   RegistroProveedorPage,
   ExpensasPage,
   ValorarProveedorPage,
   ListaAmenitiesPage,
   VisitasDetallePage,
+  ComunicacionPage,
+  EventosPage,
   MenuPage,
   QRScannerPage
 ];

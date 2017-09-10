@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { AmenitiesService } from './amenities.service';
 import { NavController, AlertController, App } from 'ionic-angular';
-import { Amenity } from '../../app/models/amenity.model';
+import { TipoAmenity } from '../../app/models/tipoAmenity.model';
 import { ListaAmenitiesPage } from './listaAmenities/listaAmenities';
 
 @Component({
+  selector: 'amenities',
   templateUrl: 'amenities.html'
 
 })
@@ -32,7 +33,7 @@ export class AmenitiesPage {
     }
   }
 
-  openAmenitiesListPage(tipoAmenity: Amenity) {
+  openAmenitiesListPage(tipoAmenity: TipoAmenity) {
     this.navCtrl.push(ListaAmenitiesPage, {
       tipo_amenity: tipoAmenity
     });;

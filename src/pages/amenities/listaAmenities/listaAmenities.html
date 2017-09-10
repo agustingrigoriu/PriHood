@@ -1,21 +1,29 @@
 <ion-header>
   <ion-toolbar color="prihood">
-    <ion-title class='title-page'>Amenities</ion-title>
+    <ion-title>Amenities</ion-title>
     <ion-buttons start>
-      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
-        <img src="assets/img/logo_menu.png">
-        </button>
+      <button ion-button (click)="volver()">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="card-background-page">
 
-  <ion-card *ngFor='let amenity of amenities'>
+  <ion-list>
+    <ion-item>
+      <ion-label>Fecha: </ion-label>
+      <ion-datetime displayFormat="MMMM DD, YYYY" pickerFormat="DD MMM YY" min='2017' max='2030' [(ngModel)]="fecha" monthNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Setiembre, Octubre, Noviembre, Diciembre"
+        monthShortNames="ene, feb, mar, abr, may, jun, jul, ago, set, oct, nov, dic"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <ion-card *ngFor='let amenity of amenities' (click)='onSelectAmenity(amenity)'>
     <ion-card-header>
       <ion-item class='icono-amenity-item'>
         <h2>{{amenity.nombre}}</h2>
-        <ion-icon item-right name="arrow-dropright"></ion-icon>
       </ion-item>
     </ion-card-header>
 
@@ -33,5 +41,4 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
-
 </ion-content>

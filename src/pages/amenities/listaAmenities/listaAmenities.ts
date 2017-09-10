@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams, ToastController } from 'ionic-angular';
-import { Voto } from '../../../app/models/voto.model';
+import { Amenity } from '../../../app/models/amenity.model';
 
+import { TurnosAmenityPage } from '../turnosAmenity/turnosAmenity'
 import { AmenitiesService } from '../amenities.service';
 
 @Component({
@@ -13,6 +14,8 @@ export class ListaAmenitiesPage {
 
   public tipo_amenity: any;
   public amenities: any[];
+  public amenitySeleccionado: any;
+  public fecha = new Date().toISOString();
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -35,6 +38,21 @@ export class ListaAmenitiesPage {
       });
       alertMessage.present();
     }
+  }
+
+  onSelectAmenity(amenitySeleccionado: Amenity) {
+    this.amenitySeleccionado = amenitySeleccionado;
+    this.pageTurnosAmenity(amenitySeleccionado);
+  }
+
+  pageTurnosAmenity(amenity: Amenity) {
+    this.navCtrl.push(TurnosAmenityPage, {
+      amenity: amenity
+    });;
+  }
+
+  volver() {
+    this.navCtrl.pop();
   }
 
   ionViewWillEnter() {
