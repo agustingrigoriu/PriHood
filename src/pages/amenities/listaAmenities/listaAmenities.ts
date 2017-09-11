@@ -47,7 +47,8 @@ export class ListaAmenitiesPage {
 
   pageTurnosAmenity(amenity: Amenity) {
     this.navCtrl.push(TurnosAmenityPage, {
-      amenity: amenity
+      amenity: amenity,
+      fecha: this.fecha
     });;
   }
 
