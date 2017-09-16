@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title class='title-page'>Amenities</ion-title>
+    <ion-buttons start>
+      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
+        <img class="logoMenu-img" src="assets/img/logo_menu.png">
+        </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <div *ngIf='noHayAmenities()' class='infoAmenities-contenedor'>
+    <p class='infoAmenities'>No hay amenities registrados</p>
+  </div>
+
+  <ion-card *ngFor='let amenity of tipos_amenities' (click)='openAmenitiesListPage(amenity)'>
+    <img src="{{amenity.imagen}}" />
+    <div class="card-title">{{amenity.descripcion}}</div>
+  </ion-card>
+
+</ion-content>

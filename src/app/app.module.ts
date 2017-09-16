@@ -25,6 +25,8 @@ import { RegistroVisitaPage } from '../pages/visitas/registroVisita/registroVisi
 import { AlertasPage } from '../pages/alertas/alertas';
 import { TurnosAmenityPage } from '../pages/amenities/turnosAmenity/turnosAmenity';
 import { AmenitiesPage } from '../pages/amenities/amenities';
+import { NuevaReservaPage } from '../pages/amenities/nuevaReserva/nuevaReserva';
+import { MisReservasPage } from '../pages/amenities/misReservas/misReservas';
 import { ProveedoresPage } from '../pages/proveedores/proveedores';
 import { RegistroProveedorPage } from '../pages/proveedores/registroProveedor/registroProveedor';
 import { ValorarProveedorPage } from '../pages/proveedores/valorarProveedor/valorarProveedor';
@@ -57,6 +59,8 @@ const pages = [
   AlertasPage,
   CarpoolingPage,
   AmenitiesPage,
+  NuevaReservaPage,
+  MisReservasPage,
   TurnosAmenityPage,
   ProveedoresPage,
   RegistroProveedorPage,
