@@ -11,19 +11,26 @@
 </ion-header>
 
 <ion-content>
-  <div class='fechaTurno-contenedor'>
-    <h2 class='fechaTurno'>{{fecha | date}}</h2>
+  <div>
+    <span class="nombreAmenity">
+      <h4 class='infoAmenity'>{{amenity.nombre}}</h4>
+    </span>
+    <span class='fechaTurno'>
+      <h4 class='infoAmenity'>{{fecha | date}}</h4>
+     </span>
   </div>
-  <ion-card *ngFor='let turno of turnos' (click)='onSelectTurno(turno)'>
+  <ion-card *ngFor='let turno of turnos' (click)='onSelectTurno(turno)' [ngClass]="{'cardDisponible': turnoDisponible(), 'cardNoDisponible': !turnoDisponible()}">
     <ion-card-header>
       <ion-item>
-        <h2 item-start>{{turno.hora_desde}} - {{turno.hora_desde}}</h2>
+        <h2 item-start>{{turno.horaDesde }} - {{turno.duracion}}</h2>
+        <h5 item-end *ngIf='turnoDisponible()' class='turnoDisponible'>Disponible</h5>
         <ion-icon *ngIf='turnoDisponible()' item-end name="checkmark-circle" class='turnoDisponible'></ion-icon>
+        <h5 item-end  *ngIf='!turnoDisponible()' class='turnoNoDisponible'>No disponible</h5>
         <ion-icon *ngIf='!turnoDisponible()' item-end name="close-circle" class='turnoNoDisponible'></ion-icon>
       </ion-item>
       <ion-item>
         <p item-start class='infoTurno'>{{turno.nombre}}</p>
-        <p item-end class='infoTurno'>Costo: $ {{turno.costo}}</p>
+        <p item-end class='infoTurno'>Costo: {{turno.costo | currency}}</p>
       </ion-item>
     </ion-card-header>
   </ion-card>

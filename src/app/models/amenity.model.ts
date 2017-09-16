@@ -1,3 +1,5 @@
+import { Turno } from './turno.model';
+
 export interface Amenity {
   id: number;
   ubicacion: string;
@@ -6,4 +8,5 @@ export interface Amenity {
   telefono: string;
   id_tipo_amenity: number;
   id_barrio: number;
+  turnos?: Turno[];
 }

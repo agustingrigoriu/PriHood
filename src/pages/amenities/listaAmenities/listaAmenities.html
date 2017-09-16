@@ -15,7 +15,8 @@
   <ion-list>
     <ion-item>
       <ion-label>Fecha: </ion-label>
-      <ion-datetime displayFormat="MMMM DD, YYYY" pickerFormat="DD MMM YY" min='2017' max='2030' [(ngModel)]="fecha" monthNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Setiembre, Octubre, Noviembre, Diciembre"
+      <ion-datetime displayFormat="MMMM DD, YYYY" pickerFormat="DD MMM YY" min='2017' max='2030' [(ngModel)]="fecha" (ionChange)="fechaSeleccionada($event)"
+        monthNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Setiembre, Octubre, Noviembre, Diciembre"
         monthShortNames="ene, feb, mar, abr, may, jun, jul, ago, set, oct, nov, dic"></ion-datetime>
     </ion-item>
   </ion-list>
@@ -39,9 +40,6 @@
         <span item-left class='descripcionAmenity'>
           <p class='infoAmenity'>{{amenity.descripcion}}</p>
       </span>
-      </ion-item>
-      <ion-item>
-        <p item-end class='estadoAmenity'>Disponible</p>
       </ion-item>
     </ion-card-content>
   </ion-card>

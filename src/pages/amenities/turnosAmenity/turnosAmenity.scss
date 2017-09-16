@@ -10,13 +10,25 @@
   padding: 0 0;
 }
 
-.fechaTurno-contenedor{
-  text-align: center;
+.fechaTurno{
+  float: right;
 }
 
-.fechaTurno{
-  font-size: 1.8rem !important;
-  color: #007aff !important;
+.nombreAmenity{
+  float: left;
+}
+
+.infoAmenity{
+  font-size: 1.2rem !important;
+  padding: 0 16px;
+}
+
+.cardDisponible{
+  border-top: 5px solid #32db64 !important;
+}
+
+.cardNoDisponible{
+  border-top: 5px solid #f53d3d !important;
 }
 
 turnosAmenity ion-content{

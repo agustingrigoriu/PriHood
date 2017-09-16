@@ -27,7 +27,7 @@ export class ListaAmenitiesPage {
 
   async getListaAmenities() {
     try {
-      const response = await this.AmenitiesService.getListaAmenities(this.tipo_amenity.id);
+      const response = await this.AmenitiesService.getListaAmenities(this.tipo_amenity.id, this.fecha);
       if (response.error) throw 'error';
       this.amenities = response.data;
     } catch (error) {
@@ -38,6 +38,10 @@ export class ListaAmenitiesPage {
       });
       alertMessage.present();
     }
+  }
+
+  fechaSeleccionada(fecha) {
+    this.getListaAmenities();
   }
 
   onSelectAmenity(amenitySeleccionado: Amenity) {
