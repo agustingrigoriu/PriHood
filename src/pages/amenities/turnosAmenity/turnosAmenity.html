@@ -19,14 +19,14 @@
       <h4 class='infoAmenity'>{{fecha | date}}</h4>
      </span>
   </div>
-  <ion-card *ngFor='let turno of turnos' (click)='onSelectTurno(turno)' [ngClass]="{'cardDisponible': turnoDisponible(), 'cardNoDisponible': !turnoDisponible()}">
+  <ion-card *ngFor='let turno of turnos' (click)='onSelectTurno(turno)' [ngClass]="{'cardDisponible': !turno.reservado, 'cardNoDisponible': turno.reservado}">
     <ion-card-header>
       <ion-item>
-        <h2 item-start>{{turno.horaDesde }} - {{turno.duracion}}</h2>
-        <h5 item-end *ngIf='turnoDisponible()' class='turnoDisponible'>Disponible</h5>
-        <ion-icon *ngIf='turnoDisponible()' item-end name="checkmark-circle" class='turnoDisponible'></ion-icon>
-        <h5 item-end  *ngIf='!turnoDisponible()' class='turnoNoDisponible'>No disponible</h5>
-        <ion-icon *ngIf='!turnoDisponible()' item-end name="close-circle" class='turnoNoDisponible'></ion-icon>
+        <h2 item-start>{{turno.horario_comienza }} - {{turno.horario_fin}}</h2>
+        <h5 *ngIf='!turno.reservado' item-end class='turnoDisponible'>Disponible</h5>
+        <ion-icon *ngIf='!turno.reservado' item-end name="checkmark-circle" class='turnoDisponible'></ion-icon>
+        <h5 *ngIf='turno.reservado' item-end class='turnoNoDisponible'>No disponible</h5>
+        <ion-icon *ngIf='turno.reservado' item-end name="close-circle" class='turnoNoDisponible'></ion-icon>
       </ion-item>
       <ion-item>
         <p item-start class='infoTurno'>{{turno.nombre}}</p>

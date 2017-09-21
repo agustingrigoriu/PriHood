@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams, ToastController } from 'ionic-angular';
 import * as moment from 'moment';
 
+import { AmenitiesPage } from '../amenities';
 import { Amenity } from '../../../app/models/amenity.model';
 import { Turno } from '../../../app/models/turno.model';
 import { AmenitiesService } from '../amenities.service';
@@ -16,7 +17,7 @@ export class TurnosAmenityPage {
   private amenity: Amenity;
   private fecha: any;
   private turnoSeleccionado: Turno;
-  private turnos: Turno[];
+  private turnos;
   private defaultDate = new Date(2017, 1, 6);
 
   constructor(public navCtrl: NavController,
@@ -28,16 +29,11 @@ export class TurnosAmenityPage {
     this.fecha = navParams.get("fecha");
   }
 
-  //solo a modo de prueba hasta definir modo de manejo de visualizacion de disponibilidad
-  turnoDisponible() {
-    return true;
-  }
-
   async getTurnosAmenity() {
     try {
       const response = await this.AmenitiesService.getTurnosAmenity(this.amenity.id, this.fecha);
       if (response.error) throw 'error';
-      this.turnos = response.data.turnos;
+      this.turnos = response.data.turnos.map(this.horarioTurno.bind(this));
     } catch (error) {
       const alertMessage = this.alertCtrl.create({
         title: 'Sin conexión',
@@ -52,19 +48,17 @@ export class TurnosAmenityPage {
     this.navCtrl.pop();
   }
 
-  //Reemplazar metodo, para obtener hora de finalizacion del turno
   horarioTurno(turno: Turno) {
     const [hours, minutes] = turno.horaDesde.split(':');
-    const startTurno = hours.concat(':', minutes);
 
-    //moment para sumar duracion de turno
     const start = moment(this.defaultDate).clone().add(+hours, 'hours').add(+minutes, 'minutes');
     const end = start.clone().add(turno.duracion, 'minutes');
 
-    //ASQUEROSA MANERA DE OBTENER LA HORA DE FINALIZACION DEL TURNO - Reemplazar!
-    const endHours = (end.toDate().getHours().toString());
-    const endMinutes = (end.toDate().getMinutes().toString());
-    const endTurno = endHours.concat(':', endMinutes);
+    return {
+      ...turno,
+      horario_comienza: start.format('HH:mm'),
+      horario_fin: end.format('HH:mm')
+    };
   }
 
   ionViewWillEnter() {
@@ -73,6 +67,61 @@ export class TurnosAmenityPage {
 
   onSelectTurno(turnoSeleccionado) {
     this.turnoSeleccionado = turnoSeleccionado;
+    if (!turnoSeleccionado.reservado) {
+      this.confirmarReserva();
+    } else {
+      const alertMessage = this.alertCtrl.create({
+        title: 'Turno no disponible',
+        message: 'Este turno no se encuentra disponible',
+        buttons: ['Ok']
+      });
+      alertMessage.present();
+    }
+  }
+
+  confirmarReserva() {
+    const ts = this.horarioTurno(this.turnoSeleccionado);
+    const confirm = this.alertCtrl.create({
+      title: '¿Reservar este turno?',
+      message: this.amenity.nombre + '<br>' + ts.horario_comienza + ' - ' + ts.horario_fin,
+      buttons: [
+        {
+          text: 'Cancelar',
+        },
+        {
+          text: 'Reservar',
+          handler: () => {
+            this.reservarTurno(this.fecha);
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  reservarTurno(fecha) {
+    const reserva = {
+      fecha,
+      observaciones: ''
+    };
+    this.AmenitiesService.reservarTurno(this.turnoSeleccionado.id, reserva).then(response => {
+      if (response.error) {
+        this.presentToast('No se pudo registrar la reserva.');
+      } else {
+        this.presentToast('Su turno fué reservado correctamente.');
+        this.navCtrl.setRoot(AmenitiesPage);
+      }
+
+    })
+  }
+
+  presentToast(message: string) {
+    const toast = this.toastCtrl.create({
+      message,
+      duration: 3000,
+      position: 'bottom',
+    });
+    toast.present();
   }
 
 }

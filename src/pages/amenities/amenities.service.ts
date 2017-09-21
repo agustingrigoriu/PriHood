@@ -4,7 +4,7 @@ import { Proveedor } from '../../app/models/proveedor.model';
 import { ComentarioProveedor } from '../../app/models/comentarioProveedor.model';
 import { TipoAmenity } from '../../app/models/tipoAmenity.model';
 import { Amenity } from '../../app/models/amenity.model';
-import { Turno } from '../../app/models/turno.model';
+import { MiReserva } from '../../app/models/miReserva.model';
 
 @Injectable()
 export class AmenitiesService {
@@ -21,6 +21,14 @@ export class AmenitiesService {
 
   getTurnosAmenity(idAmenity: number, fecha: string){
     return this.request.get<Amenity>(`turnos/${idAmenity}/${fecha}`);
+  }
+
+  reservarTurno(idTurno: number, data){
+    return this.request.post<any>(`turnos/${idTurno}/reservar`, data);
+  }
+
+  getReservas(){
+    return this.request.get<MiReserva[]>(`turnos/reservas`);
   }
 
 }
