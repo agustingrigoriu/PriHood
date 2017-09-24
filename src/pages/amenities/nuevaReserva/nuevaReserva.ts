@@ -35,7 +35,7 @@ export class NuevaReservaPage {
   }
 
   openAmenitiesListPage(tipoAmenity: TipoAmenity) {
-    this.app.getRootNav().push(ListaAmenitiesPage, {
+    this.navCtrl.push(ListaAmenitiesPage, {
       tipo_amenity: tipoAmenity
     });;
   }
