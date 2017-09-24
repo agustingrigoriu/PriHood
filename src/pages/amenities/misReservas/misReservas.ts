@@ -15,7 +15,7 @@ export class MisReservasPage {
 
   reservas: any[] = [];
   tipos_amenities: object;
-  loading: boolean;
+  loading: boolean = true;
   private defaultDate = new Date(2017, 1, 6);
 
 
@@ -49,12 +49,16 @@ export class MisReservasPage {
     return (!this.loading && this.reservas.length === 0);
   }
 
+  estaCancelada(miReserva: MiReserva){
+    return (miReserva.reserva.estado != "creada")
+  }
+
   async getTiposAmenities() {
     try {
       const response = await this.AmenitiesService.getTiposAmenities();
       if (response.error) throw 'error';
 
-      this.tipos_amenities = response.data.reduce<object>((objeto, tipo) => ({...objeto, [tipo.id]: tipo}), {});
+      this.tipos_amenities = response.data.reduce<object>((objeto, tipo) => ({ ...objeto, [tipo.id]: tipo }), {});
     } catch (error) {
       const alertMessage = this.alertCtrl.create({
         title: 'Sin conexión',
@@ -80,6 +84,40 @@ export class MisReservasPage {
         horario_fin: end.format('HH:mm')
       }
     };
+  }
+
+  async cancelarReserva(reservaSeleccionada: MiReserva) {
+    try {
+      const id_reserva = reservaSeleccionada.reserva.id; 
+      await this.AmenitiesService.cancelarReserva(id_reserva);
+      this.actualizar();
+    } catch (error) {
+      const alertMessage = this.alertCtrl.create({
+        title: 'Error',
+        message: 'No se pudo cancelar la reserva. Intente nuevamente',
+        buttons: ['Ok']
+      });
+      alertMessage.present();
+    }
+  }
+
+  confirmarCancelacion(reservaSeleccionada: MiReserva) {
+    const confirm = this.alertCtrl.create({
+      title: 'Cancelar reserva',
+      message: '¿Está seguro que desea cancelar su reserva?',
+      buttons: [
+        {
+          text: 'No',
+        },
+        {
+          text: 'Si, seguro',
+          handler: () => {
+            this.cancelarReserva(reservaSeleccionada);
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }

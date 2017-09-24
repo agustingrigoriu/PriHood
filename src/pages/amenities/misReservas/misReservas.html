@@ -16,7 +16,7 @@
     </p>
   </div>
 
-  <ion-card *ngFor='let miReserva of reservas'>
+  <ion-card *ngFor='let miReserva of reservas' [ngClass]="{'cardReservaCancelada': estaCancelada(miReserva)}">
     <ion-item>
       <ion-icon class='calendarIcon' item-start name="calendar"></ion-icon>
       <h3 item-start>{{miReserva.reserva.fecha | date: 'dd / MM / yy' }}</h3>
@@ -27,8 +27,11 @@
       <h2 item-end>{{miReserva.amenity.nombre}}</h2>
     </ion-item>
     <ion-item>
-      <div class='cancelarReserva'>
-        <button ion-button icon-left clear>
+      <div class="reservaCancelada" *ngIf='estaCancelada(miReserva)'>
+        <div class="reservaCancelada-texto">Cancelada</div>
+      </div>
+      <div class='cancelarReserva' *ngIf='!estaCancelada(miReserva)'>
+        <button ion-button icon-left clear (click)='confirmarCancelacion(miReserva)'>
         <b><ion-icon name="close" class="cancelarIcono"></ion-icon></b>
         <div class="cancelarReserva">Cancelar reserva</div>
       </button>

@@ -15,20 +15,24 @@ export class AmenitiesService {
     return this.request.get<TipoAmenity[]>(`tipos/amenities`);
   }
 
-  getListaAmenities(idTipoAmenity: number, fecha: string){
+  getListaAmenities(idTipoAmenity: number, fecha: string) {
     return this.request.get<Amenity[]>(`amenities/${idTipoAmenity}/${fecha}`);
   }
 
-  getTurnosAmenity(idAmenity: number, fecha: string){
+  getTurnosAmenity(idAmenity: number, fecha: string) {
     return this.request.get<Amenity>(`turnos/${idAmenity}/${fecha}`);
   }
 
-  reservarTurno(idTurno: number, data){
+  reservarTurno(idTurno: number, data) {
     return this.request.post<any>(`turnos/${idTurno}/reservar`, data);
   }
 
-  getReservas(){
+  getReservas() {
     return this.request.get<MiReserva[]>(`turnos/reservas`);
+  }
+
+  cancelarReserva(id_reserva: number) {
+    return this.request.put<any>(`turnos/reservas/${id_reserva}/cancelar`)
   }
 
 }

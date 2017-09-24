@@ -62,7 +62,6 @@ export class ProveedoresPage {
   }
 
   onSelectProveedor(proveedorSeleccionado) {
-
     this.proveedorSeleccionado = proveedorSeleccionado;
     this.pageValorarProveedor();
   }
