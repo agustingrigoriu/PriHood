@@ -23,7 +23,7 @@ export class VisitasActualesTab {
   }
 
   pageRegistrarVisita() {
-    this.app.getRootNav().push(RegistroVisitaPage, {
+    this.navCtrl.push(RegistroVisitaPage, {
       id_Tab: this.id_Tab
     });;
   }
@@ -50,7 +50,7 @@ export class VisitasActualesTab {
   }
 
   pageDetalleVisita() {
-    this.app.getRootNav().push(VisitasDetallePage, {
+    this.navCtrl.push(VisitasDetallePage, {
       visitante: this.visitante,
       id_Tab: this.id_Tab
     });;

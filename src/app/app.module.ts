@@ -83,7 +83,9 @@ const pages = [
     HttpModule,
     HttpClientModule,
     Ionic2RatingModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: true
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

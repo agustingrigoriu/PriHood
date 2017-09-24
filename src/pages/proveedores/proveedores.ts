@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { ProveedorService } from './proveedores.service';
 import { RegistroProveedorPage } from './registroProveedor/registroProveedor';
 import { ValorarProveedorPage } from './valorarProveedor/valorarProveedor';
@@ -17,11 +17,10 @@ export class ProveedoresPage {
   private tipo_servicio: any;
   private proveedorSeleccionado: any;
 
-  constructor(private ProveedorService: ProveedorService, public app: App) {
-  }
+  constructor(private ProveedorService: ProveedorService, public navCtrl: NavController) {}
 
   pageRegistrarProveedor() {
-    this.app.getRootNav().push(RegistroProveedorPage);
+    this.navCtrl.push(RegistroProveedorPage);
   }
 
   servicioSeleccionado(tipo_servicio) {
@@ -45,7 +44,6 @@ export class ProveedoresPage {
       });
     } else {
       this.servicioSeleccionado(tipo_servicio);
-
     }
   }
 
@@ -70,7 +68,7 @@ export class ProveedoresPage {
   }
 
   pageValorarProveedor() {
-    this.app.getRootNav().push(ValorarProveedorPage, {
+    this.navCtrl.push(ValorarProveedorPage, {
       proveedor: this.proveedorSeleccionado
     });;
   }

@@ -30,7 +30,7 @@ export class VisitasFrecuentesTab {
   }
 
   pageRegistrarVisita() {
-    this.app.getRootNav().push(RegistroVisitaPage, {
+    this.navCtlr.push(RegistroVisitaPage, {
       id_Tab: this.id_Tab
     });;
   }
@@ -53,7 +53,7 @@ export class VisitasFrecuentesTab {
   }
 
   pageDetalleVisita() {
-    this.app.getRootNav().push(VisitasDetallePage, {
+    this.navCtlr.push(VisitasDetallePage, {
       visitante: this.visitante,
       id_Tab: this.id_Tab
     });;

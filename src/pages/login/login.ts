@@ -36,7 +36,7 @@ export class LoginPage {
       this.loginService.postPushToken(pushToken);
 
       // redirijo al usuario al menu principal
-      this.navCtrl.push(MenuPage);
+      this.navCtrl.setRoot(MenuPage);
     });
   }
 
