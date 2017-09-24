@@ -14,6 +14,7 @@ import { MiReserva } from '../../../app/models/miReserva.model';
 export class MisReservasPage {
 
   reservas: any[] = [];
+  tipos_amenities: object;
   loading: boolean;
   private defaultDate = new Date(2017, 1, 6);
 
@@ -22,13 +23,14 @@ export class MisReservasPage {
     public alertCtrl: AlertController, ) {
   }
 
-  ionViewWillEnter() {
-    this.actualizar();
+  async ionViewWillEnter() {
+    await this.getTiposAmenities();
+    await this.actualizar();
   }
 
   actualizar() {
     this.loading = true;
-    this.AmenitiesService.getReservas().then(response => {
+    return this.AmenitiesService.getReservas().then(response => {
       if (response.error) {
         const alertMessage = this.alertCtrl.create({
           title: 'Sin conexión',
@@ -45,6 +47,22 @@ export class MisReservasPage {
 
   noHayReservas() {
     return (!this.loading && this.reservas.length === 0);
+  }
+
+  async getTiposAmenities() {
+    try {
+      const response = await this.AmenitiesService.getTiposAmenities();
+      if (response.error) throw 'error';
+
+      this.tipos_amenities = response.data.reduce<object>((objeto, tipo) => ({...objeto, [tipo.id]: tipo}), {});
+    } catch (error) {
+      const alertMessage = this.alertCtrl.create({
+        title: 'Sin conexión',
+        message: 'Vuelva a intentar',
+        buttons: ['Ok']
+      });
+      alertMessage.present();
+    }
   }
 
   horarioTurno(miReserva: MiReserva): MiReserva {

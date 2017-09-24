@@ -10,3 +10,25 @@
 .infoReserva{
   padding: 0 0;
 }
+
+.calendarIcon{
+  color: #908989;
+}
+
+.cancelarReserva{
+  text-align: center;
+  color: #908989;
+}
+
+.cancelarIcono{
+  color: #e13838;
+}
+
+misReservas ion-card{
+  border-top: 5px solid #007aff;
+  text-align: left !important;
+}
+
+misReservas ion-content{
+  background-color: #E1E1E1 !important;
+}

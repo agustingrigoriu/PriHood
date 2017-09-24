@@ -13,10 +13,10 @@
 <ion-content>
   <div>
     <span class="nombreAmenity">
-      <h4 class='infoAmenity'>{{amenity.nombre}}</h4>
+      <h3 class='infoAmenity'>Amenity: <b>{{amenity.nombre}}</b></h3>
     </span>
     <span class='fechaTurno'>
-      <h4 class='infoAmenity'>{{fecha | date}}</h4>
+      <h3 class='infoAmenity'>Fecha: <b>{{fecha | date}}</b></h3>
      </span>
   </div>
   <ion-card *ngFor='let turno of turnos' (click)='onSelectTurno(turno)' [ngClass]="{'cardDisponible': !turno.reservado, 'cardNoDisponible': turno.reservado}">
@@ -30,7 +30,7 @@
       </ion-item>
       <ion-item>
         <p item-start class='infoTurno'>{{turno.nombre}}</p>
-        <p item-end class='infoTurno'>Costo: {{turno.costo | currency}}</p>
+        <p item-end class='infoTurno'>Costo: {{turno.costo | currency:'USD':true:'1.0-0'}}</p>
       </ion-item>
     </ion-card-header>
   </ion-card>

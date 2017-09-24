@@ -1,16 +1,24 @@
+.infoAmenities-contenedor{
+  text-align: center;
+}
+
+.infoAmenities{
+  color: #003777;
+  font-size: 14px;
+}
+
 .icono-amenity{
   width: 50px;
   opacity: 0.8;
-
 }
 
-.infoAmenity{
-  padding: 0 0;
+.infoAmenity-lista{
+  padding: 0 0 !important;
 }
 
-.iconAmenity{
-  color: #908989;
-  padding: 3px 3px;
+.infoAmenity-tipo{
+  padding: 0 0 !important;
+  color: #007aff !important;
 }
 
 .descripcionAmenity{
@@ -24,6 +32,10 @@
 .estadoAmenity{
   color: #32db64 !important;
   padding: 0 0;
+}
+
+.ubicacionAmenity{
+  padding: 0 0 !important;
 }
 
 .iconButton{

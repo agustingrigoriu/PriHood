@@ -16,17 +16,23 @@
     </p>
   </div>
 
-  <ion-card *ngFor='let reserva of reservas'>
-    <ion-card-header>
-      <ion-item>
-        <h2 item-start>{{reserva.turno.horario_comienza }} - {{reserva.turno.horario_fin}}</h2>
-      </ion-item>
-      <ion-item>
-        <p item-start class='infoReserva'>{{reserva.turno.nombre}}</p>
-        <p item-end class='infoReserva'>Costo: {{reserva.reserva.costo | currency}}</p>
-      </ion-item>
-    </ion-card-header>
+  <ion-card *ngFor='let miReserva of reservas'>
+    <ion-item>
+      <ion-icon class='calendarIcon' item-start name="calendar"></ion-icon>
+      <h3 item-start>{{miReserva.reserva.fecha | date: 'dd / MM / yy' }}</h3>
+      <h3 item-end>{{miReserva.turno.horario_comienza }} - {{miReserva.turno.horario_fin}} hs</h3>
+    </ion-item>
+    <ion-item>
+      <h2 item-start>{{tipos_amenities[miReserva.amenity.idTipoAmenity].descripcion}}</h2>
+      <h2 item-end>{{miReserva.amenity.nombre}}</h2>
+    </ion-item>
+    <ion-item>
+      <div class='cancelarReserva'>
+        <button ion-button icon-left clear>
+        <b><ion-icon name="close" class="cancelarIcono"></ion-icon></b>
+        <div class="cancelarReserva">Cancelar reserva</div>
+      </button>
+      </div>
+    </ion-item>
   </ion-card>
-
-
 </ion-content>
