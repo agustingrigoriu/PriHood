@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title class='title-page'>Amenities</ion-title>
+    <ion-buttons start>
+      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
+        <img class="logoMenu-img" src="assets/img/logo_menu.png">
+        </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="infoReservas-contenedor" *ngIf='noHayReservas()'>
+    <p class="infoReservas">
+      No existen reservas de amenities agendadas
+    </p>
+  </div>
+
+  <ion-card *ngFor='let reserva of reservas'>
+    <ion-card-header>
+      <ion-item>
+        <h2 item-start>{{reserva.turno.horario_comienza }} - {{reserva.turno.horario_fin}}</h2>
+      </ion-item>
+      <ion-item>
+        <p item-start class='infoReserva'>{{reserva.turno.nombre}}</p>
+        <p item-end class='infoReserva'>Costo: {{reserva.reserva.costo | currency}}</p>
+      </ion-item>
+    </ion-card-header>
+  </ion-card>
+
+
+</ion-content>

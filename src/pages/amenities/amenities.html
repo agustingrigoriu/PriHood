@@ -1,16 +1,5 @@
-<ion-header>
-  <ion-toolbar color="prihood">
-    <ion-title class='title-page'>Amenities</ion-title>
-    <ion-buttons start>
-      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
-        <img class="logoMenu-img" src="assets/img/logo_menu.png">
-        </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs color='prihood'>
+      <ion-tab tabIcon="list-box" tabTitle="Mis reservas"[root]="misReservas"></ion-tab>
+      <ion-tab tabIcon="add-circle" tabTitle="Nueva reserva" [root]="nuevaReserva"></ion-tab>
+</ion-tabs>
 
-<ion-content>
-  <p class='infoModulo'>
-    Este es el modulo de Reserva de turnos de Amenities
-  </p>
-</ion-content>

@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QRScanner } from '@ionic-native/qr-scanner';
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 //Pages
 import { QRScannerPage } from '../pages/usuario/qrscanner/qrscanner';
@@ -22,13 +23,18 @@ import { RegistroUsuarioPage } from '../pages/usuario/registroUsuario/registroUs
 import { CodigoRegistroPage } from '../pages/usuario/codigoRegistro/codigoRegistro';
 import { RegistroVisitaPage } from '../pages/visitas/registroVisita/registroVisita';
 import { AlertasPage } from '../pages/alertas/alertas';
+import { TurnosAmenityPage } from '../pages/amenities/turnosAmenity/turnosAmenity';
 import { AmenitiesPage } from '../pages/amenities/amenities';
+import { NuevaReservaPage } from '../pages/amenities/nuevaReserva/nuevaReserva';
+import { MisReservasPage } from '../pages/amenities/misReservas/misReservas';
 import { ProveedoresPage } from '../pages/proveedores/proveedores';
 import { RegistroProveedorPage } from '../pages/proveedores/registroProveedor/registroProveedor';
+import { ValorarProveedorPage } from '../pages/proveedores/valorarProveedor/valorarProveedor';
 import { CarpoolingPage } from '../pages/carpooling/carpooling';
 import { ExpensasPage } from '../pages/expensas/expensas';
-
-
+import { ComunicacionPage } from '../pages/comunicacion/comunicacion';
+import { EventosPage } from '../pages/eventos/eventos';
+import { ListaAmenitiesPage } from '../pages/amenities/listaAmenities/listaAmenities';
 
 //Services
 import { ApiRequestService } from '../services/api.request.service';
@@ -37,6 +43,7 @@ import { CodigoRegistroService } from '../pages/usuario/codigoRegistro/codigoReg
 import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registroUsuario.service';
 import { ProveedorService } from '../pages/proveedores/proveedores.service';
 import { VisitanteService } from '../pages/visitas/visitas.service';
+import { AmenitiesService } from '../pages/amenities/amenities.service';
 
 // Incluir las paginas acá
 const pages = [
@@ -52,10 +59,17 @@ const pages = [
   AlertasPage,
   CarpoolingPage,
   AmenitiesPage,
+  NuevaReservaPage,
+  MisReservasPage,
+  TurnosAmenityPage,
   ProveedoresPage,
   RegistroProveedorPage,
   ExpensasPage,
+  ValorarProveedorPage,
+  ListaAmenitiesPage,
   VisitasDetallePage,
+  ComunicacionPage,
+  EventosPage,
   MenuPage,
   QRScannerPage
 ];
@@ -68,6 +82,7 @@ const pages = [
     BrowserModule,
     HttpModule,
     HttpClientModule,
+    Ionic2RatingModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: true
     })
@@ -79,6 +94,7 @@ const pages = [
   providers: [
     StatusBar,
     SplashScreen,
+    AmenitiesService,
     QRScanner,
     ApiRequestService,
     CodigoRegistroService,

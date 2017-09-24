@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ProveedorService } from './proveedores.service';
 import { RegistroProveedorPage } from './registroProveedor/registroProveedor';
+import { ValorarProveedorPage } from './valorarProveedor/valorarProveedor';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class ProveedoresPage {
   private tipos_servicio: any[] = [];
   private proveedores: any[] = [];
   private tipo_servicio: any;
+  private proveedorSeleccionado: any;
 
   constructor(private ProveedorService: ProveedorService, public navCtrl: NavController) {}
 
@@ -59,8 +61,19 @@ export class ProveedoresPage {
     return (this.proveedores.length === 0);
   }
 
-  onInput(textoBuscado: any) {
+  onSelectProveedor(proveedorSeleccionado) {
 
+    this.proveedorSeleccionado = proveedorSeleccionado;
+    this.pageValorarProveedor();
+  }
+
+  pageValorarProveedor() {
+    this.app.getRootNav().push(ValorarProveedorPage, {
+      proveedor: this.proveedorSeleccionado
+    });;
+  }
+
+  onInput(textoBuscado: any) {
   }
 
   ngOnInit() {

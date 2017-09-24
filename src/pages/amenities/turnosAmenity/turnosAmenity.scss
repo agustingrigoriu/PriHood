@@ -1,0 +1,36 @@
+.turnoDisponible{
+  color: #32db64;
+}
+
+.turnoNoDisponible{
+  color: #f53d3d;
+}
+
+.infoTurno{
+  padding: 0 0;
+}
+
+.fechaTurno{
+  float: right;
+}
+
+.nombreAmenity{
+  float: left;
+}
+
+.infoAmenity{
+  font-size: 1.2rem !important;
+  padding: 0 16px;
+}
+
+.cardDisponible{
+  border-top: 5px solid #32db64 !important;
+}
+
+.cardNoDisponible{
+  border-top: 5px solid #f53d3d !important;
+}
+
+turnosAmenity ion-content{
+  background-color: #E1E1E1 !important;
+}
