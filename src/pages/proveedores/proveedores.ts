@@ -68,7 +68,7 @@ export class ProveedoresPage {
   }
 
   pageValorarProveedor() {
-    this.app.getRootNav().push(ValorarProveedorPage, {
+    this.navCtrl.push(ValorarProveedorPage, {
       proveedor: this.proveedorSeleccionado
     });;
   }
