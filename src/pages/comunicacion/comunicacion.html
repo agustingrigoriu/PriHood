@@ -10,7 +10,36 @@
 </ion-header>
 
 <ion-content>
-  <p class='infoModulo'>
-    Este es el modulo de comunicaciones
-  </p>
+
+  <div class="infoBarrio-contenedor">
+    <br>
+    <p class="infoBarrio">
+      Bienvenido al barrio
+    </p>
+    <h2 class='infoBarrio-nombre'>El Tipal</h2>
+  </div>
+
+  <ion-card *ngFor='let publicacion of publicaciones'>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/img/pruebas/fondoAzul.png">
+      </ion-avatar>
+      <p class='emisor'>{{publicacion.perfil}}</p>
+      <h2>{{publicacion.titulo}}</h2>
+    </ion-item>
+    <ion-card-content>
+      <p class='textoPublicacion'>{{publicacion.texto.substr(0,80)}}...</p>
+    </ion-card-content>
+
+    <ion-item>
+      <button item-start ion-button icon-left clear small (click)='detallesPublicacion(publicacion)'>
+        <ion-icon name="text"></ion-icon>
+        <div>Comentarios</div>
+      </button>
+      <ion-note item-end>
+        {{publicacion.fecha | date: 'dd/M'}}
+      </ion-note>
+    </ion-item>
+  </ion-card>
+
 </ion-content>

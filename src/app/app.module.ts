@@ -33,6 +33,7 @@ import { ValorarProveedorPage } from '../pages/proveedores/valorarProveedor/valo
 import { CarpoolingPage } from '../pages/carpooling/carpooling';
 import { ExpensasPage } from '../pages/expensas/expensas';
 import { ComunicacionPage } from '../pages/comunicacion/comunicacion';
+import { DetallePublicacionPage } from '../pages/comunicacion/detallePublicacion/detallePublicacion';
 import { EventosPage } from '../pages/eventos/eventos';
 import { ListaAmenitiesPage } from '../pages/amenities/listaAmenities/listaAmenities';
 
@@ -44,6 +45,7 @@ import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registr
 import { ProveedorService } from '../pages/proveedores/proveedores.service';
 import { VisitanteService } from '../pages/visitas/visitas.service';
 import { AmenitiesService } from '../pages/amenities/amenities.service';
+import { ComunicacionService } from '../pages/comunicacion/comunicacion.service';
 
 // Incluir las paginas acá
 const pages = [
@@ -71,6 +73,7 @@ const pages = [
   ComunicacionPage,
   EventosPage,
   MenuPage,
+  DetallePublicacionPage,
   QRScannerPage
 ];
 
@@ -102,6 +105,7 @@ const pages = [
     ProveedorService,
     LoginService,
     VisitanteService,
+    ComunicacionService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

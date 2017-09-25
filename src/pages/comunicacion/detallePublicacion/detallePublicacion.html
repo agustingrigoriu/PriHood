@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="prihood">
-    <ion-title>Valoración de servicio</ion-title>
+    <ion-title>Comunicación</ion-title>
     <ion-buttons start>
       <button ion-button (click)="volver()">
         <span ion-text color="primary" showWhen="ios">Volver</span>
@@ -11,43 +11,52 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor='let comentario of comentarios'>
+
+  <ion-card>
     <ion-item>
       <ion-avatar item-start>
-        <img src="{{comentario.avatar}}">
+        <img src="assets/img/pruebas/fondoAzul.png">
       </ion-avatar>
-      <h3>{{comentario.nombre}} {{comentario.apellido}}</h3>
+      <p class='emisor'>{{publicacion.perfil}}</p>
+      <h2>{{publicacion.titulo}}</h2>
     </ion-item>
     <ion-card-content>
-      <p class='comentario'>"{{comentario.mensaje}}."</p>
+      <p class='textoPublicacion'>{{publicacion.texto}}</p>
     </ion-card-content>
     <ion-item>
-      <span item-left>
-        <rating [(ngModel)]="comentario.rating" readOnly="true" class='stars'></rating>
-      </span>
+      <ion-note item-end>
+        {{publicacion.fecha | date: 'dd/MM/yy'}}
+      </ion-note>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card *ngFor='let comentario of comentarios'>
+    <ion-item>
+      <h3>{{comentario.usuario}}</h3>
+    </ion-item>
+    <ion-card-content>
+      <p class='comentario'>"{{comentario.comentario}}"</p>
+    </ion-card-content>
+    <ion-item>
       <p icon-right clear item-end class='fechaComentario'>{{comentario.fecha | date}}</p>
     </ion-item>
   </ion-card>
 </ion-content>
 
-
 <ion-footer>
   <ion-toolbar>
-    <form (ngSubmit)='votar(voto)'>
-
+    <form (ngSubmit)='comentar(comentario)'>
       <ion-grid>
         <ion-row>
           <ion-col col-12>
             <ion-item no-lines>
               <ion-label stacked>Comentario</ion-label>
-              <ion-textarea [(ngModel)]="voto.comentario" type="text" name="comentario"></ion-textarea>
+              <ion-textarea [(ngModel)]="comentario.comentario" type="text" name="comentario"></ion-textarea>
             </ion-item>
           </ion-col>
         </ion-row>
       </ion-grid>
-      <div class="rating-wrapper">
-        <rating [(ngModel)]="voto.rating" name='rating' class='calificacionStars'></rating>
-      </div>
       <ion-fab bottom right>
         <button ion-fab mini type="submit" id="btnRegistrarProveedor">
           <ion-icon name="arrow-forward"></ion-icon>
