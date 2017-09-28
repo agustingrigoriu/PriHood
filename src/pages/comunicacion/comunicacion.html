@@ -12,23 +12,27 @@
 <ion-content>
 
   <div class="infoBarrio-contenedor">
-    <br>
-    <p class="infoBarrio">
-      Bienvenido al barrio
-    </p>
-    <h2 class='infoBarrio-nombre'>El Tipal</h2>
+    <div class="imagen-fondo">
+
+    </div>
+    <div class="contenido">
+      <p>
+        Bienvenido al barrio
+      </p>
+      <h4>{{nombre_barrio}}</h4>
+    </div>
   </div>
 
   <ion-card *ngFor='let publicacion of publicaciones'>
     <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/pruebas/fondoAzul.png">
+      <ion-avatar item-end>
+        <img src="assets/img/pruebas/messi.png">
       </ion-avatar>
       <p class='emisor'>{{publicacion.perfil}}</p>
       <h2>{{publicacion.titulo}}</h2>
     </ion-item>
     <ion-card-content>
-      <p class='textoPublicacion'>{{publicacion.texto.substr(0,80)}}...</p>
+      <p class='textoPublicacion'>{{publicacion.texto}}</p>
     </ion-card-content>
 
     <ion-item>
@@ -41,5 +45,9 @@
       </ion-note>
     </ion-item>
   </ion-card>
+
+  <ion-fab bottom right>
+    <button ion-fab (click)="mensajeDirecto()"><ion-icon name="text"></ion-icon></button>
+  </ion-fab>
 
 </ion-content>

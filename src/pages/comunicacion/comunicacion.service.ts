@@ -14,4 +14,8 @@ export class ComunicacionService {
     return this.request.get<any>(`publicaciones/comentarios/${id_publicacion}`);
   }
 
+  comentar(id_publicacion, data){
+    return this.request.post<any>(`publicaciones/${id_publicacion}/comentar`, data);
+  }
+
 }

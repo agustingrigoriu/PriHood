@@ -1,3 +1,25 @@
 .fechaComentario{
   padding: 0 0 !important;
 }
+
+.publicacion{
+  background: #E1E1E1;
+
+  .card-publicacion{
+    width: 100%;
+    margin: 0;
+    padding: 10px 10px;
+  }
+}
+
+.comentario-usuario{
+  color: #007aff !important;
+}
+
+.toolbar-background-ios {
+    background: #e0e0e0;
+}
+
+detallePublicacion .scroll-content{
+  background-color: #f8f8f8;
+}

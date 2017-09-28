@@ -1,5 +1,5 @@
 export interface Comentario {
   id?: number;
-  comentario: string;
+  texto: string;
   fecha: Date;
 }
