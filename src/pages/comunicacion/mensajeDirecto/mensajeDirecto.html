@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title>Comunicación</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="volver()">
+        <span ion-text color="primary" showWhen="ios">Volver</span>
+        <ion-icon name="md-close" showWhen="android"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item class='mensaje-directo' *ngFor='let mensaje of mensajesDirectos' (click)='openChatBox(mensaje)'>
+      <h2>{{mensaje.titulo}}</h2>
+      <p>{{mensaje.texto}}</p>
+      <ion-note item-end>{{mensaje.fecha | date}}</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button ion-fab (click)="nuevoMensajeDirecto()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

@@ -5,6 +5,7 @@ import { Publicacion } from '../../app/models/publicacion.model';
 import { ComunicacionService } from './comunicacion.service';
 import { LoginService } from '../../services/login.service';
 import { DetallePublicacionPage } from './detallePublicacion/detallePublicacion';
+import { MensajeDirectoPage } from './mensajeDirecto/mensajeDirecto';
 @Component({
   selector: 'comunicacion',
   templateUrl: 'comunicacion.html'
@@ -35,6 +36,10 @@ export class ComunicacionPage {
     this.navCtrl.push(DetallePublicacionPage, {
       publicacion: this.publicacionSeleccionada
     });;
+  }
+
+  mensajesDirectos() {
+    this.navCtrl.push(MensajeDirectoPage);
   }
 
   ionViewWillEnter() {

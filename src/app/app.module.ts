@@ -34,6 +34,9 @@ import { CarpoolingPage } from '../pages/carpooling/carpooling';
 import { ExpensasPage } from '../pages/expensas/expensas';
 import { ComunicacionPage } from '../pages/comunicacion/comunicacion';
 import { DetallePublicacionPage } from '../pages/comunicacion/detallePublicacion/detallePublicacion';
+import { MensajeDirectoPage } from '../pages/comunicacion/mensajeDirecto/mensajeDirecto';
+import { NuevoMensajeDirectoPage } from '../pages/comunicacion/mensajeDirecto/nuevoMensajeDirecto/nuevoMensajeDirecto';
+import { ChatBoxMensajePage } from '../pages/comunicacion/mensajeDirecto/chatBoxMensaje/chatBoxMensaje';
 import { EventosPage } from '../pages/eventos/eventos';
 import { ListaAmenitiesPage } from '../pages/amenities/listaAmenities/listaAmenities';
 
@@ -74,6 +77,9 @@ const pages = [
   EventosPage,
   MenuPage,
   DetallePublicacionPage,
+  MensajeDirectoPage,
+  NuevoMensajeDirectoPage,
+  ChatBoxMensajePage,
   QRScannerPage
 ];
 

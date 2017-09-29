@@ -1,7 +1,8 @@
 export interface Publicacion {
   id?: number;
-  titulo: string,
+  titulo?: string,
   texto: string,
   fecha: Date,
-  perfil: string
+  perfil?: string
+  set_by_me?: boolean
 }

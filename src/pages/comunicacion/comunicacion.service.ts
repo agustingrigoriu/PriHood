@@ -14,8 +14,16 @@ export class ComunicacionService {
     return this.request.get<any>(`publicaciones/comentarios/${id_publicacion}`);
   }
 
-  comentar(id_publicacion, data){
+  comentar(id_publicacion, data) {
     return this.request.post<any>(`publicaciones/${id_publicacion}/comentar`, data);
+  }
+
+  getMensajesDirectos() {
+    return this.request.get<any>(`publicaciones/privadas`);
+  }
+
+  publicarMensajeDirecto(data) {
+    return this.request.post<any>(`publicaciones/publicar/directo`, data);
   }
 
 }
