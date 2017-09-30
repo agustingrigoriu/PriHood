@@ -13,7 +13,7 @@
 
   <ion-card *ngFor='let expensa of expensas' class='cardExpensa'>
     <ion-item class='mes-expensa'>
-      <h2 item-start>{{expensa.fecha_expensa | date: 'MMMM yy'}}</h2>
+      <h2 item-start>{{expensa.fecha_expensa | date: 'MMMM yy' | uppercase }}</h2>
       <button ion-fab item-end mini (click)='openExpensa(expensa)'><ion-icon name="open"></ion-icon></button>
     </ion-item>
     <ion-card-content>
