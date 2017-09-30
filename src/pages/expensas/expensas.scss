@@ -1,0 +1,39 @@
+.cardExpensa {
+  border-top: 5px solid #007aff !important;
+
+  .info-expensa { 
+    p {
+        padding: 0 0;
+
+        b {
+          color: #003777
+        }
+    }
+  }
+
+  .mes-expensa{
+    h2 {
+        color: #007aff !important;
+        font-size: 1.8rem;
+        margin: 2px 16px;
+        padding-top: 16px;
+    }
+  }
+}
+
+expensas .scroll-content {
+  background-color: #e0e0e0 !important;
+}
+
+expensas .fab-ios {
+  background-color: #003777;
+}
+
+expensas .item-ios [item-right], .item-ios [item-end] {
+    margin-top: 16px;
+}
+
+expensas .item-ios [item-left], .item-ios [item-start] {
+    margin: 8px 16px 8px 0;
+    margin-bottom: 0;
+}

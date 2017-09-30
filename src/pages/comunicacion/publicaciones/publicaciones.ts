@@ -14,7 +14,7 @@ import { MensajeDirectoPage } from '../mensajeDirecto/mensajeDirecto';
 
 export class PublicacionesPage {
 
-  private publicaciones: Publicacion[];
+  private publicaciones: any[] = [];
   private publicacionSeleccionada: Publicacion;
   private nombre_barrio;
 
@@ -37,6 +37,10 @@ export class PublicacionesPage {
     this.navCtrl.push(DetallePublicacionPage, {
       publicacion: this.publicacionSeleccionada
     });;
+  }
+
+  noHayPublicaciones() {
+    return (this.publicaciones.length === 0);
   }
 
   ionViewWillEnter() {

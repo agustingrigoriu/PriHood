@@ -10,7 +10,17 @@
 </ion-header>
 
 <ion-content>
-  <p class='infoModulo'>
-    Este es el modulo de expensas
-  </p>
+
+  <ion-card *ngFor='let expensa of expensas' class='cardExpensa'>
+    <ion-item class='mes-expensa'>
+      <h2 item-start>{{expensa.fecha_expensa | date: 'MMMM yy'}}</h2>
+      <button ion-fab item-end mini (click)='openExpensa(expensa)'><ion-icon name="open"></ion-icon></button>
+    </ion-item>
+    <ion-card-content>
+      <ion-item class='info-expensa'>
+        <p item-start>Vencimiento: <b>{{expensa.fecha_vencimiento | date: 'dd/MM/yy'}}</b></p>
+        <p item-end>Total: <b>{{expensa.monto | currency:'USD':true:'1.0-0'}}</b></p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

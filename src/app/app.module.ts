@@ -49,6 +49,7 @@ import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registr
 import { ProveedorService } from '../pages/proveedores/proveedores.service';
 import { VisitanteService } from '../pages/visitas/visitas.service';
 import { AmenitiesService } from '../pages/amenities/amenities.service';
+import { ExpensasService } from '../pages/expensas/expensas.service';
 import { ComunicacionService } from '../pages/comunicacion/comunicacion.service';
 
 // Incluir las paginas acá
@@ -113,6 +114,7 @@ const pages = [
     ProveedorService,
     LoginService,
     VisitanteService,
+    ExpensasService,
     ComunicacionService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]

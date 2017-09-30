@@ -23,6 +23,12 @@
     </div>
   </div>
 
+  <div class="infoSinPublicaciones" *ngIf='noHayPublicaciones()'>
+    <p>
+      No existen publicaciones para mostrar.
+    </p>
+  </div>
+
   <ion-card *ngFor='let publicacion of publicaciones'>
     <ion-item>
       <ion-avatar item-end>

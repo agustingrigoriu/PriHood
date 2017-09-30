@@ -17,7 +17,7 @@ import { NuevoMensajeDirectoPage } from './nuevoMensajeDirecto/nuevoMensajeDirec
 export class MensajeDirectoPage {
   @ViewChild(Content) content: Content;
 
-  private mensajesDirectos;
+  private mensajesDirectos: any[] = [];
   private mensajeSeleccionado: Publicacion;
   private nombre_barrio;
 
@@ -63,6 +63,10 @@ export class MensajeDirectoPage {
         this.mensajesDirectos = response.data;
       }
     });
+  }
+
+  noHayMensajes() {
+    return (this.mensajesDirectos.length === 0);
   }
 
   ionViewWillEnter() {

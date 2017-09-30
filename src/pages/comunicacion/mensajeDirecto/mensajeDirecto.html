@@ -22,6 +22,12 @@
     </div>
   </div>
 
+  <div class="infoSinPublicaciones" *ngIf='noHayMensajes()'>
+    <p>
+      No existen mensajes para mostrar.
+    </p>
+  </div>
+
   <ion-list>
     <ion-item class='mensaje-directo' *ngFor='let mensaje of mensajesDirectos' (click)='openChatBox(mensaje)'>
       <h2>{{mensaje.titulo}}</h2>
