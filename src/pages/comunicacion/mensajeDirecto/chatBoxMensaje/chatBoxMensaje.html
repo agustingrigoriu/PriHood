@@ -23,18 +23,18 @@
     </ion-card>
   </div>
 
-  <ion-card *ngFor='let comentario of comentarios' class='card-comentario'>
+  <ion-card *ngFor='let comentario of comentarios' class='card-comentario' [ngClass]="{'sentByMe': comentario.sent_by_me, 'sentByAdmin' : !comentario.sent_by_me}">
     <ion-item>
-      <h3 *ngIf='!by_me' item-start class='comentario-usuario'>Administración</h3>
-      <h3 *ngIf='by_me' item-end class='comentario-usuario'>Yo</h3>
+      <h3 *ngIf='!comentario.sent_by_me' item-start class='comentario-usuario'>Administración</h3>
+      <h3 *ngIf='comentario.sent_by_me' item-end class='comentario-usuario'>Yo</h3>
     </ion-item>
-    <ion-card-content [ngClass]="{'byMe': by_me, 'byAdministracion' : !by_me}">
+    <ion-card-content [ngClass]="{'byMe': comentario.sent_by_me, 'byAdministracion' : !comentario.sent_by_me}">
       <p>"{{comentario.comentario}}"</p>
+      <ion-item>
+        <p *ngIf='!comentario.sent_by_me' item-end class='fechaComentario'>{{comentario.fecha | date: 'dd MMM - HH:mm'}}</p>
+        <p *ngIf='comentario.sent_by_me' item-start class='fechaComentario'>{{comentario.fecha | date: 'dd MMM - HH:mm'}}</p>
+      </ion-item>
     </ion-card-content>
-    <ion-item>
-      <p *ngIf='!by_me' item-end class='fechaComentario'>{{comentario.fecha | date: 'dd MMM - HH:mm'}}</p>
-      <p *ngIf='by_me' item-start class='fechaComentario'>{{comentario.fecha | date: 'dd MMM - HH:mm'}}</p>
-    </ion-item>
   </ion-card>
 
 </ion-content>

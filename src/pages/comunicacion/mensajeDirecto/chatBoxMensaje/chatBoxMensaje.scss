@@ -12,6 +12,9 @@
   p {
     padding: 0 16px;
   }
+  h3 {
+    padding: 0 16px;
+  }
 }
 
 .comentario-usuario{
@@ -28,4 +31,12 @@
 
 chatBoxMensaje .scroll-content{
   background-color: #f8f8f8;
+}
+
+.sentByAdmin{
+  margin: 12px -5px !important;
+}
+  
+.sentByMe{
+  margin: 12px 30px !important;
 }
