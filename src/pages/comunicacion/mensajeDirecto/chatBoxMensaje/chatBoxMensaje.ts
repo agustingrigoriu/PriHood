@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Content, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import { Comentario } from '../../../../app/models/comentario.model';
 
 import { ComunicacionService } from '../../comunicacion.service';
 
@@ -11,12 +12,50 @@ import { ComunicacionService } from '../../comunicacion.service';
 export class ChatBoxMensajePage {
   @ViewChild(Content) content: Content;
 
+  public by_me: boolean = false;
+  public mensaje;
+  public comentarios: Comentario[];
+  private comentario: Comentario = {
+    texto: '',
+    fecha: new Date()
+  };
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public ComunicacionService: ComunicacionService,
     public proveedor: NavParams) {
+    this.mensaje = navParams.get("mensajeSeleccionado");
+  }
+
+  actualizar() {
+    return this.ComunicacionService.getComentarios(this.mensaje.id).then(response => {
+      if (response.error) {
+        alert('No se pudo obtener los mensajes');
+      } else {
+        this.comentarios = response.data;
+      }
+    });
+  }
+
+  async comentar(comentario: Comentario) {
+    try {
+      const response = await this.ComunicacionService.comentar(this.mensaje.id, comentario);
+      if (response.error) throw 'error';
+
+      this.limpiarComentario();
+      this.presentToast('Su mensaje ha sido enviado.');
+      await this.actualizar();
+      this.scrollBottom();
+    } catch (error) {
+      const alertMessage = this.alertCtrl.create({
+        title: 'Mensaje no enviado',
+        message: 'No es posible enviar su mensaje. Intente nuevamente',
+        buttons: ['Ok']
+      });
+      alertMessage.present();
+    }
   }
 
   volver() {
@@ -36,7 +75,13 @@ export class ChatBoxMensajePage {
     toast.present();
   }
 
+  limpiarComentario() {
+    this.comentario.texto = '';
+  }
+
   ionViewWillEnter() {
+    this.actualizar();
+
   }
 
 }

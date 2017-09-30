@@ -48,7 +48,7 @@ export class DetallePublicacionPage {
       if (response.error) throw 'error';
 
       this.limpiarComentario();
-      this.presentToast('Su calificación ha sido registrada.');
+      this.presentToast('Su comentario ha sido registrado.');
       await this.actualizar();
       this.scrollBottom();
     } catch (error) {

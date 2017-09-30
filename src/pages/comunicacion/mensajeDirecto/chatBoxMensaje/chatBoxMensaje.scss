@@ -1,0 +1,31 @@
+.mensaje{
+  background: #E1E1E1;
+
+  .card-mensaje{
+    width: 100%;
+    margin: 0;
+    padding: 10px 10px;
+  }
+}
+
+.card-comentario{
+  p {
+    padding: 0 16px;
+  }
+}
+
+.comentario-usuario{
+  color: #007aff !important;
+}
+
+.byMe{
+  text-align: right;
+}
+
+.byAdministracion{
+  text-align: left;
+}
+
+chatBoxMensaje .scroll-content{
+  background-color: #f8f8f8;
+}

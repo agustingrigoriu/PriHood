@@ -12,6 +12,10 @@
 
 <ion-content>
 
+  <div class='informacionMensaje'>
+    <p>El siguiente mensaje será enviado a la administración del barrio</p>
+  </div>
+
   <form (ngSubmit)='publicarMensajeDirecto(mensajeDirecto)'>
 
     <ion-item>
@@ -21,12 +25,13 @@
 
     <ion-item>
       <ion-label stacked>Mensaje</ion-label>
-      <ion-input [(ngModel)]="mensajeDirecto.texto" type="text" name='mensaje'></ion-input>
+      <ion-textarea [(ngModel)]="mensajeDirecto.texto" type="text" name='mensaje'></ion-textarea>
     </ion-item>
 
-    <button ion-fab mini type="submit" id="btnRegistrarMensaje"></button>
+    <ion-fab bottom right>
+      <button ion-fab type="submit" id="btnRegistrarMensaje"><ion-icon name="send"></ion-icon></button>
+    </ion-fab>
 
   </form>
-
 
 </ion-content>

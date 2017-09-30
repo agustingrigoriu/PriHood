@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Content, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 
 import { Comentario } from '../../../app/models/comentario.model';
+import { Publicacion } from '../../../app/models/publicacion.model';
 import { ComunicacionService } from '../comunicacion.service';
 
 import { ChatBoxMensajePage } from './chatBoxMensaje/chatBoxMensaje';
@@ -16,6 +17,7 @@ export class MensajeDirectoPage {
   @ViewChild(Content) content: Content;
 
   private mensajesDirectos;
+  private mensajeSeleccionado: Publicacion;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -42,8 +44,11 @@ export class MensajeDirectoPage {
     toast.present();
   }
 
-  openChatBox() {
-    this.navCtrl.push(ChatBoxMensajePage);
+  openChatBox(mensajeSeleccionado: Publicacion) {
+    this.mensajeSeleccionado = mensajeSeleccionado;
+    this.navCtrl.push(ChatBoxMensajePage, {
+      mensajeSeleccionado: this.mensajeSeleccionado
+    });;
   }
 
   nuevoMensajeDirecto() {
