@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title class='title-page'>Comunicaciones</ion-title>
+    <ion-buttons start>
+      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
+        <img class="logoMenu-img" src="assets/img/logo_menu.png">
+        </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="infoBarrio-contenedor">
+    <div class="imagen-fondo">
+
+    </div>
+    <div class="contenido">
+      <p>
+        Bienvenido al barrio
+      </p>
+      <h4>{{nombre_barrio}}</h4>
+    </div>
+  </div>
+
+  <ion-card *ngFor='let publicacion of publicaciones'>
+    <ion-item>
+      <ion-avatar item-end>
+        <img src="assets/img/pruebas/messi.png">
+      </ion-avatar>
+      <p class='emisor'>{{publicacion.perfil}}</p>
+      <h2>{{publicacion.titulo}}</h2>
+    </ion-item>
+    <ion-card-content>
+      <p class='textoPublicacion'>{{publicacion.texto}}</p>
+    </ion-card-content>
+
+    <ion-item>
+      <button item-start ion-button icon-left clear small (click)='detallesPublicacion(publicacion)'>
+        <ion-icon name="text"></ion-icon>
+        <div>Comentarios</div>
+      </button>
+      <ion-note item-end>
+        {{publicacion.fecha | date: 'dd/M'}}
+      </ion-note>
+    </ion-item>
+  </ion-card>
+
+</ion-content>

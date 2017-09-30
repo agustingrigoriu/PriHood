@@ -37,6 +37,7 @@ import { DetallePublicacionPage } from '../pages/comunicacion/detallePublicacion
 import { MensajeDirectoPage } from '../pages/comunicacion/mensajeDirecto/mensajeDirecto';
 import { NuevoMensajeDirectoPage } from '../pages/comunicacion/mensajeDirecto/nuevoMensajeDirecto/nuevoMensajeDirecto';
 import { ChatBoxMensajePage } from '../pages/comunicacion/mensajeDirecto/chatBoxMensaje/chatBoxMensaje';
+import { PublicacionesPage } from '../pages/comunicacion/publicaciones/publicaciones';
 import { EventosPage } from '../pages/eventos/eventos';
 import { ListaAmenitiesPage } from '../pages/amenities/listaAmenities/listaAmenities';
 
@@ -80,6 +81,7 @@ const pages = [
   MensajeDirectoPage,
   NuevoMensajeDirectoPage,
   ChatBoxMensajePage,
+  PublicacionesPage,
   QRScannerPage
 ];
 

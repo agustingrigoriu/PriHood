@@ -3,9 +3,10 @@ import { NavController } from 'ionic-angular';
 
 import { Publicacion } from '../../app/models/publicacion.model';
 import { ComunicacionService } from './comunicacion.service';
-import { LoginService } from '../../services/login.service';
-import { DetallePublicacionPage } from './detallePublicacion/detallePublicacion';
-import { MensajeDirectoPage } from './mensajeDirecto/mensajeDirecto';
+
+import { PublicacionesPage } from './publicaciones/publicaciones'
+import { MensajeDirectoPage } from './mensajeDirecto/mensajeDirecto'
+
 @Component({
   selector: 'comunicacion',
   templateUrl: 'comunicacion.html'
@@ -13,37 +14,15 @@ import { MensajeDirectoPage } from './mensajeDirecto/mensajeDirecto';
 })
 export class ComunicacionPage {
 
-  private publicaciones: Publicacion[];
-  private publicacionSeleccionada: Publicacion;
-  private nombre_barrio;
+  public asd: string = 'asdasdasd';
 
-  constructor(private ComunicacionService: ComunicacionService,
-    public navCtrl: NavController, private LoginService: LoginService) { }
+  publicacionesPage: any;
+  mensajesPage: any;
 
-  actualizar() {
-    this.nombre_barrio = this.LoginService.getSession().barrio.nombre;
-    this.ComunicacionService.getPublicaciones().then(response => {
-      if (response.error) {
-        alert('No se lograron obtener publicaciones');
-      } else {
-        this.publicaciones = response.data;
-      }
-    });
+  constructor() {
+    this.publicacionesPage = PublicacionesPage;
+    this.mensajesPage = MensajeDirectoPage;
   }
 
-  detallesPublicacion(publicacionSeleccionada: Publicacion) {
-    this.publicacionSeleccionada = publicacionSeleccionada;
-    this.navCtrl.push(DetallePublicacionPage, {
-      publicacion: this.publicacionSeleccionada
-    });;
-  }
-
-  mensajesDirectos() {
-    this.navCtrl.push(MensajeDirectoPage);
-  }
-
-  ionViewWillEnter() {
-    this.actualizar();
-  }
 
 }

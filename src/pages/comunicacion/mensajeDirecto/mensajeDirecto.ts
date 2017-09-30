@@ -4,6 +4,7 @@ import { Content, NavController, NavParams, ToastController, AlertController } f
 import { Comentario } from '../../../app/models/comentario.model';
 import { Publicacion } from '../../../app/models/publicacion.model';
 import { ComunicacionService } from '../comunicacion.service';
+import { LoginService } from '../../../services/login.service';
 
 import { ChatBoxMensajePage } from './chatBoxMensaje/chatBoxMensaje';
 import { NuevoMensajeDirectoPage } from './nuevoMensajeDirecto/nuevoMensajeDirecto';
@@ -18,17 +19,15 @@ export class MensajeDirectoPage {
 
   private mensajesDirectos;
   private mensajeSeleccionado: Publicacion;
+  private nombre_barrio;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public ComunicacionService: ComunicacionService,
+    public LoginService: LoginService,
     public proveedor: NavParams) {
-  }
-
-  volver() {
-    this.navCtrl.pop();
   }
 
   scrollBottom() {
@@ -56,6 +55,7 @@ export class MensajeDirectoPage {
   }
 
   actualizar() {
+    this.nombre_barrio = this.LoginService.getSession().barrio.nombre;
     this.ComunicacionService.getMensajesDirectos().then(response => {
       if (response.error) {
         alert('No se lograron obtener publicaciones');

@@ -5,6 +5,19 @@
     width: 100%;
     margin: 0;
     padding: 10px 10px;
+    background: #003777;
+  }
+
+  .titulo-mensaje {
+    background-color: #003777
+  }
+
+  h2 {
+    color: #fff;
+  }
+
+  p {
+    color: #e0e0e0;
   }
 }
 
@@ -29,14 +42,18 @@
   text-align: left;
 }
 
-chatBoxMensaje .scroll-content{
-  background-color: #f8f8f8;
-}
-
 .sentByAdmin{
   margin: 12px -5px !important;
 }
   
 .sentByMe{
   margin: 12px 30px !important;
+}
+
+.toolbar-background-ios {
+    background: rgba(0, 55, 119, 0.4);
+}
+
+chatBoxMensaje .scroll-content{
+  background-color: #e0e0e0;
 }

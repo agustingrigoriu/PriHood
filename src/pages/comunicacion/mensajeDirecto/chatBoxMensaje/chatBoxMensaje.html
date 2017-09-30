@@ -14,8 +14,8 @@
 
   <div class="mensaje">
     <ion-card class='card-mensaje'>
-      <ion-item>
-        <h2>{{mensaje.titulo}}</h2>
+      <ion-item class='titulo-mensaje'>
+        <h2>Asunto: {{mensaje.titulo}}</h2>
       </ion-item>
       <ion-card-content>
         <p class='textoPublicacion'>{{mensaje.texto}}</p>
@@ -54,7 +54,7 @@
       </ion-grid>
       <ion-fab bottom right>
         <button ion-fab mini type="submit" id="btnRegistrarProveedor">
-          <ion-icon name="arrow-forward"></ion-icon>
+          <ion-icon name="send"></ion-icon>
         </button>
       </ion-fab>
     </form>

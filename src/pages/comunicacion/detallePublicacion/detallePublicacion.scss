@@ -9,6 +9,19 @@
     width: 100%;
     margin: 0;
     padding: 10px 10px;
+    background: #003777;
+  }
+
+  .titulo-publicacion{
+    background-color: #003777;
+  }
+
+  h2 {
+    color: #ffffff;
+  }
+
+  p {
+    color: #e0e0e0;
   }
 }
 
@@ -23,9 +36,9 @@
 }
 
 .toolbar-background-ios {
-    background: #b5b5b5;
+    background: rgba(0, 55, 119, 0.4);
 }
 
 detallePublicacion .scroll-content{
-  background-color: #f8f8f8;
+  background-color: #e0e0e0;
 }

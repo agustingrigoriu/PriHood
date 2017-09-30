@@ -1,16 +1,26 @@
 <ion-header>
   <ion-toolbar color="prihood">
-    <ion-title>Comunicación</ion-title>
+    <ion-title class='title-page'>Comunicaciones</ion-title>
     <ion-buttons start>
-      <button ion-button (click)="volver()">
-        <span ion-text color="primary" showWhen="ios">Volver</span>
-        <ion-icon name="md-close" showWhen="android"></ion-icon>
-      </button>
+      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
+        <img class="logoMenu-img" src="assets/img/logo_menu.png">
+        </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <div class="infoBarrio-contenedor">
+    <div class="imagen-fondo">
+    </div>
+    <div class="contenido">
+      <p>
+        Bienvenido al barrio
+      </p>
+      <h4>{{nombre_barrio}}</h4>
+    </div>
+  </div>
 
   <ion-list>
     <ion-item class='mensaje-directo' *ngFor='let mensaje of mensajesDirectos' (click)='openChatBox(mensaje)'>
@@ -21,7 +31,7 @@
   </ion-list>
 
   <ion-fab right bottom>
-    <button ion-fab (click)="nuevoMensajeDirecto()"><ion-icon name="chatboxes"></ion-icon></button>
+    <button ion-fab (click)="nuevoMensajeDirecto()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
 </ion-content>
