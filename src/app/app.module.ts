@@ -50,6 +50,7 @@ import { RegistroUsuarioService } from '../pages/usuario/registroUsuario/registr
 import { ProveedorService } from '../pages/proveedores/proveedores.service';
 import { VisitanteService } from '../pages/visitas/visitas.service';
 import { AmenitiesService } from '../pages/amenities/amenities.service';
+import { AlertasService } from '../pages/alertas/alertas.service';
 import { ExpensasService } from '../pages/expensas/expensas.service';
 import { ComunicacionService } from '../pages/comunicacion/comunicacion.service';
 
@@ -114,6 +115,7 @@ const pages = [
     RegistroUsuarioService,
     ProveedorService,
     LoginService,
+    AlertasService,
     VisitanteService,
     ExpensasService,
     ComunicacionService,

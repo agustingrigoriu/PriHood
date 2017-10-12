@@ -9,8 +9,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <p class='infoModulo'>
-    Este es el modulo de alertas
-  </p>
+<ion-content class="card-background-page">
+
+  <ion-card class='cardAlerta' *ngFor='let tipoAlerta of tipos_alertas' (click)='confirmacionAlerta(tipoAlerta)'>
+    <div class="card-title">{{tipoAlerta.descripcion}}
+      <img src="{{tipoAlerta.imagen}}"/>
+    </div>
+  </ion-card>
+
 </ion-content>
