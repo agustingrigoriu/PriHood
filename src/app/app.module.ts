@@ -118,7 +118,7 @@ const pages = [
     ExpensasService,
     ComunicacionService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    { provide: LOCALE_ID, useValue: "es-AR" }
+    { provide: LOCALE_ID, useValue: "es" }
   ]
 })
 export class AppModule { }
