@@ -10,4 +10,8 @@ export class AlertasService {
   getTiposAlertas() {
     return this.request.get<TipoAlerta[]>(`tipos/alertas`);
   }
+
+  generarAlerta(data) {
+    return this.request.post<any>(`alertas`, data);
+  }
 }

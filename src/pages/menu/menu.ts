@@ -16,28 +16,35 @@ import { ComunicacionPage } from '../comunicacion/comunicacion'
   templateUrl: 'menu.html'
 })
 export class MenuPage {
-@ViewChild(Nav) nav: NavController;
+  @ViewChild(Nav) nav: NavController;
 
   pages: Array<{ title: string, component: any, icon: string }>;
   root = AlertasPage;
+  private userInfo;
 
   constructor(public loginService: LoginService) {
     //Declarar aqui las paginas a incluir en el Menu Principal
     this.pages = [
       { title: 'Visitas', component: VisitasPage, icon: 'people' },
       { title: 'Servicios', component: ProveedoresPage, icon: 'hammer' },
-      { title: 'Amenities', component: AmenitiesPage, icon: 'tennisball'},
-      { title: 'Comunicacion', component: ComunicacionPage, icon: 'chatboxes'},
-      { title: 'Expensas', component: ExpensasPage, icon: 'cash'},
-      { title: 'Alertas', component: AlertasPage, icon: 'warning'},
-      { title: 'Carpooling', component: CarpoolingPage, icon: 'car'},
-      { title: 'Eventos', component: EventosPage, icon: 'bicycle'}
+      { title: 'Amenities', component: AmenitiesPage, icon: 'tennisball' },
+      { title: 'Comunicacion', component: ComunicacionPage, icon: 'chatboxes' },
+      { title: 'Expensas', component: ExpensasPage, icon: 'cash' },
+      { title: 'Alertas', component: AlertasPage, icon: 'warning' },
+      { title: 'Carpooling', component: CarpoolingPage, icon: 'car' },
+      { title: 'Eventos', component: EventosPage, icon: 'bicycle' }
     ];
+    this.getUserInfo();
   }
 
   logout() {
     this.loginService.clearSession();
     this.nav.setRoot(LoginPage);
+  }
+
+  getUserInfo() {
+    this.userInfo = this.loginService.getSession();
+    console.log(this.userInfo);
   }
 
   openPage(page) {
