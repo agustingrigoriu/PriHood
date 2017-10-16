@@ -32,6 +32,10 @@ import { ProveedoresPage } from '../pages/proveedores/proveedores';
 import { RegistroProveedorPage } from '../pages/proveedores/registroProveedor/registroProveedor';
 import { ValorarProveedorPage } from '../pages/proveedores/valorarProveedor/valorarProveedor';
 import { CarpoolingPage } from '../pages/carpooling/carpooling';
+import { MisSolicitudesPage } from '../pages/carpooling/misSolicitudes/misSolicitudes';
+import { NuevoCarpoolingPage } from '../pages/carpooling/nuevoCarpooling/nuevoCarpooling';
+import { NuevoOfrecimientoPage } from '../pages/carpooling/nuevoCarpooling/nuevoOfrecimiento/nuevoOfrecimiento';
+import { NuevaSolicitudPage } from '../pages/carpooling/nuevoCarpooling/nuevaSolicitud/nuevaSolicitud';
 import { ExpensasPage } from '../pages/expensas/expensas';
 import { ComunicacionPage } from '../pages/comunicacion/comunicacion';
 import { DetallePublicacionPage } from '../pages/comunicacion/detallePublicacion/detallePublicacion';
@@ -52,6 +56,7 @@ import { VisitanteService } from '../pages/visitas/visitas.service';
 import { AmenitiesService } from '../pages/amenities/amenities.service';
 import { AlertasService } from '../pages/alertas/alertas.service';
 import { ExpensasService } from '../pages/expensas/expensas.service';
+import { CarpoolingService } from '../pages/carpooling/carpooling.service';
 import { ComunicacionService } from '../pages/comunicacion/comunicacion.service';
 
 // Incluir las paginas acá
@@ -67,6 +72,8 @@ const pages = [
   RegistroVisitaPage,
   AlertasPage,
   CarpoolingPage,
+  MisSolicitudesPage,
+  NuevoCarpoolingPage,
   AmenitiesPage,
   NuevaReservaPage,
   MisReservasPage,
@@ -83,6 +90,8 @@ const pages = [
   DetallePublicacionPage,
   MensajeDirectoPage,
   NuevoMensajeDirectoPage,
+  NuevaSolicitudPage,
+  NuevoOfrecimientoPage,
   ChatBoxMensajePage,
   PublicacionesPage,
   QRScannerPage
@@ -116,6 +125,7 @@ const pages = [
     ProveedorService,
     LoginService,
     AlertasService,
+    CarpoolingService,
     VisitanteService,
     ExpensasService,
     ComunicacionService,

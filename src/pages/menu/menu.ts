@@ -19,7 +19,7 @@ export class MenuPage {
   @ViewChild(Nav) nav: NavController;
 
   pages: Array<{ title: string, component: any, icon: string }>;
-  root = AlertasPage;
+  root = CarpoolingPage;
   private userInfo;
 
   constructor(public loginService: LoginService) {
@@ -44,7 +44,6 @@ export class MenuPage {
 
   getUserInfo() {
     this.userInfo = this.loginService.getSession();
-    console.log(this.userInfo);
   }
 
   openPage(page) {

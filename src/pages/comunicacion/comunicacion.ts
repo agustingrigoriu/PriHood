@@ -14,8 +14,6 @@ import { MensajeDirectoPage } from './mensajeDirecto/mensajeDirecto'
 })
 export class ComunicacionPage {
 
-  public asd: string = 'asdasdasd';
-
   publicacionesPage: any;
   mensajesPage: any;
 

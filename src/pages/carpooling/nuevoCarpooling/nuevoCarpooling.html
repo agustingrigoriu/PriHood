@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title class='title-page'>Carpooling</ion-title>
+    <ion-buttons start>
+      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
+        <img class="logoMenu-img" src="assets/img/logo_menu.png">
+        </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-card (click)='openNuevoOfrecimiento()'>
+    <img src='assets/img/pruebas/carpooling/carpooling1.png' />
+    <div class="card-title">Ofrecer</div>
+    <div class="card-subtitle">Comparte tu recorrido a tus vecinos</div>
+  </ion-card>
+
+  <ion-card (click)='openNuevaSolicitud()'>
+    <img src='assets/img/pruebas/carpooling/carpooling2.png'/>
+    <div class="card-title">Solicitar</div>
+    <div class="card-subtitle">Encuentra el recorrido más conveniente</div>
+  </ion-card>
+
+  <div class="info"><h3>Elige una de las opciones y empieza a compartir tus viajes. <br>Asi de simple!</h3></div>
+
+</ion-content>

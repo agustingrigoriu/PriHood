@@ -1,16 +1,4 @@
-<ion-header>
-  <ion-toolbar color="prihood">
-    <ion-title class='title-page'>Carpooling</ion-title>
-    <ion-buttons start>
-      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
-        <img class="logoMenu-img" src="assets/img/logo_menu.png">
-        </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <p class='infoModulo'>
-    Este es el modulo de carpooling
-  </p>
-</ion-content>
+<ion-tabs color='prihood'>
+      <ion-tab tabIcon="car" tabTitle="Nuevo" [root]="nuevoCarpoolingPage"></ion-tab>
+      <ion-tab tabIcon="bookmark" tabTitle="Mis solicitudes"[root]="misSolicitudesPage"></ion-tab>
+</ion-tabs>
