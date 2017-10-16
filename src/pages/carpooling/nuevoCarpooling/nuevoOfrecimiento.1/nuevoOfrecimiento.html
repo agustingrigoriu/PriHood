@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar color="prihood">
+        <ion-title>Nuevo ofrecimiento</ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="volver()">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label> Sale desde el barrio</ion-label>
+            <ion-toggle></ion-toggle>
+          </ion-item>
+        <ion-item>
+            <ion-label>Hasta</ion-label>
+            <ion-input (ngModel)='lugarTexto' #lugar placeholder="lugar de llegada" type="text"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <div class="mapaContenedor">
+        <div #map id="map"></div>
+    </div>
+    <div>
+      Siguiente 
+    </div>
+</ion-content>
