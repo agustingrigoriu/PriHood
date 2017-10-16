@@ -15,7 +15,7 @@
         <ion-item>
             <ion-label> Sale desde el barrio</ion-label>
             <ion-toggle></ion-toggle>
-          </ion-item>
+        </ion-item>
         <ion-item>
             <ion-label>Hasta</ion-label>
             <ion-input (ngModel)='lugarTexto' #lugar placeholder="lugar de llegada" type="text"></ion-input>
@@ -25,7 +25,19 @@
     <div class="mapaContenedor">
         <div #map id="map"></div>
     </div>
-    <div>
-      Siguiente 
-    </div>
+
+    <ion-list no-lines>
+        <ion-item actions>
+            <button (click)='finalizar()' ion-button color="primary" clear item-end icon-start>
+                <ion-icon name='arrow-dropright-circle'></ion-icon>
+                Finalizar  
+            </button>
+        </ion-item>
+    </ion-list>
 </ion-content>
+
+<ion-footer class='footer'>
+    <div class="footer-info">
+        <p>Paso <b>2</b> de 2</p>
+    </div>
+</ion-footer>

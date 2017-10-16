@@ -76,6 +76,10 @@ export class NuevoOfrecimientoMapaPage {
     });
   }
 
+  finalizar() {
+    this.navCtrl.popToRoot();
+  }
+
   volver() {
     this.navCtrl.pop();
   }
