@@ -2,7 +2,6 @@ image: node:6
 
 stages:
   - build
-  - download
   - build_prod
 
 build_android:
@@ -11,19 +10,6 @@ build_android:
     - npm install -g ionic@latest cordova 
     - npm install --silent
     - ionic package build android
-  only:
-    - master
-
-download:
-  stage: download
-  script:
-    - npm install -g ionic@latest cordova
-    - npm install --silent
-    - mkdir builds
-    - ionic package download -d ./builds/
-  artifacts:
-    paths:
-      - builds/Prihood.apk
   only:
     - master
 
