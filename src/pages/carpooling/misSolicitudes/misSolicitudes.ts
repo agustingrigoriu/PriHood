@@ -8,6 +8,8 @@ import { NavController } from 'ionic-angular';
 
 export class MisSolicitudesPage {
 
+  misViajes: string = 'solicitudes';
+
   constructor() { }
 
   ionViewWillEnter() {

@@ -19,3 +19,19 @@ ion-content.cards-bg {
 misSolicitudes ion-content{
   background-color: #bdbdbd !important;
 }
+
+.toolbar-ios .segment-button {
+    max-width: 45%;
+    height: 2.6rem;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+}
+
+.segment-ios .segment-button {
+    color: #003777;
+    background-color: #007aff;
+}
+
+.toolbar-ios-prihood .segment-ios .segment-button.segment-activated {
+    color: #fff;
+}

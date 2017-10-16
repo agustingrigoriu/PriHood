@@ -1,83 +1,105 @@
 <ion-header>
-  <ion-toolbar color="prihood">
+  <ion-navbar color="prihood" no-border-bottom>
     <ion-title class='title-page'>Carpooling</ion-title>
     <ion-buttons start>
       <button ion-button class="btn-menu" [menuToggle]="activeMenu">
         <img class="logoMenu-img" src="assets/img/logo_menu.png">
         </button>
     </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar color='prihood' no-border-top>
+    <ion-segment [(ngModel)]="misViajes">
+      <ion-segment-button value="solicitudes">
+        Solicitudes
+      </ion-segment-button>
+      <ion-segment-button value="ofrecimientos">
+        Ofrecimientos
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
 
-  <!--
+  <div [ngSwitch]="misViajes">
+
+    <!--
     CARDS SOLO A MODO DE EJEMPLO DE VISUALIZACION, PLANTEAR CORRECTAMENTE
   -->
-  <ion-card class="adv-map">
-    <div style="position: relative">
-      <img src="assets/img/pruebas/carpooling/mapaEjemplo.png">
-      <ion-fab right top>
-        <button ion-fab color="primary">
-        <ion-icon name="pin"></ion-icon>
-      </button>
-      </ion-fab>
-    </div>
-    <ion-item>
-      <ion-icon color="subtle" large item-start name='pin'></ion-icon>
-      <p>Lugar de referencia</p>
-      <h2>Universidad Tecnológica Nacional</h2>
-    </ion-item>
-    <ion-item>
-      <ion-icon color="subtle" large item-start name='calendar'></ion-icon>
-      <p>Fecha</p>
-      <h2>23 de Noviembre</h2>
-    </ion-item>
-    <ion-item>
-      <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
-      <p>Tipo</p>
-      <h2>Recurrente</h2>
-    </ion-item>
-    <ion-item actions>
-      <span ion-text item-start color="secondary" class="item-bold">Aceptada</span>
-      <button ion-button color="primary" clear item-end icon-start>
-      <ion-icon name='navigate'></ion-icon>
-      Ver
-    </button>
-    </ion-item>
-  </ion-card>
+    <div *ngSwitchCase="'solicitudes'">
 
-    <ion-card class="adv-map">
-    <div style="position: relative">
-      <img src="assets/img/pruebas/carpooling/mapaEjemplo.png">
-      <ion-fab right top>
-        <button ion-fab color="primary">
+      <ion-card class="adv-map">
+        <div style="position: relative">
+          <img src="assets/img/pruebas/carpooling/mapaEjemplo.png">
+          <ion-fab right top>
+            <button ion-fab color="primary">
         <ion-icon name="pin"></ion-icon>
       </button>
-      </ion-fab>
-    </div>
-    <ion-item>
-      <ion-icon color="subtle" large item-start name='pin'></ion-icon>
-      <p>Lugar de referencia</p>
-      <h2>Patio Olmos</h2>
-    </ion-item>
-    <ion-item>
-      <ion-icon color="subtle" large item-start name='calendar'></ion-icon>
-      <p>Fecha</p>
-      <h2>23 de Octubre</h2>
-    </ion-item>
-    <ion-item>
-      <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
-      <p>Tipo</p>
-      <h2>Única</h2>
-    </ion-item>
-    <ion-item actions>
-      <span ion-text item-start color="prihood" class="item-bold">Pendiente</span>
-      <button ion-button color="primary" clear item-end icon-start>
+          </ion-fab>
+        </div>
+        <ion-item>
+          <ion-icon color="subtle" large item-start name='pin'></ion-icon>
+          <p>Lugar de referencia</p>
+          <h2>Universidad Tecnológica Nacional</h2>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="subtle" large item-start name='calendar'></ion-icon>
+          <p>Fecha</p>
+          <h2>23 de Noviembre</h2>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
+          <p>Tipo</p>
+          <h2>Recurrente</h2>
+        </ion-item>
+        <ion-item actions>
+          <span ion-text item-start color="secondary" class="item-bold">Aceptada</span>
+          <button ion-button color="primary" clear item-end icon-start>
       <ion-icon name='navigate'></ion-icon>
       Ver
     </button>
-    </ion-item>
-  </ion-card>
+        </ion-item>
+      </ion-card>
+
+      <ion-card class="adv-map">
+        <div style="position: relative">
+          <img src="assets/img/pruebas/carpooling/mapaEjemplo.png">
+          <ion-fab right top>
+            <button ion-fab color="primary">
+        <ion-icon name="pin"></ion-icon>
+      </button>
+          </ion-fab>
+        </div>
+        <ion-item>
+          <ion-icon color="subtle" large item-start name='pin'></ion-icon>
+          <p>Lugar de referencia</p>
+          <h2>Patio Olmos</h2>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="subtle" large item-start name='calendar'></ion-icon>
+          <p>Fecha</p>
+          <h2>23 de Octubre</h2>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
+          <p>Tipo</p>
+          <h2>Única</h2>
+        </ion-item>
+        <ion-item actions>
+          <span ion-text item-start color="prihood" class="item-bold">Pendiente</span>
+          <button ion-button color="primary" clear item-end icon-start>
+      <ion-icon name='navigate'></ion-icon>
+      Ver
+    </button>
+        </ion-item>
+      </ion-card>
+    </div>
+
+    <div *ngSwitchCase="'ofrecimientos'">
+    </div>
+    
+
+  </div>
 
 </ion-content>
