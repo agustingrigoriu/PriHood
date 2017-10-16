@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { NuevoOfrecimientoMapaPage } from '../nuevoOfrecimientoMapa/nuevoOfrecimientoMapa';
+
 @Component({
   selector: 'nuevoOfrecimiento',
   templateUrl: 'nuevoOfrecimiento.html'
@@ -16,6 +18,10 @@ export class NuevoOfrecimientoPage {
 
   volver() {
     this.navCtrl.pop();
+  }
+
+  siguiente() {
+    this.navCtrl.push(NuevoOfrecimientoMapaPage);
   }
 
   ionViewWillEnter() {

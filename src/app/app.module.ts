@@ -35,6 +35,7 @@ import { CarpoolingPage } from '../pages/carpooling/carpooling';
 import { MisSolicitudesPage } from '../pages/carpooling/misSolicitudes/misSolicitudes';
 import { NuevoCarpoolingPage } from '../pages/carpooling/nuevoCarpooling/nuevoCarpooling';
 import { NuevoOfrecimientoPage } from '../pages/carpooling/nuevoCarpooling/nuevoOfrecimiento/nuevoOfrecimiento';
+import { NuevoOfrecimientoMapaPage } from '../pages/carpooling/nuevoCarpooling/nuevoOfrecimientoMapa/nuevoOfrecimientoMapa';
 import { NuevaSolicitudPage } from '../pages/carpooling/nuevoCarpooling/nuevaSolicitud/nuevaSolicitud';
 import { ExpensasPage } from '../pages/expensas/expensas';
 import { ComunicacionPage } from '../pages/comunicacion/comunicacion';
@@ -92,6 +93,7 @@ const pages = [
   NuevoMensajeDirectoPage,
   NuevaSolicitudPage,
   NuevoOfrecimientoPage,
+  NuevoOfrecimientoMapaPage,
   ChatBoxMensajePage,
   PublicacionesPage,
   QRScannerPage

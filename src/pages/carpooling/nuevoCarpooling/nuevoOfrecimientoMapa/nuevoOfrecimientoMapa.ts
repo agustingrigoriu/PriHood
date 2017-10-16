@@ -2,11 +2,11 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, TextInput, LoadingController } from 'ionic-angular';
 
 @Component({
-  selector: 'nuevoOfrecimiento',
-  templateUrl: 'nuevoOfrecimiento.html'
+  selector: 'nuevoOfrecimientoMapa',
+  templateUrl: 'nuevoOfrecimientoMapa.html'
 })
 
-export class NuevoOfrecimientoPage {
+export class NuevoOfrecimientoMapaPage {
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('lugar') lugarElement: TextInput;
 
