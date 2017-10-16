@@ -10,11 +10,15 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-
-  <ion-card class='cardAlerta' *ngFor='let tipoAlerta of tipos_alertas' (click)='confirmacionAlerta(tipoAlerta)'>
-    <div class="card-title">{{tipoAlerta.descripcion}}
-      <img src="{{tipoAlerta.imagen}}"/>
+  <div class="contenedor">
+    <div class="imagen-fondo">
     </div>
-  </ion-card>
-
+    <div class="contenido">
+      <ion-card class='cardAlerta' *ngFor='let tipoAlerta of tipos_alertas' (click)='confirmacionAlerta(tipoAlerta)'>
+        <div class="card-title">{{tipoAlerta.descripcion}}
+          <img src="{{tipoAlerta.imagen}}" />
+        </div>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>
