@@ -14,15 +14,13 @@ nuevoCarpooling .card-ios {
 }
 
 .info {
-  h3 {
-    margin: 7.5% 0 auto;
+  h5 {
+    margin: 5% 0 auto;
     text-align: center;
     font-weight: bold;
     color: #003777;
+    b {
+      color: #007aff;
+    }
   }
-}
-
-.info2{
-  margin-top: 0px !important;
-  color: #007aff !important; 
 }
