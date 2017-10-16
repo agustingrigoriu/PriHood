@@ -1,0 +1,49 @@
+.info {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  p {
+    color: #003777;
+    font-size: 1.3rem;
+  }
+}
+
+.footer {
+  background-color: #003777;
+  div {
+    text-align: center;
+    p {
+      color: #fff;
+      font-size: 1.3rem;
+      b {
+        color: #007aff;
+      }
+    }
+  }
+}
+
+nuevoOfrecimiento {
+  .card-ios, .card-md {
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-input-ios {
+    padding: 0 5px;
+  }
+
+  .datosAutomovil {
+    .label-ios {
+      padding: 0 0;
+      font-size: 1.6rem;
+      color: #999999;
+    }
+  }
+
+  .label-entrada {
+      padding: 0 16px;
+      font-size: 1.6rem;
+      color: #999999;
+  }
+
+}
+
