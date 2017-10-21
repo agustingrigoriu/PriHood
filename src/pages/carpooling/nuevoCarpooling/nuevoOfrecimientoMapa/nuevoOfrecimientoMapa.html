@@ -14,11 +14,23 @@
     <ion-list>
         <ion-item>
             <ion-label> Sale desde el barrio</ion-label>
-            <ion-toggle></ion-toggle>
+            <ion-toggle [(ngModel)]="viaje.saleBarrio"></ion-toggle>
         </ion-item>
-        <ion-item>
+        <ion-item [hidden]="viaje.saleBarrio">
+            <ion-label>Desde</ion-label>
+            <ion-input [(ngModel)]='lugarDesdeTexto' #lugarDesde placeholder="lugar de partida" type="text"></ion-input>
+        </ion-item>
+        <ion-item [hidden]="!viaje.saleBarrio">
+            <ion-label>Desde</ion-label>
+            <ion-input disabled value="desde el barrio" type="text"></ion-input>
+        </ion-item>
+        <ion-item [hidden]="!viaje.saleBarrio">
             <ion-label>Hasta</ion-label>
-            <ion-input (ngModel)='lugarTexto' #lugar placeholder="lugar de llegada" type="text"></ion-input>
+            <ion-input [(ngModel)]='lugarHastaTexto' #lugarHasta placeholder="lugar de llegada" type="text"></ion-input>
+        </ion-item>
+        <ion-item [hidden]="viaje.saleBarrio">
+            <ion-label>Hasta</ion-label>
+            <ion-input disabled value="hasta el barrio" type="text"></ion-input>
         </ion-item>
     </ion-list>
 
