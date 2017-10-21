@@ -33,6 +33,7 @@ import { RegistroProveedorPage } from '../pages/proveedores/registroProveedor/re
 import { ValorarProveedorPage } from '../pages/proveedores/valorarProveedor/valorarProveedor';
 import { CarpoolingPage } from '../pages/carpooling/carpooling';
 import { MisSolicitudesPage } from '../pages/carpooling/misSolicitudes/misSolicitudes';
+import { DetalleMiSolicitudPage } from '../pages/carpooling/misSolicitudes/detalleMiSolicitud/detalleMiSolicitud';
 import { NuevoCarpoolingPage } from '../pages/carpooling/nuevoCarpooling/nuevoCarpooling';
 import { NuevoOfrecimientoPage } from '../pages/carpooling/nuevoCarpooling/nuevoOfrecimiento/nuevoOfrecimiento';
 import { NuevoOfrecimientoMapaPage } from '../pages/carpooling/nuevoCarpooling/nuevoOfrecimientoMapa/nuevoOfrecimientoMapa';
@@ -74,6 +75,7 @@ const pages = [
   AlertasPage,
   CarpoolingPage,
   MisSolicitudesPage,
+  DetalleMiSolicitudPage,
   NuevoCarpoolingPage,
   AmenitiesPage,
   NuevaReservaPage,

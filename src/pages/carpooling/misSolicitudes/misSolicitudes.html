@@ -25,7 +25,7 @@
   <div [ngSwitch]="misViajes">
 
     <!--
-    CARDS SOLO A MODO DE EJEMPLO DE VISUALIZACION, PLANTEAR CORRECTAMENTE
+    Solicitudes: CARDS SOLO A MODO DE EJEMPLO DE VISUALIZACION, PLANTEAR CORRECTAMENTE
   -->
     <div *ngSwitchCase="'solicitudes'">
 
@@ -34,8 +34,8 @@
           <img src="assets/img/pruebas/carpooling/mapaEjemplo.png">
           <ion-fab right top>
             <button ion-fab color="primary">
-        <ion-icon name="pin"></ion-icon>
-      </button>
+              <ion-icon name="pin"></ion-icon>
+            </button>
           </ion-fab>
         </div>
         <ion-item>
@@ -46,7 +46,7 @@
         <ion-item>
           <ion-icon color="subtle" large item-start name='calendar'></ion-icon>
           <p>Fecha</p>
-          <h2>23 de Noviembre</h2>
+          <h2>Todos los Martes a las 14:00 hs</h2>
         </ion-item>
         <ion-item>
           <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
@@ -54,52 +54,64 @@
           <h2>Recurrente</h2>
         </ion-item>
         <ion-item actions>
-          <span ion-text item-start color="secondary" class="item-bold">Aceptada</span>
-          <button ion-button color="primary" clear item-end icon-start>
-      <ion-icon name='navigate'></ion-icon>
-      Ver
-    </button>
-        </ion-item>
-      </ion-card>
-
-      <ion-card class="adv-map">
-        <div style="position: relative">
-          <img src="assets/img/pruebas/carpooling/mapaEjemplo.png">
-          <ion-fab right top>
-            <button ion-fab color="primary">
-        <ion-icon name="pin"></ion-icon>
-      </button>
-          </ion-fab>
-        </div>
-        <ion-item>
-          <ion-icon color="subtle" large item-start name='pin'></ion-icon>
-          <p>Lugar de referencia</p>
-          <h2>Patio Olmos</h2>
-        </ion-item>
-        <ion-item>
-          <ion-icon color="subtle" large item-start name='calendar'></ion-icon>
-          <p>Fecha</p>
-          <h2>23 de Octubre</h2>
-        </ion-item>
-        <ion-item>
-          <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
-          <p>Tipo</p>
-          <h2>Única</h2>
-        </ion-item>
-        <ion-item actions>
-          <span ion-text item-start color="prihood" class="item-bold">Pendiente</span>
-          <button ion-button color="primary" clear item-end icon-start>
-          <ion-icon name='navigate'></ion-icon>
-            Ver
+          <ion-badge color='primary' item-start>Aceptada</ion-badge>
+          <button ion-button color="primary" clear item-end icon-start (click)='verDetalleSolicitud()'>
+            <ion-icon name='navigate'></ion-icon>
+              Ver
           </button>
         </ion-item>
       </ion-card>
+
     </div>
 
+    <!--
+    Ofrecimientos: CARDS SOLO A MODO DE EJEMPLO DE VISUALIZACION, PLANTEAR CORRECTAMENTE
+  -->
     <div *ngSwitchCase="'ofrecimientos'">
+
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start small>
+            <img class='img-avatar' src="/assets/img/pruebas/visitas/lucas.png">
+          </ion-avatar>
+          <h3>Lucas Madrazo</h3>
+          <ion-badge color='primary' item-end>Aceptada</ion-badge>
+        </ion-item>
+        <ion-item>
+          <h2 item-start>Martes</h2>
+          <h2 item-end>12:00 hs</h2>
+        </ion-item>
+      </ion-card>
+
+       <ion-card>
+        <ion-item>
+          <ion-avatar item-start small>
+            <img class='img-avatar' src="/assets/img/pruebas/visitas/gabi.png">
+          </ion-avatar>
+          <h3>Lucas Madrazo</h3>
+          <ion-badge color='primary' item-end>Pendiente</ion-badge>
+        </ion-item>
+        <ion-item>
+          <h2 item-start>23/11/2017</h2>
+          <h2 item-end>14:30 hs</h2>
+        </ion-item>
+        <div>
+          <ion-item>
+            <span item-left>
+          <button ion-button icon-left clear>
+            <ion-icon name="close"></ion-icon>
+            Rechazar
+          </button>
+        </span>
+            <button ion-button icon-right clear item-end>
+            Aceptar
+          <ion-icon name="checkmark-circle"></ion-icon>
+        </button>
+          </ion-item>
+        </div>
+      </ion-card>
+
+
     </div>
-
-
   </div>
-
 </ion-content>

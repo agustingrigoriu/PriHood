@@ -1,0 +1,25 @@
+detalleMiSolicitud {
+  .content-ios, .content-md {
+    background-color: #bdbdbd;
+  }
+  p {
+    padding: 0 0;
+  }
+}
+
+.info-auto {
+  h3 {
+    padding: 0 40px;
+  }
+}
+
+.observaciones {
+    padding: 0 40px;
+}
+
+detalleMiSolicitud ion-card{
+  border-top: 5px solid #007aff;
+  text-align: left !important;
+  border-bottom: 5px solid #007aff;
+}
+
