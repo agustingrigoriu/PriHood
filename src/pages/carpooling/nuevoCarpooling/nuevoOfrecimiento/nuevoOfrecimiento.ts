@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 
 import { NuevoOfrecimientoMapaPage } from '../nuevoOfrecimientoMapa/nuevoOfrecimientoMapa';
 
+import { Viaje } from '../../viaje.model';
+
 @Component({
   selector: 'nuevoOfrecimiento',
   templateUrl: 'nuevoOfrecimiento.html'
@@ -10,18 +12,25 @@ import { NuevoOfrecimientoMapaPage } from '../nuevoOfrecimientoMapa/nuevoOfrecim
 
 export class NuevoOfrecimientoPage {
 
-  asientos: number = 1;
+  viaje: Viaje;
   esRecurrente: boolean = false;
-  id_dia_semana: number = 1;
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController) {
+    this.viaje = {};
+  }
 
   volver() {
     this.navCtrl.pop();
   }
 
   siguiente() {
-    this.navCtrl.push(NuevoOfrecimientoMapaPage);
+    if (this.esRecurrente) {
+      this.viaje.fecha = null;
+    } else {
+      this.viaje.idDiaSemana = null;
+    }
+
+    this.navCtrl.push(NuevoOfrecimientoMapaPage, { viaje: this.viaje });
   }
 
   ionViewWillEnter() {
