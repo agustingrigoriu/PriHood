@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { NuevoOfrecimientoMapaPage } from '../nuevoOfrecimientoMapa/nuevoOfrecimientoMapa';
 
-import { Viaje } from '../../viaje.model';
+import { Viaje } from '../../../../app/models/viaje.model';
 
 @Component({
   selector: 'nuevoOfrecimiento',

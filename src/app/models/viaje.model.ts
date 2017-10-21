@@ -1,3 +1,5 @@
+import { Trayecto } from './trayecto.model';
+
 export interface Viaje {
   id?: number,
   autoAsientos?: number,
@@ -7,5 +9,7 @@ export interface Viaje {
   fecha?: Date,
   idDiaSemana?: number,
   observaciones?: string
-  saleBarrio?: boolean
+  saleBarrio?: boolean,
+  resitente?: string,
+  trayectos?: Trayecto[]
 }

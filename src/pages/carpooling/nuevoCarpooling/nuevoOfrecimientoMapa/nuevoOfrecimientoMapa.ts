@@ -2,8 +2,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, TextInput, LoadingController, NavParams, AlertController, ToastController } from 'ionic-angular';
 
 import { CarpoolingService } from '../../carpooling.service';
-import { Viaje } from '../../viaje.model';
-import { Trayecto } from '../../trayecto.model';
+import { Viaje } from '../../../../app/models/viaje.model';
+import { Trayecto } from '../../../../app/models/trayecto.model';
 
 @Component({
   selector: 'nuevoOfrecimientoMapa',

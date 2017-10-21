@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiRequestService } from '../../services/api.request.service';
-import { Viaje } from './viaje.model';
-import { Trayecto } from './trayecto.model';
+import { Viaje } from '../../app/models/viaje.model';
+import { Trayecto } from '../../app/models/trayecto.model';
 
 @Injectable()
 export class CarpoolingService {
