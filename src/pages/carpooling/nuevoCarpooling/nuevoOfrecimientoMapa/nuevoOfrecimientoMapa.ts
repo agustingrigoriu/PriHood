@@ -131,6 +131,8 @@ export class NuevoOfrecimientoMapaPage {
       return;
     }
 
+    viaje.destino = viaje.saleBarrio? this.lugarHastaTexto : this.lugarDesdeTexto;
+
     try {
       const response = await this.CarpoolingService.registrarViaje(viaje, trayectos);
 

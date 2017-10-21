@@ -6,6 +6,7 @@ export interface Viaje {
   autoColor?: string,
   autoModelo?: string,
   autoPatente?: string,
+  destino?: string,
   fecha?: Date,
   idDiaSemana?: number,
   observaciones?: string
