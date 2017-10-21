@@ -8,7 +8,56 @@
       </button>
     </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
+
+  <div>
+    <ion-searchbar (ngModel)='lugarTexto' #lugar (ionInput)='loadAutocompletar()' [showCancelButton]="shouldShowCancel" placeholder='Punto de referencia'
+      cancelButtonText='Cancelar' type='text'>
+    </ion-searchbar>
+    <ion-list no-lines>
+      <ion-item class='fechaFiltro'>
+        <ion-label class='fechaLabel'>Fecha</ion-label>
+        <ion-datetime class='fechaLabel' displayFormat="DD/MM/YY" [(ngModel)]="fechaFiltro"></ion-datetime>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-card class="adv-map">
+    <div style="position: relative">
+      <img src="assets/img/pruebas/carpooling/mapaEjemplo.png">
+      <ion-fab right top>
+        <button ion-fab color="primary">
+              <ion-icon name="pin"></ion-icon>
+            </button>
+      </ion-fab>
+    </div>
+    <ion-item>
+      <ion-icon color="subtle" large item-start name='pin'></ion-icon>
+      <p>Lugar de referencia</p>
+      <h2>Universidad Tecnológica Nacional</h2>
+    </ion-item>
+    <ion-item>
+      <ion-icon color="subtle" large item-start name='calendar'></ion-icon>
+      <p>Fecha</p>
+      <h2>Todos los Martes a las 14:00 hs</h2>
+    </ion-item>
+    <ion-item>
+      <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
+      <p>Tipo</p>
+      <h2>Recurrente</h2>
+    </ion-item>
+    <ion-item actions>
+      <ion-badge color='primary' item-start>2</ion-badge>
+      <p item-start>Asientos disponibles</p>
+      <button ion-button color="primary" clear item-end icon-start (click)='verDetalleSolicitud()'>
+            <ion-icon name='navigate'></ion-icon>
+              Ver
+          </button>
+    </ion-item>
+  </ion-card>
+
+
 </ion-content>

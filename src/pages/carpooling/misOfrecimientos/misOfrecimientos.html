@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="prihood" no-border-bottom>
+    <ion-title class='title-page'>Carpooling</ion-title>
+    <ion-buttons start>
+      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
+        <img class="logoMenu-img" src="assets/img/logo_menu.png">
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar color='prihood' no-border-top>
+    <ion-segment [(ngModel)]="ofrecimientos">
+      <ion-segment-button value="pendientes">
+        Pendientes
+      </ion-segment-button>
+      <ion-segment-button value="aceptados">
+        Aceptados
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div [ngSwitch]="ofrecimientos">
+
+    <div *ngSwitchCase="'pendientes'">
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start small>
+            <img class='img-avatar' src="/assets/img/pruebas/visitas/gabi.png">
+          </ion-avatar>
+          <h3>Gabriela Caballero</h3>
+          <ion-badge color='pendiente' item-end>Pendiente</ion-badge>
+        </ion-item>
+        <ion-item>
+          <h2 item-start>23/11/2017</h2>
+          <h2 item-end>14:30 hs</h2>
+        </ion-item>
+        <div>
+          <ion-item>
+            <span item-left>
+          <button ion-button icon-left clear>
+            <ion-icon name="close"></ion-icon>
+            Rechazar
+          </button>
+        </span>
+            <button ion-button icon-right clear item-end>
+            Aceptar
+          <ion-icon name="checkmark-circle"></ion-icon>
+        </button>
+          </ion-item>
+        </div>
+      </ion-card>
+
+    </div>
+
+    <div *ngSwitchCase="'aceptados'">
+
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start small>
+            <img class='img-avatar' src="/assets/img/pruebas/visitas/lucas.png">
+          </ion-avatar>
+          <h3>Lucas Madrazo</h3>
+          <ion-badge color='primary' item-end>Aceptada</ion-badge>
+        </ion-item>
+        <ion-item>
+          <h2 item-start>Martes</h2>
+          <h2 item-end>12:00 hs</h2>
+        </ion-item>
+      </ion-card>
+
+    </div>
+  </div>
+</ion-content>

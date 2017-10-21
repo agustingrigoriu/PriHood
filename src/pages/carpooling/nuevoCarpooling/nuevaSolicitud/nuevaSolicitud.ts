@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, Searchbar } from 'ionic-angular';
+import { DetalleMiSolicitudPage } from '../../misSolicitudes/detalleMiSolicitud/detalleMiSolicitud';
 
 @Component({
   selector: 'nuevaSolicitud',
@@ -7,6 +8,10 @@ import { NavController } from 'ionic-angular';
 })
 
 export class NuevaSolicitudPage {
+  @ViewChild('lugar') lugarElement: Searchbar;
+
+  private lugarTexto: string;
+  private fechaFiltro = new Date().toISOString();
 
   constructor(public navCtrl: NavController) { }
 
@@ -15,6 +20,18 @@ export class NuevaSolicitudPage {
   }
 
   ionViewWillEnter() {
+    this.loadAutocompletar();
+  }
+
+  loadAutocompletar() {
+    const autocomplete = new google.maps.places.Autocomplete(this.lugarElement._searchbarInput.nativeElement, { componentRestrictions: { country: 'ar' } });
+    autocomplete.addListener('place_changed', () => {
+      this.lugarTexto = autocomplete.getPlace().name;
+    });
+  }
+
+  verDetalleSolicitud(){
+    this.navCtrl.push(DetalleMiSolicitudPage);
   }
 
 }

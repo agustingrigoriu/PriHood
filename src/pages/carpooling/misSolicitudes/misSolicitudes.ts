@@ -10,8 +10,6 @@ import { DetalleMiSolicitudPage } from './detalleMiSolicitud/detalleMiSolicitud'
 
 export class MisSolicitudesPage {
 
-  misViajes: string = 'solicitudes';
-
   constructor(public navCtrl: NavController) { }
 
   verDetalleSolicitud() { 

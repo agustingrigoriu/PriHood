@@ -32,6 +32,7 @@ import { ProveedoresPage } from '../pages/proveedores/proveedores';
 import { RegistroProveedorPage } from '../pages/proveedores/registroProveedor/registroProveedor';
 import { ValorarProveedorPage } from '../pages/proveedores/valorarProveedor/valorarProveedor';
 import { CarpoolingPage } from '../pages/carpooling/carpooling';
+import { MisOfrecimientosPage } from '../pages/carpooling/misOfrecimientos/misOfrecimientos';
 import { MisSolicitudesPage } from '../pages/carpooling/misSolicitudes/misSolicitudes';
 import { DetalleMiSolicitudPage } from '../pages/carpooling/misSolicitudes/detalleMiSolicitud/detalleMiSolicitud';
 import { NuevoCarpoolingPage } from '../pages/carpooling/nuevoCarpooling/nuevoCarpooling';
@@ -94,6 +95,7 @@ const pages = [
   MensajeDirectoPage,
   NuevoMensajeDirectoPage,
   NuevaSolicitudPage,
+  MisOfrecimientosPage,
   NuevoOfrecimientoPage,
   NuevoOfrecimientoMapaPage,
   ChatBoxMensajePage,
