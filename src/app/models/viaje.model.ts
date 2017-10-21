@@ -11,6 +11,7 @@ export interface Viaje {
   idDiaSemana?: number,
   observaciones?: string
   saleBarrio?: boolean,
+  tipo?: string,
   resitente?: string,
   trayectos?: Trayecto[]
 }
