@@ -62,6 +62,9 @@ import { ExpensasService } from '../pages/expensas/expensas.service';
 import { CarpoolingService } from '../pages/carpooling/carpooling.service';
 import { ComunicacionService } from '../pages/comunicacion/comunicacion.service';
 
+// Pipes
+import { PipesModule } from '../pipes/pipes.module';
+
 // Incluir las paginas acá
 const pages = [
   MyApp,
@@ -112,6 +115,7 @@ const pages = [
     HttpModule,
     HttpClientModule,
     Ionic2RatingModule,
+    PipesModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: true
     })
