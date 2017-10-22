@@ -64,6 +64,7 @@ export class DetalleMiSolicitudPage {
       });
       toast.present();
 
+      this.navCtrl.popToRoot();
     } catch (error) {
       alert('No se pudo solicitar el viaje.');
     }
