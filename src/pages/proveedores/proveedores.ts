@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { ProveedorService } from './proveedores.service';
 import { RegistroProveedorPage } from './registroProveedor/registroProveedor';
 import { ValorarProveedorPage } from './valorarProveedor/valorarProveedor';
@@ -17,7 +17,7 @@ export class ProveedoresPage {
   private tipo_servicio: any;
   private proveedorSeleccionado: any;
 
-  constructor(private ProveedorService: ProveedorService, public navCtrl: NavController) {}
+  constructor(private ProveedorService: ProveedorService, public navCtrl: NavController, public alertCtrl: AlertController) {}
 
   pageRegistrarProveedor() {
     this.navCtrl.push(RegistroProveedorPage);
@@ -26,7 +26,7 @@ export class ProveedoresPage {
   servicioSeleccionado(tipo_servicio) {
     this.ProveedorService.getProveedoresTipoServicio(tipo_servicio).then(response => {
       if (response.error) {
-        alert('No se logró obtener los servicios');
+        this.alertaError();
       } else {
         this.proveedores = response.data;
       }
@@ -37,7 +37,7 @@ export class ProveedoresPage {
     if (tipo_servicio === undefined) {
       this.ProveedorService.getProveedores().then(response => {
         if (response.error) {
-          alert('No se logró obtener los servicios');
+          this.alertaError();
         } else {
           this.proveedores = response.data;
         }
@@ -50,7 +50,7 @@ export class ProveedoresPage {
   cargarTiposDeServicio() {
     this.ProveedorService.getTiposServicios().then(response => {
       if (response.error) {
-        alert('No se logró obtener los tipos de servicios');
+        this.alertaError();
       } else {
         this.tipos_servicio = response.data;
       }
@@ -70,6 +70,15 @@ export class ProveedoresPage {
     this.navCtrl.push(ValorarProveedorPage, {
       proveedor: this.proveedorSeleccionado
     });;
+  }
+
+  alertaError() {
+    const alertMessage = this.alertCtrl.create({
+      title: 'Error',
+      message: 'Problemas de conexión. Intente nuevamente',
+      buttons: ['Ok']
+    });
+    alertMessage.present();
   }
 
   onInput(textoBuscado: any) {

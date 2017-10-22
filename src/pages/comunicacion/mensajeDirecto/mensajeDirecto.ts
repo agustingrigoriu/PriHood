@@ -58,11 +58,20 @@ export class MensajeDirectoPage {
     this.nombre_barrio = this.LoginService.getSession().barrio.nombre;
     this.ComunicacionService.getMensajesDirectos().then(response => {
       if (response.error) {
-        alert('No se lograron obtener publicaciones');
+        this.alertaError();
       } else {
         this.mensajesDirectos = response.data;
       }
     });
+  }
+
+  alertaError() {
+    const alertMessage = this.alertCtrl.create({
+      title: 'Error',
+      message: 'Problemas de conexión. Intente nuevamente',
+      buttons: ['Ok']
+    });
+    alertMessage.present();
   }
 
   noHayMensajes() {

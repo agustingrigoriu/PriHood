@@ -39,12 +39,21 @@ export class VisitasFrecuentesTab {
     this.loading = true;
     this.VisitanteService.getVisitas(this.id_Tab).then(response => {
       if (response.error) {
-        alert('No se logró obtener las visitas registradas');
+        this.alertaError();
       } else {
         this.visitantes = response.data;
         this.loading = false;
       }
     });
+  }
+
+  alertaError() {
+    const alertMessage = this.alertCtrl.create({
+      title: 'Error',
+      message: 'Problemas de conexión. Intente nuevamente',
+      buttons: ['Ok']
+    });
+    alertMessage.present();
   }
 
   onSelectVisitante(visitante) {

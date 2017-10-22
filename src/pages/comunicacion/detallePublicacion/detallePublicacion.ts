@@ -31,7 +31,7 @@ export class DetallePublicacionPage {
   actualizar() {
     return this.ComunicacionService.getComentarios(this.publicacion.id).then(response => {
       if (response.error) {
-        alert('No se lograron obtener publicaciones');
+        this.alertaError();
       } else {
         this.comentarios = response.data;
       }
@@ -40,6 +40,15 @@ export class DetallePublicacionPage {
 
   volver() {
     this.navCtrl.pop();
+  }
+
+  alertaError() {
+    const alertMessage = this.alertCtrl.create({
+      title: 'Error',
+      message: 'Problemas de conexión. Intente nuevamente',
+      buttons: ['Ok']
+    });
+    alertMessage.present();
   }
 
   async comentar(comentario: Comentario) {

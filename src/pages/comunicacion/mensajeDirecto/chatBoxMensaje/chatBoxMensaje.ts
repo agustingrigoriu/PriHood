@@ -32,11 +32,20 @@ export class ChatBoxMensajePage {
   actualizar() {
     return this.ComunicacionService.getComentarios(this.mensaje.id).then(response => {
       if (response.error) {
-        alert('No se pudo obtener los mensajes');
+        this.alertaError();
       } else {
         this.comentarios = response.data;
       }
     });
+  }
+
+  alertaError() {
+    const alertMessage = this.alertCtrl.create({
+      title: 'Error',
+      message: 'Problemas de conexión. Intente nuevamente',
+      buttons: ['Ok']
+    });
+    alertMessage.present();
   }
 
   async comentar(comentario: Comentario) {
