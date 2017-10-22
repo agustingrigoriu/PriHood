@@ -8,7 +8,7 @@ import { Trayecto } from '../../app/models/trayecto.model';
 export class ImagenMapaPipe implements PipeTransform {
   transform(trayectos: Trayecto[], ...args) {
     const mapa = 'https://maps.googleapis.com/maps/api/staticmap';
-    const params = ['size=400x250', 'sensor=false', 'key=AIzaSyAAMmwIYbNte2GOoB1vYoAK5Sz5oPpZ6JA'];
+    const params = ['size=400x250', 'sensor=false', 'key=AIzaSyAYIij2Xtd6XxmShVLCFs8v5ybMu8gIWsQ'];
     const path = [];
 
     const origen = trayectos[0];
