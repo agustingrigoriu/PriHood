@@ -4,7 +4,7 @@
     <ion-buttons start>
       <button ion-button class="btn-menu" [menuToggle]="activeMenu">
         <img class="logoMenu-img" src="assets/img/logo_menu.png">
-        </button>
+      </button>
     </ion-buttons>
   </ion-navbar>
   <ion-toolbar color='prihood' no-border-top>
@@ -25,52 +25,92 @@
   <div [ngSwitch]="ofrecimientos">
 
     <div *ngSwitchCase="'pendientes'">
-      <ion-card>
+      <ion-card *ngFor='let solicitud of misOfrecimientosPendientes'>
         <ion-item>
           <ion-avatar item-start small>
-            <img class='img-avatar' src="/assets/img/pruebas/visitas/gabi.png">
+            <img class='img-avatar' src="{{solicitud.avatar}}">
           </ion-avatar>
-          <h3>Gabriela Caballero</h3>
-          <ion-badge color='pendiente' item-end>Pendiente</ion-badge>
+          <h3>{{solicitud.nombre}} {{solicitud.apellido}}</h3>
+          <ion-badge color='pendiente' item-end>{{solicitud.estado}}</ion-badge>
         </ion-item>
-        <ion-item>
-          <h2 item-start>23/11/2017</h2>
-          <h2 item-end>14:30 hs</h2>
-        </ion-item>
-        <div>
+        <div *ngIf='solicitud.saleBarrio'>
           <ion-item>
-            <span item-left>
-          <button ion-button icon-left clear>
-            <ion-icon name="close"></ion-icon>
-            Rechazar
-          </button>
-        </span>
-            <button ion-button icon-right clear item-end>
-            Aceptar
-          <ion-icon name="checkmark-circle"></ion-icon>
-        </button>
+            <p item-start>Desde</p>
+            <h3>{{solicitud.nombreBarrio}}</h3>
+          </ion-item>
+          <ion-item>
+            <p item-start>Hasta</p>
+            <h3>{{solicitud.destino}}</h3>
           </ion-item>
         </div>
+        <div *ngIf='!solicitud.saleBarrio'>
+          <ion-item>
+            <p item-start>Desde</p>
+            <h3>{{solicitud.destino}}</h3>
+          </ion-item>
+          <ion-item>
+            <p item-start>Hasta</p>
+            <h3>{{solicitud.nombreBarrio}}</h3>
+          </ion-item>
+        </div>
+        <ion-item>
+          <h2 item-start>{{solicitud.fecha | date }}</h2>
+          <h2 item-end>{{solicitud.hora}}</h2>
+        </ion-item>
+        <div>
+          <ion-list>
+            <ion-item>
+              <span item-left>
+                <button ion-button icon-left clear>
+                  <ion-icon name="close"></ion-icon>
+                  Rechazar
+                </button>
+              </span>
+              <button ion-button icon-right clear item-end>
+                Aceptar
+                <ion-icon name="checkmark-circle"></ion-icon>
+              </button>
+            </ion-item>
+          </ion-list>
+        </div>
       </ion-card>
-
     </div>
 
     <div *ngSwitchCase="'aceptados'">
-
-      <ion-card>
+      <ion-card *ngFor='let solicitud of misOfrecimientosAceptados'>
         <ion-item>
           <ion-avatar item-start small>
-            <img class='img-avatar' src="/assets/img/pruebas/visitas/lucas.png">
+            <img class='img-avatar' src="{{solicitud.avatar}}">
           </ion-avatar>
-          <h3>Lucas Madrazo</h3>
-          <ion-badge color='primary' item-end>Aceptada</ion-badge>
+          <h3>{{solicitud.nombre}} {{solicitud.apellido}}</h3>
+          <ion-badge color='primary' item-end>{{solicitud.estado}}</ion-badge>
         </ion-item>
+        <div *ngIf='solicitud.saleBarrio'>
+          <ion-item>
+            <p item-start>Desde</p>
+            <h3>{{solicitud.nombreBarrio}}</h3>
+          </ion-item>
+          <ion-item>
+            <p item-start>Hasta</p>
+            <h3>{{solicitud.destino}}</h3>
+          </ion-item>
+        </div>
+        <div *ngIf='!solicitud.saleBarrio'>
+          <ion-item>
+            <p item-start>Desde</p>
+            <h3>{{solicitud.destino}}</h3>
+          </ion-item>
+          <ion-item>
+            <p item-start>Hasta</p>
+            <h3>{{solicitud.nombreBarrio}}</h3>
+          </ion-item>
+        </div>
         <ion-item>
-          <h2 item-start>Martes</h2>
-          <h2 item-end>12:00 hs</h2>
+          <h2 item-start>{{solicitud.fecha | date }}</h2>
+          <h2 item-end>{{solicitud.hora}}</h2>
         </ion-item>
       </ion-card>
-
     </div>
+
   </div>
 </ion-content>

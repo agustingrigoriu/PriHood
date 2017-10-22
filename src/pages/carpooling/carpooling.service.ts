@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiRequestService } from '../../services/api.request.service';
 import { Viaje } from '../../app/models/viaje.model';
 import { Trayecto } from '../../app/models/trayecto.model';
+import { SolicitudViaje } from '../../app/models/solicitudViaje.model';
 
 @Injectable()
 export class CarpoolingService {
@@ -15,4 +16,14 @@ export class CarpoolingService {
   getViajes(fecha) {
     return this.request.get<Viaje[]>(`carpooling/viajes/${fecha}`);
   }
+
+  getMisOfrecimientos() {
+    return this.request.get<any[]>(`carpooling/ofrecimientos`);
+  }
+
+  getMisSolicitudes() {
+    return this.request.get<any[]>(`carpooling/solicitudes`);
+  }
+
+
 }
