@@ -40,7 +40,7 @@
         <ion-item>
             <ion-icon color="subtle" large item-start name='pin'></ion-icon>
             <p>Destino</p>
-            <h2>{{viaje.destino}}</h2>
+            <h2>{{viaje.saleBarrio? viaje.destino : viaje.nombreBarrio}}</h2>
         </ion-item>
         <ion-item>
             <ion-icon color="subtle" large item-start name='calendar'></ion-icon>

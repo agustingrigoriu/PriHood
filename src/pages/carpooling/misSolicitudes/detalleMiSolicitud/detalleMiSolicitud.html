@@ -11,6 +11,9 @@
 </ion-header>
 
 <ion-content>
+    <ion-card>
+        <img src="{{viaje.trayectos | imagenMapa}}">
+    </ion-card>
     <ion-card class="card-default">
         <ion-item>
             <ion-avatar item-end>
@@ -78,14 +81,22 @@
                 <p class='observaciones'>{{viaje.observaciones || 'Ninguna'}}</p>
             </ion-item>
         </ion-list>
-        <ion-list no-lines>
+        <ion-list no-lines *ngIf="viaje.estado !== null">
             <ion-item>
-                <ion-badge color='primary' item-end>Aceptada</ion-badge>
+                <ion-badge *ngIf="viaje.estado === 'Aceptada' " color='primary' item-end>{{viaje.estado}}</ion-badge>
+                <ion-badge *ngIf="viaje.estado === 'Pendiente' " color='pendiente' item-end>{{viaje.estado}}</ion-badge>
+                <ion-badge *ngIf="viaje.estado === 'Rechazada' " color='danger' item-end>{{viaje.estado}}</ion-badge>
+            </ion-item>
+        </ion-list>
+        <ion-list no-lines *ngIf="viaje.autoAsientos === 0">
+            <ion-item>
+                <ion-badge color='pendiente' item-start>No quedan asientos</ion-badge>
             </ion-item>
         </ion-list>
     </ion-card>
 
-    <ion-card>
+    <!-- @FIXME: sino tiene estado.. quiere decir que no hay solicitud -->
+    <ion-card *ngIf="!viaje.estado && viaje.autoAsientos > 0">
         <button ion-item (click)="solicitarViajeConfirmar()">
           Solicitar unirme al viaje
         </button>

@@ -3,7 +3,6 @@ import { NavController, Searchbar } from 'ionic-angular';
 import { DetalleMiSolicitudPage } from '../../misSolicitudes/detalleMiSolicitud/detalleMiSolicitud';
 
 import { CarpoolingService } from '../../carpooling.service';
-
 import { Viaje } from '../../../../app/models/viaje.model';
 
 @Component({

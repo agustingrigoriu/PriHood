@@ -8,11 +8,14 @@ export interface Viaje {
   autoPatente?: string,
   destino?: string,
   fecha?: Date,
+  hora?: string,
   idDiaSemana?: number,
   observaciones?: string
   saleBarrio?: boolean,
   tipo?: string,
   nombreBarrio?: string,
   resitente?: string,
-  trayectos?: Trayecto[]
+  trayectos?: Trayecto[],
+  estado?: string,
+  id_estado?: number
 }

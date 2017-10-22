@@ -26,7 +26,7 @@ export class CarpoolingService {
   }
 
   getMisSolicitudes() {
-    return this.request.get<any[]>(`carpooling/solicitudes`);
+    return this.request.get<Viaje[]>(`carpooling/solicitudes`);
   }
 
   aceptarRechazarSolicitud(id_solicitud_viaje: number, estado_solicitud: string) {
