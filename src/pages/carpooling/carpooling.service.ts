@@ -11,4 +11,8 @@ export class CarpoolingService {
   registrarViaje(viaje: Viaje, trayectos: Trayecto[]) {
     return this.request.post<Viaje>(`carpooling`, { viaje, trayectos });
   }
+
+  getViajes(fecha) {
+    return this.request.get<Viaje[]>(`carpooling/viajes/${fecha}`);
+  }
 }
