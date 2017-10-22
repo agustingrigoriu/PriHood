@@ -61,12 +61,12 @@
           <ion-list>
             <ion-item>
               <span item-left>
-                <button ion-button icon-left clear>
+                <button ion-button icon-left clear (click)='confirmacionRechazarSolicitud(solicitud)'>
                   <ion-icon name="close"></ion-icon>
                   Rechazar
                 </button>
               </span>
-              <button ion-button icon-right clear item-end>
+              <button ion-button icon-right clear item-end (click)='confirmacionAceptarSolicitud(solicitud)' >
                 Aceptar
                 <ion-icon name="checkmark-circle"></ion-icon>
               </button>

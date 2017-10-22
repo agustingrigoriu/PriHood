@@ -29,5 +29,8 @@ export class CarpoolingService {
     return this.request.get<any[]>(`carpooling/solicitudes`);
   }
 
+  aceptarRechazarSolicitud(id_solicitud_viaje: number, estado_solicitud: string) {
+    return this.request.post<any>(`carpooling/ofrecimientos/${id_solicitud_viaje}`, { estado_solicitud });
+  }
 
 }
