@@ -21,7 +21,7 @@ export class NuevaSolicitudPage {
 
   constructor(public navCtrl: NavController, public CarpoolingService: CarpoolingService) {
     this.viajes = [];
-   }
+  }
 
   volver() {
     this.navCtrl.pop();
@@ -40,7 +40,7 @@ export class NuevaSolicitudPage {
     try {
       const response = await this.CarpoolingService.getViajes(this.fechaFiltro);
 
-      if(response.error) {
+      if (response.error) {
         throw 'error';
       }
 
@@ -57,8 +57,8 @@ export class NuevaSolicitudPage {
     });
   }
 
-  verDetalleSolicitud(){
-    this.navCtrl.push(DetalleMiSolicitudPage);
+  verDetalleSolicitud(viaje: Viaje) {
+    this.navCtrl.push(DetalleMiSolicitudPage, { viaje });
   }
 
 }

@@ -8,6 +8,10 @@ export class CarpoolingService {
 
   constructor(protected request: ApiRequestService) { }
 
+  registrarSolicitud(viaje: Viaje) {
+    return this.request.post<any>(`carpooling/solicitar_viaje/${viaje.id}`);
+  }
+
   registrarViaje(viaje: Viaje, trayectos: Trayecto[]) {
     return this.request.post<Viaje>(`carpooling`, { viaje, trayectos });
   }

@@ -12,6 +12,7 @@ export interface Viaje {
   observaciones?: string
   saleBarrio?: boolean,
   tipo?: string,
+  nombreBarrio?: string,
   resitente?: string,
   trayectos?: Trayecto[]
 }
