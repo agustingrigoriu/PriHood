@@ -22,6 +22,10 @@ export class CarpoolingService {
     return this.request.get<Viaje[]>(`carpooling/viajes/${fecha}`);
   }
 
+  getViajesGeo(fecha, lat, lng) {
+    return this.request.get<Viaje[]>(`carpooling/viajes/${fecha}/${lat},${lng}`);
+  }
+
   getMisOfrecimientos() {
     return this.request.get<any[]>(`carpooling/ofrecimientos`);
   }

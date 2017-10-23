@@ -30,7 +30,7 @@
 
     <ion-card class="adv-map" *ngFor="let viaje of viajes">
         <div style="position: relative">
-            <img src="{{viaje.trayectos | imagenMapa}}">
+            <img src="{{viaje.trayectos | imagenMapa: punto}}">
             <ion-fab right top>
                 <button ion-fab color="primary">
                   <ion-icon name="pin"></ion-icon>
