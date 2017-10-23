@@ -3,4 +3,6 @@ export interface Barrio {
   nombre: string;
   ubicacion: string;
   codigo: string;
+  latitud: number;
+  longitud: number;
 }

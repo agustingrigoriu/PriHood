@@ -29,12 +29,13 @@ export class NuevoOfrecimientoMapaPage {
   private map: google.maps.Map;
   private lugarDesdeTexto: string;
   private lugarHastaTexto: string;
-  private ubicacionBarrio = new google.maps.LatLng(-31.335335, -64.303113);
+  private ubicacionBarrio: google.maps.LatLng;
   private ubicacionCordoba = new google.maps.LatLng(-31.287298093935906, -64.27276611328125);
   private directionsDisplay: google.maps.DirectionsRenderer;
   private directionsService: google.maps.DirectionsService;
 
   ionViewDidLoad() {
+    this.loadInfoBarrio();
     this.loadMap();
   }
 
@@ -117,6 +118,21 @@ export class NuevoOfrecimientoMapaPage {
     }
   }
 
+  async loadInfoBarrio() {
+    try {
+      const response = await this.CarpoolingService.getInfoBarrio();
+      if (response.error) throw 'error';
+      this.ubicacionBarrio = new google.maps.LatLng(response.data.latitud, response.data.longitud);
+    } catch (error) {
+      const alertMessage = this.alertCtrl.create({
+        title: 'Sin conexión',
+        message: 'Vuelva a intentarlo más tarde',
+        buttons: ['Ok']
+      });
+      alertMessage.present();
+    }
+  }
+
   async finalizar() {
     const viaje = this.viaje;
     const trayectos = this.calcularTrayectos();
@@ -131,7 +147,7 @@ export class NuevoOfrecimientoMapaPage {
       return;
     }
 
-    viaje.destino = viaje.saleBarrio? this.lugarHastaTexto : this.lugarDesdeTexto;
+    viaje.destino = viaje.saleBarrio ? this.lugarHastaTexto : this.lugarDesdeTexto;
 
     try {
       const response = await this.CarpoolingService.registrarViaje(viaje, trayectos);

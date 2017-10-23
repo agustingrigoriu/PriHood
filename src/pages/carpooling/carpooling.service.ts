@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiRequestService } from '../../services/api.request.service';
 import { Viaje } from '../../app/models/viaje.model';
 import { Trayecto } from '../../app/models/trayecto.model';
+import { Barrio } from '../../app/models/barrio.model';
 import { SolicitudViaje } from '../../app/models/solicitudViaje.model';
 
 @Injectable()
@@ -31,6 +32,10 @@ export class CarpoolingService {
 
   aceptarRechazarSolicitud(id_solicitud_viaje: number, estado_solicitud: string) {
     return this.request.post<any>(`carpooling/ofrecimientos/${id_solicitud_viaje}`, { estado_solicitud });
+  }
+
+  getInfoBarrio() {
+    return this.request.get<Barrio>(`carpooling/barrio`);
   }
 
 }
