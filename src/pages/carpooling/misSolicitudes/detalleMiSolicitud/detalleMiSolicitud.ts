@@ -33,7 +33,7 @@ export class DetalleMiSolicitudPage {
   solicitarViajeConfirmar() {
     const confirm = this.alertCtrl.create({
       title: '¿Solicitar compartir el viaje?',
-      message: `Te avisaremos cuando ${this.viaje.resitente} acepte tu solicitud.`,
+      message: `Te avisaremos cuando ${this.viaje.residente} acepte tu solicitud.`,
       buttons: [
         {
           text: 'Cancelar',

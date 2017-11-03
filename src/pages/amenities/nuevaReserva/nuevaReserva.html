@@ -16,7 +16,7 @@
   </div>
 
   <ion-card *ngFor='let amenity of tipos_amenities' (click)='openAmenitiesListPage(amenity)'>
-    <img src="{{amenity.imagen}}" />
+    <img class='img-tipoAmenity' src="{{amenity.imagen}}" />
     <div class="card-title">{{amenity.descripcion}}</div>
   </ion-card>
 

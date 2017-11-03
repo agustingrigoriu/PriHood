@@ -14,7 +14,7 @@ export interface Viaje {
   saleBarrio?: boolean,
   tipo?: string,
   nombreBarrio?: string,
-  resitente?: string,
+  residente?: string,
   trayectos?: Trayecto[],
   estado?: string,
   id_estado?: number

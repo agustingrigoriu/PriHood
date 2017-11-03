@@ -29,13 +29,7 @@
   <ion-card *ngFor='let amenity of amenities' (click)='onSelectAmenity(amenity)'>
     <ion-item>
       <h2 item-start>{{amenity.nombre}}</h2>
-      <p item-end class='infoAmenity-tipo'>Cancha de tenis</p>
-    </ion-item>
-    <ion-item>
-      <span item-right>
-            <p class='ubicacionAmenity'>{{amenity.ubicacion}}
-          <ion-icon name="pin" class='iconButton'></ion-icon></p>
-        </span>
+      <p item-end class='infoAmenity-tipo'>{{amenity.ubicacion}}  <ion-icon name="pin" class='iconButton'></ion-icon></p>
     </ion-item>
     <ion-card-content>
       <ion-item>

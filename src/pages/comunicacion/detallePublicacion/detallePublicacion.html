@@ -38,12 +38,12 @@
 
 <ion-footer>
   <ion-toolbar>
-    <form (ngSubmit)='comentar(comentario)'>
+    <form (ngSubmit)='comentar(comentario)' class='footer-comentario'>
       <ion-grid>
         <ion-row>
           <ion-col col-12>
             <ion-item no-lines>
-              <ion-label stacked>Comentario</ion-label>
+              <ion-label class='footer-comentario' stacked>Comentario</ion-label>
               <ion-textarea [(ngModel)]="comentario.texto" type="text" name="comentario"></ion-textarea>
             </ion-item>
           </ion-col>

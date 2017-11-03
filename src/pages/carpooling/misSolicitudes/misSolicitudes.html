@@ -1,53 +1,53 @@
 <ion-header>
-    <ion-toolbar color="prihood">
-        <ion-title class='title-page'>Carpooling</ion-title>
-        <ion-buttons start>
-            <button ion-button class="btn-menu" [menuToggle]="activeMenu">
+  <ion-toolbar color="prihood">
+    <ion-title class='title-page'>Carpooling</ion-title>
+    <ion-buttons start>
+      <button ion-button class="btn-menu" [menuToggle]="activeMenu">
         <img class="logoMenu-img" src="assets/img/logo_menu.png">
-        </button>
-        </ion-buttons>
-    </ion-toolbar>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-    <div *ngIf="viajes.length === 0">
-        No hay solicitudes proximas
-    </div>
+  <div *ngIf="viajes.length === 0" class='infoSolicitudes'>
+    <p>No hay solicitudes proximas</p>
+  </div>
 
-    <ion-card class="adv-map" *ngFor="let viaje of viajes">
-        <div style="position: relative">
-            <img src="{{viaje.trayectos | imagenMapa}}">
-            <ion-fab right top>
-                <button ion-fab color="primary">
-                <ion-icon name="pin"></ion-icon>
-              </button>
-            </ion-fab>
-        </div>
-        <ion-item>
-            <ion-icon color="subtle" large item-start name='pin'></ion-icon>
-            <p>Destino</p>
-            <h2>{{viaje.saleBarrio? viaje.destino : viaje.nombreBarrio}}</h2>
-        </ion-item>
-        <ion-item>
-            <ion-icon color="subtle" large item-start name='calendar'></ion-icon>
-            <p>Fecha</p>
-            <h2>{{viaje.fecha | date}}</h2>
-        </ion-item>
-        <ion-item>
-            <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
-            <p>Tipo de viaje</p>
-            <h2>Viaje {{viaje.tipo}}</h2>
-        </ion-item>
-        <ion-item actions>
-            <ion-badge *ngIf="viaje.estado === 'Aceptada' " color='primary' item-start>{{viaje.estado}}</ion-badge>
-            <ion-badge *ngIf="viaje.estado === 'Pendiente' " color='pendiente' item-start>{{viaje.estado}}</ion-badge>
-            <ion-badge *ngIf="viaje.estado === 'Rechazada' " color='danger' item-start>{{viaje.estado}}</ion-badge>
-            <button ion-button color="primary" clear item-end icon-start (click)='verDetalleSolicitud(viaje)'>
-              <ion-icon name='navigate'></ion-icon>
-                Ver
-            </button>
-        </ion-item>
-    </ion-card>
+  <ion-card class="adv-map" *ngFor="let viaje of viajes">
+    <div style="position: relative">
+      <img src="{{viaje.trayectos | imagenMapa}}">
+      <ion-fab right top>
+        <button ion-fab color="primary">
+          <ion-icon name="pin"></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+    <ion-item>
+      <ion-icon color="subtle" large item-start name='pin'></ion-icon>
+      <p>Destino</p>
+      <h2>{{viaje.saleBarrio? viaje.destino : viaje.nombreBarrio}}</h2>
+    </ion-item>
+    <ion-item>
+      <ion-icon color="subtle" large item-start name='calendar'></ion-icon>
+      <p>Fecha</p>
+      <h2>{{viaje.fecha | date}}</h2>
+    </ion-item>
+    <ion-item>
+      <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
+      <p>Tipo de viaje</p>
+      <h2>Viaje {{viaje.tipo}}</h2>
+    </ion-item>
+    <ion-item actions>
+      <ion-badge *ngIf="viaje.estado === 'Aceptada' " color='primary' item-start>{{viaje.estado}}</ion-badge>
+      <ion-badge *ngIf="viaje.estado === 'Pendiente' " color='pendiente' item-start>{{viaje.estado}}</ion-badge>
+      <ion-badge *ngIf="viaje.estado === 'Rechazada' " color='danger' item-start>{{viaje.estado}}</ion-badge>
+      <button ion-button color="primary" clear item-end icon-start (click)='verDetalleSolicitud(viaje)'>
+        <ion-icon name='navigate'></ion-icon>
+        Ver
+      </button>
+    </ion-item>
+  </ion-card>
 
 </ion-content>
