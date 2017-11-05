@@ -15,7 +15,7 @@ export class ListaAmenitiesPage {
   public tipo_amenity: any;
   public amenities: any[] = [];
   public amenitySeleccionado: any;
-  public loading: boolean;
+  public cargando: boolean;
   public fecha = new Date().toISOString();
 
   constructor(public navCtrl: NavController,
@@ -28,14 +28,15 @@ export class ListaAmenitiesPage {
   }
 
   async getListaAmenities() {
-    this.loading = true;
+    this.cargando = true;
     try {
       const loading = this.loadingController.create();
       loading.present();
       const response = await this.AmenitiesService.getListaAmenities(this.tipo_amenity.id, this.fecha);
       if (response.error) throw 'error';
       this.amenities = response.data;
-      this.loading = false;
+      loading.dismiss();
+      this.cargando = false;
     } catch (error) {
       const alertMessage = this.alertCtrl.create({
         title: 'Sin conexión',
@@ -67,7 +68,7 @@ export class ListaAmenitiesPage {
   }
 
   noHayAmenities() {
-    return (!this.loading && this.amenities.length === 0);
+    return (!this.cargando && this.amenities.length === 0);
   }
 
   ionViewWillEnter() {

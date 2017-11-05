@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Content, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import { Content, NavController, NavParams, ToastController, AlertController, LoadingController } from 'ionic-angular';
 
 import { Comentario } from '../../../app/models/comentario.model';
 import { ComunicacionService } from '../comunicacion.service';
@@ -24,17 +24,21 @@ export class DetallePublicacionPage {
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public ComunicacionService: ComunicacionService,
-    public proveedor: NavParams) {
+    public proveedor: NavParams,
+    public loadingController: LoadingController) {
     this.publicacion = navParams.get("publicacion");
   }
 
   actualizar() {
+    const loading = this.loadingController.create();
+    loading.present();
     return this.ComunicacionService.getComentarios(this.publicacion.id).then(response => {
       if (response.error) {
         this.alertaError();
       } else {
         this.comentarios = response.data;
       }
+      loading.dismiss();
     });
   }
 

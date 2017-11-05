@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, AlertController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import * as moment from 'moment';
 
 import { AmenitiesPage } from '../amenities';
@@ -24,16 +24,20 @@ export class TurnosAmenityPage {
     public navParams: NavParams,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
-    public AmenitiesService: AmenitiesService) {
+    public AmenitiesService: AmenitiesService,
+    public loadingController: LoadingController) {
     this.amenity = navParams.get("amenity");
     this.fecha = navParams.get("fecha");
   }
 
   async getTurnosAmenity() {
     try {
+      const loading = this.loadingController.create();
+      loading.present();
       const response = await this.AmenitiesService.getTurnosAmenity(this.amenity.id, this.fecha);
       if (response.error) throw 'error';
       this.turnos = response.data.turnos.map(this.horarioTurno.bind(this));
+      loading.dismiss();
     } catch (error) {
       const alertMessage = this.alertCtrl.create({
         title: 'Sin conexión',
@@ -104,6 +108,8 @@ export class TurnosAmenityPage {
       fecha,
       observaciones: ''
     };
+    const loading = this.loadingController.create();
+    loading.present();
     this.AmenitiesService.reservarTurno(this.turnoSeleccionado.id, reserva).then(response => {
       if (response.error) {
         this.presentToast('No se pudo registrar la reserva.');
@@ -111,7 +117,7 @@ export class TurnosAmenityPage {
         this.presentToast('Su turno fué reservado correctamente.');
         this.navCtrl.setRoot(AmenitiesPage);
       }
-
+      loading.dismiss();
     })
   }
 

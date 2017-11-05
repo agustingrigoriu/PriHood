@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, LoadingController } from 'ionic-angular';
 import { ExpensasService } from './expensas.service';
 
 import { Expensa } from '../../app/models/expensa.model';
@@ -13,10 +13,12 @@ export class ExpensasPage {
 
   private expensas: any[];
 
-  constructor(private ExpensasService: ExpensasService, public alertCtrl: AlertController,) {
+  constructor(private ExpensasService: ExpensasService, public alertCtrl: AlertController, public loadingController: LoadingController) {
   }
 
   actualizar() {
+    const loading = this.loadingController.create();
+    loading.present();
     this.ExpensasService.getExpensas().then(response => {
       if (response.error) {
         const alertMessage = this.alertCtrl.create({
@@ -28,6 +30,7 @@ export class ExpensasPage {
       } else {
         this.expensas = response.data;
       }
+      loading.dismiss();
     });
   }
 
@@ -35,11 +38,11 @@ export class ExpensasPage {
     return (this.expensas.length === 0);
   }
 
-  openExpensa(expensa: Expensa){
+  openExpensa(expensa: Expensa) {
     window.open(expensa.url_expensa, '_blank');
   }
 
-  downloadExpensa(expensa: Expensa){
+  downloadExpensa(expensa: Expensa) {
   }
 
   ionViewWillEnter() {

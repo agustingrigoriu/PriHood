@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 
 import { Publicacion } from '../../../app/models/publicacion.model';
 import { ComunicacionService } from '../comunicacion.service';
@@ -19,9 +19,12 @@ export class PublicacionesPage {
   private nombre_barrio;
 
   constructor(private ComunicacionService: ComunicacionService,
-    public navCtrl: NavController, private LoginService: LoginService) { }
+    public navCtrl: NavController, private LoginService: LoginService,
+    public loadingController: LoadingController) { }
 
   actualizar() {
+    const loading = this.loadingController.create();
+    loading.present();
     this.nombre_barrio = this.LoginService.getSession().barrio.nombre;
     this.ComunicacionService.getPublicaciones().then(response => {
       if (response.error) {
@@ -29,6 +32,7 @@ export class PublicacionesPage {
       } else {
         this.publicaciones = response.data;
       }
+      loading.dismiss();
     });
   }
 

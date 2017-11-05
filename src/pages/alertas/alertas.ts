@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertasService } from './alertas.service'
-import { NavController, AlertController, ToastController, App } from 'ionic-angular';
+import { NavController, AlertController, ToastController, App, LoadingController } from 'ionic-angular';
 import { TipoAlerta } from '../../app/models/tipoAlerta.model'
 import { Alerta } from '../../app/models/alerta.model'
 
@@ -15,10 +15,13 @@ export class AlertasPage {
 
   constructor(private AlertasService: AlertasService,
     public alertCtrl: AlertController,
-    public toastCtrl: ToastController, ) {
+    public toastCtrl: ToastController,
+    public loadingController: LoadingController) {
   }
 
   async getTiposAlertas() {
+    const loading = this.loadingController.create();
+    loading.present();
     try {
       const response = await this.AlertasService.getTiposAlertas();
       if (response.error) throw 'error';
@@ -31,11 +34,12 @@ export class AlertasPage {
       });
       alertMessage.present();
     }
+    loading.dismiss();
   }
 
   sendAlerta(tipoAlerta: TipoAlerta) {
     const alerta = {
-      idTipoAlerta: tipoAlerta.id, 
+      idTipoAlerta: tipoAlerta.id,
       descripcion: ''
     };
     this.AlertasService.generarAlerta(alerta).then(response => {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, LoadingController } from 'ionic-angular';
 import * as moment from 'moment';
 
 import { AmenitiesService } from '../amenities.service';
@@ -15,12 +15,13 @@ export class MisReservasPage {
 
   reservas: any[] = [];
   tipos_amenities: object;
-  loading: boolean = true;
+  cargando: boolean = true;
   private defaultDate = new Date(2017, 1, 6);
 
 
   constructor(public AmenitiesService: AmenitiesService,
-    public alertCtrl: AlertController, ) {
+    public alertCtrl: AlertController, 
+    public loadingController: LoadingController) {
   }
 
   async ionViewWillEnter() {
@@ -29,7 +30,9 @@ export class MisReservasPage {
   }
 
   actualizar() {
-    this.loading = true;
+    this.cargando = true;
+    const loading = this.loadingController.create();
+    loading.present();
     return this.AmenitiesService.getReservas().then(response => {
       if (response.error) {
         const alertMessage = this.alertCtrl.create({
@@ -40,13 +43,14 @@ export class MisReservasPage {
         alertMessage.present();
       } else {
         this.reservas = response.data.map(this.horarioTurno.bind(this));
-        this.loading = false;
+        this.cargando = false;
       }
+      loading.dismiss();
     });
   }
 
   noHayReservas() {
-    return (!this.loading && this.reservas.length === 0);
+    return (!this.cargando && this.reservas.length === 0);
   }
 
   estaCancelada(miReserva: MiReserva){

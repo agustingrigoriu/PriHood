@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Content, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import { Content, NavController, NavParams, ToastController, AlertController, LoadingController } from 'ionic-angular';
 
 import { Comentario } from '../../../app/models/comentario.model';
 import { Publicacion } from '../../../app/models/publicacion.model';
@@ -27,7 +27,8 @@ export class MensajeDirectoPage {
     public alertCtrl: AlertController,
     public ComunicacionService: ComunicacionService,
     public LoginService: LoginService,
-    public proveedor: NavParams) {
+    public proveedor: NavParams,
+    public loadingController: LoadingController) {
   }
 
   scrollBottom() {
@@ -55,6 +56,8 @@ export class MensajeDirectoPage {
   }
 
   actualizar() {
+    const loading = this.loadingController.create();
+    loading.present();
     this.nombre_barrio = this.LoginService.getSession().barrio.nombre;
     this.ComunicacionService.getMensajesDirectos().then(response => {
       if (response.error) {
@@ -62,6 +65,7 @@ export class MensajeDirectoPage {
       } else {
         this.mensajesDirectos = response.data;
       }
+      loading.dismiss();
     });
   }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ToastController } from 'ionic-angular';
+import { NavController, AlertController, ToastController, LoadingController } from 'ionic-angular';
 import { CarpoolingService } from '../carpooling.service';
 
 @Component({
@@ -15,11 +15,14 @@ export class MisOfrecimientosPage {
 
   ofrecimientos: string = 'pendientes';
 
-  constructor(public navCtrl: NavController, public CarpoolingService: CarpoolingService, public alertCtrl: AlertController, public toastCtrl: ToastController) { }
+  constructor(public navCtrl: NavController, public CarpoolingService: CarpoolingService, public alertCtrl: AlertController, public toastCtrl: ToastController, public loadingController: LoadingController) { }
 
   actualizar() {
     this.misOfrecimientosPendientes = [];
     this.misOfrecimientosAceptados = [];
+
+    const loading = this.loadingController.create();
+    loading.present();
 
     this.CarpoolingService.getMisOfrecimientos().then(response => {
       if (response.error) {
@@ -41,7 +44,8 @@ export class MisOfrecimientosPage {
           }
         }
       }
-    });
+    })
+    loading.dismiss();
   }
 
   ionViewWillEnter() {
