@@ -31,6 +31,19 @@ export class ApiRequestService {
     return this.http.get<Request<T>>(`${this.BASE_URL}/api/${api}`, { params }).toPromise().catch(this.handlerError);
   }
 
+  upload<T>(api, data, file: File, input = 'file'): Promise<Request<T>> {
+    const form = new FormData();
+    const params = this.getAuth();
+
+    for (let key in data) {
+      form.append(key, data[key]);
+    }
+
+    form.append(input, file, file.name);
+
+    return this.http.post<Request<T>>(`${this.BASE_URL}/api/${api}`, form, { params }).toPromise();
+  }
+
   handlerError(err): Request<any> {
     return { error: true, data: null };
   }
