@@ -19,16 +19,16 @@ export class MenuPage {
   @ViewChild(Nav) nav: NavController;
 
   pages: Array<{ title: string, component: any, icon: string }>;
-  root = CarpoolingPage;
+  root = ComunicacionPage;
   private userInfo;
 
   constructor(public loginService: LoginService) {
     //Declarar aqui las paginas a incluir en el Menu Principal
     this.pages = [
+      { title: 'Comunicacion', component: ComunicacionPage, icon: 'chatboxes' },
+      { title: 'Amenities', component: AmenitiesPage, icon: 'tennisball' },
       { title: 'Visitas', component: VisitasPage, icon: 'people' },
       { title: 'Servicios', component: ProveedoresPage, icon: 'hammer' },
-      { title: 'Amenities', component: AmenitiesPage, icon: 'tennisball' },
-      { title: 'Comunicacion', component: ComunicacionPage, icon: 'chatboxes' },
       { title: 'Expensas', component: ExpensasPage, icon: 'cash' },
       { title: 'Alertas', component: AlertasPage, icon: 'warning' },
       { title: 'Carpooling', component: CarpoolingPage, icon: 'car' },
