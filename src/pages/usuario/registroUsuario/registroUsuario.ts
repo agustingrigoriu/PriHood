@@ -7,6 +7,7 @@ import { Residencia } from '../../../app/models/residencia.model';
 import { Barrio } from '../../../app/models/barrio.model';
 
 import { LoginPage } from '../../login/login';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   templateUrl: 'registroUsuario.html'
@@ -16,25 +17,43 @@ export class RegistroUsuarioPage {
   public barrio: Barrio;
   public residencia: Residencia;
 
+  avatar = '/assets/img/pruebas/visitas/lucas.png';
+
+  form: FormGroup;
+
   constructor(public navParams: NavParams, public alertCtrl: AlertController,
-    public toastCtrl: ToastController, private RegistroUsuarioService: RegistroUsuarioService, private navCtrl: NavController) {
+    public toastCtrl: ToastController, private RegistroUsuarioService: RegistroUsuarioService,
+    private navCtrl: NavController, public formBuilder: FormBuilder) {
     this.barrio = navParams.get("barrio");
     this.residencia = navParams.get("residencia");
+
+    this.form = formBuilder.group({
+      nombreUsuario: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      apellidoUsuario: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      emailUsuario: ['', Validators.compose([Validators.email, Validators.required])],
+      passwordUsuario: ['', Validators.compose([Validators.maxLength(20), Validators.required])],
+      confirmacionPasswordUsuario: ['', Validators.compose([Validators.maxLength(20), Validators.required])],
+      fechaNacimientoUsuario: ['', Validators.compose([Validators.required])],
+      telefonoUsuario: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[0-9]*'), Validators.required])],
+      tipoDocumentoUsuario: ['', Validators.compose([Validators.required])],
+      numeroDocumentoUsuario: ['', Validators.compose([Validators.maxLength(10), Validators.pattern('[0-9]*'), Validators.required])]
+    });
 
     this.presentToast('Código de verificación correcto');
   }
 
-  registrarUsuario(nombre, apellido, id_tipo_documento, numero_documento, telefono, fecha_nacimiento, email, password) {
+  registrarUsuario() {
     const usuario = {
-      nombre: nombre,
-      apellido: apellido,
-      id_tipo_documento: id_tipo_documento,
-      numero_documento: numero_documento,
-      telefono: telefono,
-      fecha_nacimiento: fecha_nacimiento,
-      email: email,
-      password: password,
-      id_residencia: this.residencia.id
+      nombre: this.form.value.nombreUsuario,
+      apellido: this.form.value.apellidoUsuario,
+      id_tipo_documento: this.form.value.id_tipo_documento,
+      numero_documento: this.form.value.numeroDocumentoUsuario,
+      telefono: this.form.value.telefonoUsuario,
+      fecha_nacimiento: this.form.value.fechaNacimientoUsuario,
+      email: this.form.value.emailUsuario,
+      password: this.form.value.passwordUsuario,
+      id_residencia: this.residencia.id,
+      avatar: this.avatar
     };
 
     this.RegistroUsuarioService.registrarUsuario(usuario).then(response => {

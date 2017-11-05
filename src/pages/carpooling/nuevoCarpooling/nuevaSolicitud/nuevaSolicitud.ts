@@ -1,5 +1,5 @@
 import { Component, ViewChild, NgZone } from '@angular/core';
-import { NavController, Searchbar } from 'ionic-angular';
+import { NavController, Searchbar, LoadingController } from 'ionic-angular';
 import { DetalleMiSolicitudPage } from '../../misSolicitudes/detalleMiSolicitud/detalleMiSolicitud';
 
 import { CarpoolingService } from '../../carpooling.service';
@@ -19,7 +19,7 @@ export class NuevaSolicitudPage {
   public viajes: Viaje[];
   public punto;
 
-  constructor(public navCtrl: NavController, public CarpoolingService: CarpoolingService, public zone: NgZone) {
+  constructor(public navCtrl: NavController, public CarpoolingService: CarpoolingService, public zone: NgZone, public loadingController: LoadingController) {
     this.viajes = [];
   }
 
@@ -38,8 +38,10 @@ export class NuevaSolicitudPage {
 
   async cargarViajes() {
     try {
+      const loading = this.loadingController.create();
+      loading.present();
       const response = await this.CarpoolingService.getViajes(this.fechaFiltro);
-
+      loading.dismiss();
       if (response.error) {
         throw 'error';
       }

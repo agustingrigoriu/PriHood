@@ -15,13 +15,13 @@
     <ion-item class='tipoServicio'>
       <ion-label class='tipoServicio-texto'>Tipo de Servicio</ion-label>
       <ion-select [(ngModel)]="tipo_servicio" interface='popover' (ionChange)="servicioSeleccionado($event)">
-        <ion-option value="{{tipo_servicio.id}}" *ngFor='let tipo_servicio of tipos_servicio'>{{tipo_servicio.descripcion}}</ion-option>
+        <ion-option *ngFor='let tipo_servicio of tipos_servicio' value="{{tipo_servicio.id}}">{{tipo_servicio.descripcion}}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
 
   <div *ngIf='noHayProveedores()' class='infoProveedores-contenedor'>
-    <p class='infoProveedores'>No hay servicios registrados</p>
+      <p class='infoProveedores'>No hay servicios registrados</p>
   </div>
 
   <ion-card *ngFor='let proveedor of proveedores'>

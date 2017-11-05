@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, AlertController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 
 import { VisitanteService } from '../visitas.service';
 import { VisitasPage } from '../visitas'
@@ -18,7 +18,8 @@ export class RegistroVisitaPage {
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,
     public navParams: NavParams, private VisitanteService: VisitanteService,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    public loadingController: LoadingController) {
     this.visita.id_tipo_visita = navParams.get("id_Tab") + '';
   }
 
@@ -30,6 +31,8 @@ export class RegistroVisitaPage {
     if (this.esVisitaFrecuente()) {
       visita.fecha_visita = undefined;
     }
+    const loading = this.loadingController.create();
+    loading.present();
     this.VisitanteService.registrarVisita(visita).then(response => {
       if (response.error) {
         this.presentToast('No se pudo completar el registro de la visita.');
@@ -37,6 +40,7 @@ export class RegistroVisitaPage {
         this.presentToast('La visita se ha registrado correctamente.');
         this.navCtrl.setRoot(VisitasPage);
       }
+      loading.dismiss();
     });
   }
 

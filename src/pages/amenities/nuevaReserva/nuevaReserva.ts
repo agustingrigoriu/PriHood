@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { AmenitiesService } from '../amenities.service';
-import { NavController, AlertController, App } from 'ionic-angular';
+import { NavController, AlertController, App, LoadingController } from 'ionic-angular';
 import { TipoAmenity } from '../../../app/models/tipoAmenity.model';
 import { ListaAmenitiesPage } from '../listaAmenities/listaAmenities';
 
@@ -16,14 +16,18 @@ export class NuevaReservaPage {
   constructor(private AmenitiesService: AmenitiesService,
     public alertCtrl: AlertController,
     public navCtrl: NavController,
-    public app: App) {
+    public app: App,
+    public loadingController: LoadingController) {
   }
 
   async getTiposAmenities() {
     try {
+      const loading = this.loadingController.create();
+      loading.present();
       const response = await this.AmenitiesService.getTiposAmenities();
       if (response.error) throw 'error';
       this.tipos_amenities = response.data;
+      loading.dismiss();
     } catch (error) {
       const alertMessage = this.alertCtrl.create({
         title: 'Sin conexión',

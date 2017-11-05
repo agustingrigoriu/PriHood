@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App, AlertController, NavController, NavParams } from 'ionic-angular';
+import { App, AlertController, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { DatePipe } from '@angular/common';
 import { VisitasDetallePage } from '../visitasDetalle/visitasDetalle';
@@ -13,13 +13,13 @@ import { VisitanteService } from '../visitas.service'
 export class VisitasActualesTab {
   private visitantes: any[] = [];
   private visitante: any;
-  private loading: boolean = true;
+  private cargando: boolean = true;
 
   id_Tab = 2; //Tab de Visitas Actuales
   nombre_tipo_documento = ["DNI", "LE", "LC", "Otro"];
 
   constructor(public navCtrl: NavController, public app: App,
-    public navParams: NavParams, private VisitanteService: VisitanteService, public alertCtrl: AlertController) {
+    public navParams: NavParams, private VisitanteService: VisitanteService, public alertCtrl: AlertController, public loadingController: LoadingController) {
   }
 
   pageRegistrarVisita() {
@@ -33,14 +33,17 @@ export class VisitasActualesTab {
   }
 
   actualizar() {
-    this.loading = true;
+    const loading = this.loadingController.create();
+    loading.present();
+    this.cargando = true;
     this.VisitanteService.getVisitas(this.id_Tab).then(response => {
       if (response.error) {
         this.alertaError();
       } else {
         this.visitantes = response.data;
-        this.loading = false;
+        this.cargando = false;
       }
+      loading.dismiss();
     });
   }
 
@@ -66,7 +69,7 @@ export class VisitasActualesTab {
   }
 
   noHayVisitas() {
-    return (!this.loading && this.visitantes.length === 0);
+    return (!this.cargando && this.visitantes.length === 0);
   }
 
 }

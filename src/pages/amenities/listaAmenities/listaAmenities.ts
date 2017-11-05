@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, AlertController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { Amenity } from '../../../app/models/amenity.model';
 
 import { TurnosAmenityPage } from '../turnosAmenity/turnosAmenity'
@@ -22,13 +22,16 @@ export class ListaAmenitiesPage {
     public navParams: NavParams,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
-    public AmenitiesService: AmenitiesService) {
+    public AmenitiesService: AmenitiesService,
+    public loadingController: LoadingController) {
     this.tipo_amenity = navParams.get("tipo_amenity");
   }
 
   async getListaAmenities() {
     this.loading = true;
     try {
+      const loading = this.loadingController.create();
+      loading.present();
       const response = await this.AmenitiesService.getListaAmenities(this.tipo_amenity.id, this.fecha);
       if (response.error) throw 'error';
       this.amenities = response.data;

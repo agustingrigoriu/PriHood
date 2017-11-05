@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { ProveedorService } from './proveedores.service';
 import { RegistroProveedorPage } from './registroProveedor/registroProveedor';
 import { ValorarProveedorPage } from './valorarProveedor/valorarProveedor';
@@ -17,19 +17,22 @@ export class ProveedoresPage {
   private tipo_servicio: any;
   private proveedorSeleccionado: any;
 
-  constructor(private ProveedorService: ProveedorService, public navCtrl: NavController, public alertCtrl: AlertController) {}
+  constructor(private ProveedorService: ProveedorService, public navCtrl: NavController, public alertCtrl: AlertController, public loadingController: LoadingController) { }
 
   pageRegistrarProveedor() {
     this.navCtrl.push(RegistroProveedorPage);
   }
 
   servicioSeleccionado(tipo_servicio) {
+    const loading = this.loadingController.create();
+    loading.present();
     this.ProveedorService.getProveedoresTipoServicio(tipo_servicio).then(response => {
       if (response.error) {
         this.alertaError();
       } else {
         this.proveedores = response.data;
       }
+      loading.dismiss();
     });
   }
 
@@ -48,12 +51,15 @@ export class ProveedoresPage {
   }
 
   cargarTiposDeServicio() {
+    const loading = this.loadingController.create();
+    loading.present();
     this.ProveedorService.getTiposServicios().then(response => {
       if (response.error) {
         this.alertaError();
       } else {
         this.tipos_servicio = response.data;
       }
+      loading.dismiss();
     });
   }
 

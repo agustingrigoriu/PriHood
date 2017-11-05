@@ -57,6 +57,8 @@ export class RegistroProveedorPage {
         break;
       case '5': this.proveedor.avatar = 'assets/img/pruebas/proveedores/fumigacion.png';
         break;
+      case '6': this.proveedor.avatar = 'assets/img/pruebas/proveedores/otros.png';
+        break; 
       default: this.proveedor.avatar = 'assets/img/pruebas/proveedores/piscinas.png';
         break;
     }
@@ -75,7 +77,7 @@ export class RegistroProveedorPage {
   cargarTiposDeServicio() {
     this.ProveedorService.getTiposServicios().then(response => {
       if (response.error) {
-          const alertMessage = this.alertCtrl.create({
+        const alertMessage = this.alertCtrl.create({
           title: 'Sin conexión',
           message: 'No se pudo cargar los servicios',
           buttons: ['Ok']

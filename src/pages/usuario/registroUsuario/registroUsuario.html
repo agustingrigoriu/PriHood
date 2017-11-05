@@ -6,101 +6,105 @@
 
 <ion-content>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col col-8>
-        <div class="informacionBarrio-contenedor">
-          <p class="informacionBarrio-titulo">"<b>{{barrio.nombre}}</b>"</p>
-          <p class="informacionResidencia-titulo">{{residencia.nombre}}</p>
-          <p class="informacionResidencia-ubicacion">{{residencia.ubicacion}}</p>
-        </div>
-      </ion-col>
-      <ion-col col-4>
-        <div class="imagenUsuario-contenedor">
-          <button ion-button clear class="imagenUsuario-btn">
-            <ion-icon name="contact" class="imagenUsuario"></ion-icon>
-          </button>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+
 
   <ion-list>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-          <ion-item>
-            <ion-label stacked>Nombre</ion-label>
-            <ion-input [(ngModel)]="nombreUsuario" type="text"></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6>
-          <ion-item>
-            <ion-label stacked>Apellido</ion-label>
-            <ion-input [(ngModel)]="apellidoUsuario" type="text"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12>
-          <ion-item>
-            <ion-label stacked>Email</ion-label>
-            <ion-input [(ngModel)]="emailUsuario" type="email"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-6>
-          <ion-item>
-            <ion-label stacked>Contraseña</ion-label>
-            <ion-input [(ngModel)]="passwordUsuario" type="password"></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6>
-          <ion-item>
-            <ion-label stacked>Confirme contraseña</ion-label>
-            <ion-input [(ngModel)]="confirmacionPasswordUsuario" type="password"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-6>
-          <ion-item>
-            <ion-label stacked>Fecha de Nacimiento</ion-label>
-              <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="fechaNacimientoUsuario"></ion-datetime>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6>
-          <ion-item>
-            <ion-label stacked>Tel. Móvil</ion-label>
-            <ion-input [(ngModel)]="telefonoUsuario" type="tel"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-5>
-          <ion-item>
-            <ion-label stacked>Tipo Documento</ion-label> <!--crear servicio y API para tipos de documento!-->
-            <ion-select [(ngModel)]="tipoDocumentoUsuario">
-              <ion-option value="1">DNI</ion-option>
-              <ion-option value="2">LE</ion-option>
-              <ion-option value="3">CI</ion-option>
-              <ion-option value="4">Otro</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-        <ion-col col-7>
-          <ion-item>
-            <ion-label stacked>Número</ion-label>
-            <ion-input [(ngModel)]="numeroDocumentoUsuario" type="number"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <form [formGroup]="form" (submit)="registrarUsuario()">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-8>
+            <div class="informacionBarrio-contenedor">
+              <p class="informacionBarrio-titulo">"
+                <b>{{barrio.nombre}}</b>"</p>
+              <p class="informacionResidencia-titulo">{{residencia.nombre}}</p>
+              <p class="informacionResidencia-ubicacion">{{residencia.ubicacion}}</p>
+            </div>
+          </ion-col>
+          <ion-col col-4>
+            <div class="imagenUsuario-contenedor">
+              <button ion-button clear class="imagenUsuario-btn">
+                <img src='{{avatar}}' class="imagenUsuario"/>
+              </button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label stacked>Nombre</ion-label>
+              <ion-input formControlName="nombreUsuario" type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label stacked>Apellido</ion-label>
+              <ion-input formControlName="apellidoUsuario" type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <ion-label stacked>Email</ion-label>
+              <ion-input formControlName="emailUsuario" type="email"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label stacked>Contraseña</ion-label>
+              <ion-input formControlName="passwordUsuario" type="password"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label stacked>Confirme contraseña</ion-label>
+              <ion-input formControlName="confirmacionPasswordUsuario" type="password"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label stacked>Fecha de Nacimiento</ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" formControlName="fechaNacimientoUsuario"></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label stacked>Tel. Móvil</ion-label>
+              <ion-input formControlName="telefonoUsuario" type="tel"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-5>
+            <ion-item>
+              <ion-label stacked>Tipo Documento</ion-label>
+              <!--crear servicio y API para tipos de documento!-->
+              <ion-select formControlName="tipoDocumentoUsuario">
+                <ion-option value="1">DNI</ion-option>
+                <ion-option value="2">LE</ion-option>
+                <ion-option value="3">CI</ion-option>
+                <ion-option value="4">Otro</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col col-7>
+            <ion-item>
+              <ion-label stacked>Número</ion-label>
+              <ion-input formControlName="numeroDocumentoUsuario" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="btnRegistrar">
+        <button ion-button outline block id="btnRegistrarUsuario" type="submit" [disabled]="!form.valid">Registrar</button>
+      </div>
+    </form>
   </ion-list>
-
-  <div class="btnRegistrar">
-    <button ion-button outline block id="btnRegistrarUsuario" (click)='registrarUsuario(nombreUsuario, apellidoUsuario, tipoDocumentoUsuario, numeroDocumentoUsuario, telefonoUsuario, fechaNacimientoUsuario, emailUsuario, passwordUsuario)'>Registrar</button>
-  </div>
 
 </ion-content>
