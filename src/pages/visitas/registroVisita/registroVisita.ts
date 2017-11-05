@@ -23,15 +23,14 @@ export class RegistroVisitaPage {
 
     this.formVisita = formBuilder.group({
       id_tipo_visita: [id_tv],
-      avatar: ['assets/img/pruebas/visitas/gabi.png'],
+      avatar: [],
       nombre: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       apellido: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       id_tipo_documento: ['', Validators.compose([Validators.required])],
       numero_documento: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[0-9]*'), Validators.required])],
       patente: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[a-zA-Z0-9]*')])],
       observaciones: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-      fecha_visita: [new Date().toISOString()],
-
+      fecha_visita: [new Date().toISOString()]
     });
   }
 
@@ -42,6 +41,7 @@ export class RegistroVisitaPage {
   registrarVisita() {
     const loading = this.loadingController.create();
     loading.present();
+    
     this.VisitanteService.registrarVisita(this.formVisita.value).then(response => {
       if (response.error) {
         this.presentToast('No se pudo completar el registro de la visita.');
@@ -55,15 +55,6 @@ export class RegistroVisitaPage {
 
   esVisitaFrecuente() {
     return (this.formVisita.value.id_tipo_visita === '1');
-  }
-
-  fotoUpload() {
-    let alert = this.alertCtrl.create({
-      title: 'Imágen de visita',
-      message: 'No es posible añadir una imagen a la visita',
-      buttons: ['Ok']
-    });
-    alert.present()
   }
 
   presentToast(message: string) {

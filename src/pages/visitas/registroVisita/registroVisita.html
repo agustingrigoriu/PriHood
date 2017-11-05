@@ -1,118 +1,116 @@
 <ion-header>
-  <ion-toolbar color="prihood">
-    <ion-title>Registrar visita</ion-title>
-    <ion-buttons start>
-      <button ion-button (click)="volver()">
+    <ion-toolbar color="prihood">
+        <ion-title>Registrar visita</ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="volver()">
         <span ion-text color="primary" showWhen="ios">Cancel</span>
         <ion-icon name="md-close" showWhen="android"></ion-icon>
       </button>
-    </ion-buttons>
-  </ion-toolbar>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="spacer"></div>
-  <ion-row *ngIf="!esVisitaFrecuente()">
-    <ion-col col-12 class='infoRegistroVisita-container'>
-      <p class="infoRegistroVisita">
-        Ingrese los datos de la visita, que serán validados para su ingreso al barrio
-      </p>
-    </ion-col>
-  </ion-row>
-  <ion-row *ngIf="esVisitaFrecuente()">
-    <ion-col col-8 class='infoRegistroVisita-container'>
-      <p class="infoRegistroVisita">
-        Ingrese los datos de la visita, que serán validados para su ingreso al barrio
-      </p>
-    </ion-col>
-    <ion-col col-3>
-      <button class="visita-img" (click)="fotoUpload()">
-        <img class="visita-img" src="assets/img/user_avatar.png">
-      </button>
-    </ion-col>
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <form [formGroup]="formVisita" (ngSubmit)="registrarVisita()">
-    <ion-list>
-      <ion-grid>
+    <form [formGroup]="formVisita" (ngSubmit)="registrarVisita()">
+        <div class="spacer"></div>
         <ion-row *ngIf="!esVisitaFrecuente()">
-          <ion-col col-12>
-            <ion-item>
-              <ion-label stacked>Fecha de visita</ion-label>
-              <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" formControlName="fecha_visita" name="fechaVisita"></ion-datetime>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-6>
-            <ion-item>
-              <ion-label stacked>Nombre</ion-label>
-              <ion-input formControlName="nombre" type="text" name="nombre"></ion-input>
-            </ion-item>
-            <ion-item no-lines *ngIf="!formVisita.controls.nombre.valid && !formVisita.controls.nombre.pending && (formVisita.controls.nombre.dirty || submitAttempt)">
-              <p class='errorValidacion'>Nombre inválido</p>
-            </ion-item>
-          </ion-col>
-          <ion-col col-6>
-            <ion-item>
-              <ion-label stacked>Apellido</ion-label>
-              <ion-input formControlName="apellido" type="text" name="apellidoVisita"></ion-input>
-            </ion-item>
-            <ion-item no-lines *ngIf="!formVisita.controls.apellido.valid && !formVisita.controls.apellido.pending && (formVisita.controls.apellido.dirty || submitAttempt)">
-              <p class='errorValidacion'>Apellido inválido</p>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-5>
-            <ion-item>
-              <ion-label stacked>Tipo Documento</ion-label>
-              <ion-select formControlName="id_tipo_documento" name="tipoDocumentoVisita">
-                <ion-option value="1">DNI</ion-option>
-                <ion-option value="2">LE</ion-option>
-                <ion-option value="3">CI</ion-option>
-                <ion-option value="4">Otro</ion-option>
-              </ion-select>
-            </ion-item>
-            <ion-item no-lines *ngIf="!formVisita.controls.id_tipo_documento.valid && !formVisita.controls.id_tipo_documento.pending && (formVisita.controls.id_tipo_documento.dirty || submitAttempt)">
-              <p class='errorValidacion'>Seleccione uno</p>
-            </ion-item>
-          </ion-col>
-          <ion-col col-7>
-            <ion-item>
-              <ion-label stacked>Número</ion-label>
-              <ion-input formControlName="numero_documento" type="number" name="numeroDocumentoVisita"></ion-input>
-            </ion-item>
-            <ion-item no-lines *ngIf="!formVisita.controls.numero_documento.valid && !formVisita.controls.numero_documento.pending && (formVisita.controls.numero_documento.dirty || submitAttempt)">
-              <p class='errorValidacion'>Documento inválido</p>
-            </ion-item>
-          </ion-col>
+            <ion-col col-12 class='infoRegistroVisita-container'>
+                <p class="infoRegistroVisita">
+                    Ingrese los datos de la visita, que serán validados para su ingreso al barrio
+                </p>
+            </ion-col>
         </ion-row>
         <ion-row *ngIf="esVisitaFrecuente()">
-          <ion-col col-12>
-            <ion-item>
-              <ion-label stacked>Patente</ion-label>
-              <ion-input formControlName="patente" type="text" name="patenteVisita"></ion-input>
-            </ion-item>
-            <ion-item no-lines *ngIf="!formVisita.controls.patente.valid && !formVisita.controls.patente.pending && (formVisita.controls.patente.dirty || submitAttempt)">
-              <p class='errorValidacion'>Patente inválida</p>
-            </ion-item>
-          </ion-col>
+            <ion-col col-8 class='infoRegistroVisita-container'>
+                <p class="infoRegistroVisita">
+                    Ingrese los datos de la visita, que serán validados para su ingreso al barrio
+                </p>
+            </ion-col>
+            <ion-col col-3>
+                <cargar-foto formControlName='avatar' [size]='80'></cargar-foto>
+            </ion-col>
+            <ion-col col-1></ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col col-12>
-            <ion-item>
-              <ion-label stacked>Observaciones</ion-label>
-              <ion-textarea formControlName="observaciones" type="text" name="observacionesVisita"></ion-textarea>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-list>
+        <ion-list>
+            <ion-grid>
+                <ion-row *ngIf="!esVisitaFrecuente()">
+                    <ion-col col-12>
+                        <ion-item>
+                            <ion-label stacked>Fecha de visita</ion-label>
+                            <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" formControlName="fecha_visita" name="fechaVisita"></ion-datetime>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <ion-item>
+                            <ion-label stacked>Nombre</ion-label>
+                            <ion-input formControlName="nombre" type="text" name="nombre"></ion-input>
+                        </ion-item>
+                        <ion-item no-lines *ngIf="!formVisita.controls.nombre.valid && !formVisita.controls.nombre.pending && (formVisita.controls.nombre.dirty || submitAttempt)">
+                            <p class='errorValidacion'>Nombre inválido</p>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-6>
+                        <ion-item>
+                            <ion-label stacked>Apellido</ion-label>
+                            <ion-input formControlName="apellido" type="text" name="apellidoVisita"></ion-input>
+                        </ion-item>
+                        <ion-item no-lines *ngIf="!formVisita.controls.apellido.valid && !formVisita.controls.apellido.pending && (formVisita.controls.apellido.dirty || submitAttempt)">
+                            <p class='errorValidacion'>Apellido inválido</p>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-5>
+                        <ion-item>
+                            <ion-label stacked>Tipo Documento</ion-label>
+                            <ion-select formControlName="id_tipo_documento" name="tipoDocumentoVisita">
+                                <ion-option value="1">DNI</ion-option>
+                                <ion-option value="2">LE</ion-option>
+                                <ion-option value="3">CI</ion-option>
+                                <ion-option value="4">Otro</ion-option>
+                            </ion-select>
+                        </ion-item>
+                        <ion-item no-lines *ngIf="!formVisita.controls.id_tipo_documento.valid && !formVisita.controls.id_tipo_documento.pending && (formVisita.controls.id_tipo_documento.dirty || submitAttempt)">
+                            <p class='errorValidacion'>Seleccione uno</p>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-7>
+                        <ion-item>
+                            <ion-label stacked>Número</ion-label>
+                            <ion-input formControlName="numero_documento" type="number" name="numeroDocumentoVisita"></ion-input>
+                        </ion-item>
+                        <ion-item no-lines *ngIf="!formVisita.controls.numero_documento.valid && !formVisita.controls.numero_documento.pending && (formVisita.controls.numero_documento.dirty || submitAttempt)">
+                            <p class='errorValidacion'>Documento inválido</p>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row *ngIf="esVisitaFrecuente()">
+                    <ion-col col-12>
+                        <ion-item>
+                            <ion-label stacked>Patente</ion-label>
+                            <ion-input formControlName="patente" type="text" name="patenteVisita"></ion-input>
+                        </ion-item>
+                        <ion-item no-lines *ngIf="!formVisita.controls.patente.valid && !formVisita.controls.patente.pending && (formVisita.controls.patente.dirty || submitAttempt)">
+                            <p class='errorValidacion'>Patente inválida</p>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-12>
+                        <ion-item>
+                            <ion-label stacked>Observaciones</ion-label>
+                            <ion-textarea formControlName="observaciones" type="text" name="observacionesVisita"></ion-textarea>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-list>
 
-    <div class="btnRegistrar">
-      <button ion-button block outline block type="submit" id="btnRegistrarUsuario" [disabled]="!formVisita.valid">Registrar</button>
-    </div>
-  </form>
+        <div class="btnRegistrar">
+            <button ion-button block outline block type="submit" id="btnRegistrarUsuario" [disabled]="!formVisita.valid">Registrar</button>
+        </div>
+    </form>
 
 </ion-content>
