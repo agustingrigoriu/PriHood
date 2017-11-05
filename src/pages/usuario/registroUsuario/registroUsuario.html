@@ -21,11 +21,7 @@
             </div>
           </ion-col>
           <ion-col col-4>
-            <div class="imagenUsuario-contenedor">
-              <button ion-button clear class="imagenUsuario-btn">
-                <img src='{{avatar}}' class="imagenUsuario"/>
-              </button>
-            </div>
+              <cargar-foto formControlName='avatar' [size]='80'></cargar-foto>
           </ion-col>
         </ion-row>
       </ion-grid>

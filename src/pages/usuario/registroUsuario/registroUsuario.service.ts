@@ -8,5 +8,4 @@ export class RegistroUsuarioService {
   registrarUsuario(data) {
     return this.request.post<any>(`usuarios/residente`, data);
   }
-
 }

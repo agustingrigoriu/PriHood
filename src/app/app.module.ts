@@ -61,6 +61,10 @@ import { AlertasService } from '../pages/alertas/alertas.service';
 import { ExpensasService } from '../pages/expensas/expensas.service';
 import { CarpoolingService } from '../pages/carpooling/carpooling.service';
 import { ComunicacionService } from '../pages/comunicacion/comunicacion.service';
+import { FotosService } from '../services/fotos.service';
+
+// Componentes
+import { CargarPerfil } from '../components/cargar-perfil/cargar-perfil';
 
 // Pipes
 import { PipesModule } from '../pipes/pipes.module';
@@ -108,7 +112,8 @@ const pages = [
 
 @NgModule({
   declarations: [
-    ...pages
+    ...pages,
+    CargarPerfil
   ],
   imports: [
     BrowserModule,
@@ -139,6 +144,7 @@ const pages = [
     VisitanteService,
     ExpensasService,
     ComunicacionService,
+    FotosService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: LOCALE_ID, useValue: "es" }
   ]

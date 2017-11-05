@@ -1,0 +1,9 @@
+<div class="foto-perfil" [ngStyle]='{"width": size + "px", "height": size + "px"}'>
+    <div class="background-imagen" [ngStyle]='{"background-image": "url("+getUrl()+")"}'> </div>
+
+    <input (change)="onChangeFile($event)" accept="image/*" type="file" class="file" />
+
+    <div class="cambiar-foto" [hidden]="!url">
+        Cambiar foto
+    </div>
+</div>

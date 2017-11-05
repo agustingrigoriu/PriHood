@@ -17,8 +17,6 @@ export class RegistroUsuarioPage {
   public barrio: Barrio;
   public residencia: Residencia;
 
-  avatar = '/assets/img/pruebas/visitas/lucas.png';
-
   form: FormGroup;
 
   constructor(public navParams: NavParams, public alertCtrl: AlertController,
@@ -36,7 +34,8 @@ export class RegistroUsuarioPage {
       fechaNacimientoUsuario: ['', Validators.compose([Validators.required])],
       telefonoUsuario: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[0-9]*'), Validators.required])],
       tipoDocumentoUsuario: ['', Validators.compose([Validators.required])],
-      numeroDocumentoUsuario: ['', Validators.compose([Validators.maxLength(10), Validators.pattern('[0-9]*'), Validators.required])]
+      numeroDocumentoUsuario: ['', Validators.compose([Validators.maxLength(10), Validators.pattern('[0-9]*'), Validators.required])],
+      avatar: []
     });
 
     this.presentToast('Código de verificación correcto');
@@ -46,14 +45,14 @@ export class RegistroUsuarioPage {
     const usuario = {
       nombre: this.form.value.nombreUsuario,
       apellido: this.form.value.apellidoUsuario,
-      id_tipo_documento: this.form.value.id_tipo_documento,
+      id_tipo_documento: this.form.value.tipoDocumentoUsuario,
       numero_documento: this.form.value.numeroDocumentoUsuario,
       telefono: this.form.value.telefonoUsuario,
       fecha_nacimiento: this.form.value.fechaNacimientoUsuario,
       email: this.form.value.emailUsuario,
       password: this.form.value.passwordUsuario,
       id_residencia: this.residencia.id,
-      avatar: this.avatar
+      avatar: this.form.value.avatar
     };
 
     this.RegistroUsuarioService.registrarUsuario(usuario).then(response => {
