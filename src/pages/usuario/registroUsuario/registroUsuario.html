@@ -21,7 +21,7 @@
             </div>
           </ion-col>
           <ion-col col-4>
-              <cargar-foto formControlName='avatar' [size]='80'></cargar-foto>
+            <cargar-foto formControlName='avatar' [size]='80'></cargar-foto>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -32,11 +32,17 @@
               <ion-label stacked>Nombre</ion-label>
               <ion-input formControlName="nombreUsuario" type="text"></ion-input>
             </ion-item>
+            <ion-item no-lines *ngIf="!form.controls.nombreUsuario.valid && !form.controls.nombreUsuario.pending && (form.controls.nombreUsuario.dirty || submitAttempt)">
+              <p class='errorValidacion'>Nombre inválido</p>
+            </ion-item>
           </ion-col>
           <ion-col col-6>
             <ion-item>
               <ion-label stacked>Apellido</ion-label>
               <ion-input formControlName="apellidoUsuario" type="text"></ion-input>
+            </ion-item>
+            <ion-item no-lines *ngIf="!form.controls.apellidoUsuario.valid && !form.controls.apellidoUsuario.pending && (form.controls.apellidoUsuario.dirty || submitAttempt)">
+              <p class='errorValidacion'>Apellido inválido</p>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -45,6 +51,9 @@
             <ion-item>
               <ion-label stacked>Email</ion-label>
               <ion-input formControlName="emailUsuario" type="email"></ion-input>
+            </ion-item>
+            <ion-item no-lines *ngIf="!form.controls.emailUsuario.valid && !form.controls.emailUsuario.pending && (form.controls.emailUsuario.dirty || submitAttempt)">
+              <p class='errorValidacion'>Email inválido</p>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -74,6 +83,9 @@
               <ion-label stacked>Tel. Móvil</ion-label>
               <ion-input formControlName="telefonoUsuario" type="tel"></ion-input>
             </ion-item>
+            <ion-item no-lines *ngIf="!form.controls.telefonoUsuario.valid && !form.controls.telefonoUsuario.pending && (form.controls.telefonoUsuario.dirty || submitAttempt)">
+              <p class='errorValidacion'>Teléfono inválido</p>
+            </ion-item>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -88,11 +100,17 @@
                 <ion-option value="4">Otro</ion-option>
               </ion-select>
             </ion-item>
+            <ion-item no-lines *ngIf="!form.controls.tipoDocumentoUsuario.valid && !form.controls.tipoDocumentoUsuario.pending && (form.controls.tipoDocumentoUsuario.dirty || submitAttempt)">
+              <p class='errorValidacion'>Seleccione uno</p>
+            </ion-item>
           </ion-col>
           <ion-col col-7>
             <ion-item>
               <ion-label stacked>Número</ion-label>
               <ion-input formControlName="numeroDocumentoUsuario" type="number"></ion-input>
+            </ion-item>
+            <ion-item no-lines *ngIf="!form.controls.numeroDocumentoUsuario.valid && !form.controls.numeroDocumentoUsuario.pending && (form.controls.numeroDocumentoUsuario.dirty || submitAttempt)">
+              <p class='errorValidacion'>Número inválido</p>
             </ion-item>
           </ion-col>
         </ion-row>
