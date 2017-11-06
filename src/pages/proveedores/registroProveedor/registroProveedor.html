@@ -19,7 +19,7 @@
     </ion-col>
   </ion-row>
 
-  <form (ngSubmit)="registrarProveedor(proveedor)">
+  <form [formGroup]="formProveedor" (ngSubmit)="registrarProveedor()">
     <ion-list>
       <ion-grid>
 
@@ -27,7 +27,7 @@
           <ion-col col-12>
             <ion-item>
               <ion-label stacked>Tipo de Servicio</ion-label>
-              <ion-select [(ngModel)]="proveedor.id_tipo_servicio" interface='popover' (ionChange)='servicioSeleccionado($event)' name="idTipoServicio">
+              <ion-select formControlName="id_tipo_servicio" interface='popover' (ionChange)='servicioSeleccionado($event)' name="id_tipo_servicio">
                 <ion-option value="{{tipo_servicio.id}}" *ngFor='let tipo_servicio of tipos_servicio'>{{tipo_servicio.descripcion}}</ion-option>
               </ion-select>
             </ion-item>
@@ -38,13 +38,19 @@
           <ion-col col-7>
             <ion-item>
               <ion-label stacked>Nombre</ion-label>
-              <ion-input type="text" [(ngModel)]="proveedor.nombre" type="text" name="proveedorNombre"></ion-input>
+              <ion-input type="text" formControlName="nombre" type="text" name="nombre"></ion-input>
+            </ion-item>
+            <ion-item no-lines *ngIf="!formProveedor.controls.nombre.valid && !formProveedor.controls.nombre.pending && (formProveedor.controls.nombre.dirty || submitAttempt)">
+              <p class='errorValidacion'>Nombre inválido</p>
             </ion-item>
           </ion-col>
           <ion-col col-5>
             <ion-item>
               <ion-label stacked>Teléfono</ion-label>
-              <ion-input type="number" [(ngModel)]="proveedor.telefono" type="text" name="proveedorTelefono"></ion-input>
+              <ion-input type="number" formControlName="telefono" type="number" name="telefono"></ion-input>
+            </ion-item>
+            <ion-item no-lines *ngIf="!formProveedor.controls.telefono.valid && !formProveedor.controls.telefono.pending && (formProveedor.controls.telefono.dirty || submitAttempt)">
+              <p class='errorValidacion'>Teléfono inválido</p>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -53,7 +59,10 @@
           <ion-col col-12>
             <ion-item>
               <ion-label stacked>Dirección</ion-label>
-              <ion-input [(ngModel)]="proveedor.direccion" type="text" name="direccionProveedor"></ion-input>
+              <ion-input formControlName="direccion" type="text" name="direccion"></ion-input>
+            </ion-item>
+            <ion-item no-lines *ngIf="!formProveedor.controls.direccion.valid && !formProveedor.controls.direccion.pending && (formProveedor.controls.direccion.dirty || submitAttempt)">
+              <p class='errorValidacion'>Dirección inválida</p>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -62,7 +71,10 @@
           <ion-col col-12>
             <ion-item>
               <ion-label stacked>Descripcion</ion-label>
-              <ion-textarea [(ngModel)]="proveedor.descripcion" type="text" name="descripcionProveedor"></ion-textarea>
+              <ion-textarea formControlName="descripcion" type="text" name="descripcion"></ion-textarea>
+            </ion-item>
+            <ion-item no-lines *ngIf="!formProveedor.controls.descripcion.valid && !formProveedor.controls.descripcion.pending && (formProveedor.controls.descripcion.dirty || submitAttempt)">
+              <p class='errorValidacion'>Ingrese una descripción</p>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -71,7 +83,7 @@
     </ion-list>
 
     <div class="btnRegistrar">
-      <button ion-button block outline block type="submit" id="btnRegistrarProveedor">Registrar</button>
+      <button ion-button block outline block type="submit" id="btnRegistrarProveedor" [disabled]="!formProveedor.valid">Registrar</button>
     </div>
   </form>
 
