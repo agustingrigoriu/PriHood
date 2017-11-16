@@ -29,7 +29,7 @@ export class RegistroProveedorPage {
       nombre: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       telefono: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[0-9]*'), Validators.required])],
       direccion: ['', Validators.compose([Validators.required])],
-      descripcion: ['', Validators.compose([Validators.pattern('[a-zA-Z]*'), Validators.required])],
+      descripcion: ['', Validators.compose([Validators.required])],
       avatar: ['']
     });
   }

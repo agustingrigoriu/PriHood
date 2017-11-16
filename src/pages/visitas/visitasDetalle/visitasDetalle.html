@@ -3,7 +3,7 @@
     <ion-title>Detalle de Visita</ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <span ion-text color="primary" showWhen="ios">Volver</span>
         <ion-icon name="md-close" showWhen="android"></ion-icon>
       </button>
     </ion-buttons>
@@ -37,18 +37,6 @@
         <p *ngIf='noExistenObservaciones()'>Ninguna</p>
       </div>
     </ion-card-content>
-    <ion-item>
-      <span item-left>
-          <button ion-button icon-left clear small>
-            <ion-icon name="create"></ion-icon>
-            <div>Editar</div>
-          </button>
-        </span>
-      <button ion-button icon-right clear item-end>
-          <div>Borrar</div>
-          <ion-icon name="trash"></ion-icon>
-        </button>
-    </ion-item>
   </ion-card>
 
 </ion-content>

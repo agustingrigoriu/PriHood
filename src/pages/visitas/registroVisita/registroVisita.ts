@@ -28,8 +28,8 @@ export class RegistroVisitaPage {
       apellido: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       id_tipo_documento: ['', Validators.compose([Validators.required])],
       numero_documento: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[0-9]*'), Validators.required])],
-      patente: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[a-zA-Z0-9]*')])],
-      observaciones: ['', Validators.compose([Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      patente: ['', Validators.compose([Validators.maxLength(7), Validators.pattern('[a-zA-Z0-9]*')])],
+      observaciones: [''],
       fecha_visita: [new Date().toISOString()]
     });
   }
