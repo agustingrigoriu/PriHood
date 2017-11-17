@@ -1,0 +1,48 @@
+.fechaComentario{
+  padding: 0 0 !important;
+}
+
+.evento{
+  background: #E1E1E1;
+
+  .card-evento{
+    width: 100%;
+    margin: 0;
+    padding: 10px 10px;
+    background: #003777;
+  }
+
+  .titulo-evento{
+    background-color: #003777;
+  }
+
+  h2 {
+    color: #ffffff;
+  }
+
+  p {
+    color: #e0e0e0;
+  }
+}
+
+.card-comentario{
+  p {
+    padding: 0 16px;
+  }
+}
+
+.comentario-evento{
+  color: #007aff !important;
+}
+
+.toolbar-background-ios {
+    background: rgba(0, 55, 119, 0.4);
+}
+
+detalleEvento .scroll-content{
+  background-color: #e0e0e0;
+}
+
+.footer-comentario{
+  text-align: left !important;
+}

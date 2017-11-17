@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-toolbar color="prihood">
+      <ion-title>Eventos</ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="volver()">
+          <span ion-text color="primary" showWhen="ios">Volver</span>
+          <ion-icon name="md-close" showWhen="android"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <div class="evento">
+      <ion-card class='card-evento'>
+        <ion-item class='titulo-evento'>
+          <h2>{{evento.titulo}}</h2>
+        </ion-item>
+      </ion-card>
+    </div>
+  
+    <ion-card *ngFor='let comentario of comentarios' class='card-comentario'>
+      <ion-item>
+        <h3 class='comentario-usuario'>{{comentario.usuario}}</h3>
+      </ion-item>
+      <ion-card-content>
+        <p>"{{comentario.texto}}"</p>
+      </ion-card-content>
+      <ion-item>
+        <p icon-right clear item-end class='fechaComentario'>{{comentario.fecha | date}}</p>
+      </ion-item>
+    </ion-card>
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar>
+      <form (ngSubmit)='comentar(comentario)' class='footer-comentario'>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12>
+              <ion-item no-lines>
+                <ion-label class='footer-comentario' stacked>Comentario</ion-label>
+                <ion-textarea [(ngModel)]="comentario.texto" type="text" name="comentario"></ion-textarea>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-fab bottom right>
+          <button ion-fab mini type="submit">
+            <ion-icon name="send"></ion-icon>
+          </button>
+        </ion-fab>
+      </form>
+    </ion-toolbar>
+  </ion-footer>

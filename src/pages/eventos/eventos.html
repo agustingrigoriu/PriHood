@@ -4,13 +4,45 @@
     <ion-buttons start>
       <button ion-button class="btn-menu" [menuToggle]="activeMenu">
         <img class="logoMenu-img" src="assets/img/logo_menu.png">
-        </button>
+      </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <p class='infoModulo'>
-    Este es el modulo de eventos
-  </p>
+
+  <ion-card *ngFor='let evento of eventos'>
+    <ion-item>
+      <h2 item-start>{{evento.fecha}}</h2>
+      <h2 item-end class='btn-asistir'>{{evento.hora_desde}} hs</h2>
+    </ion-item>
+    <img src="{{evento.imagen}}">
+    <ion-card-content>
+      <h2>{{evento.titulo}}</h2>
+      <p class='txt-evento'>{{evento.descripcion}}
+      </p>
+    </ion-card-content>
+    <ion-item>
+      <button ion-button icon-left clear small (click)="comentariosEvento(evento)">
+        <ion-icon name="text"></ion-icon>
+        <div>Comentarios</div>
+      </button>
+      <button ion-button icon-right clear item-end (click)="asistenEvento(evento)">
+        <div>Asisten </div>
+      </button>
+    </ion-item>
+    <ion-item>
+      <button ion-button clear item-end (click)="confirmarAsistencia(evento)">
+        <ion-badge item-end class='btn-asistir'>
+          <ion-icon name="navigate"></ion-icon> Asistir</ion-badge>
+      </button>
+    </ion-item>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="registrarEventoPage()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title>Eventos</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="volver()">
+        <span ion-text color="primary" showWhen="ios">Volver</span>
+        <ion-icon name="md-close" showWhen="android"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="infoAsistentes-contenedor">
+    <p class="infoAsistentes">
+      Asistentes al evento "{{evento.titulo}}"
+    </p>
+    <div *ngIf='noHayAsistentes()'>
+      <p class='infoAsistentes'>Todavía no hay asistentes al evento "{{evento.titulo}}" </p>
+    </div>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor='let asistente of asistentes'>
+      <ion-avatar item-start>
+        <img src="{{asistente.avatar}}">
+      </ion-avatar>
+      <h2>{{asistente.apellido}} {{asistente.nombre}}</h2>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer class='footer'>
+  <div class="footer-info">
+    <p>Asisten <b>{{asistentes.length}}</b> personas</p>
+  </div>
+</ion-footer>

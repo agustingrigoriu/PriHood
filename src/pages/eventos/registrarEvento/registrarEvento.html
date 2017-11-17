@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="prihood">
+    <ion-title>Nuevo evento</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="volver()">
+        <span ion-text color="primary" showWhen="ios">Volver</span>
+        <ion-icon name="md-close" showWhen="android"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="info">
+    <p>Ingrese a continuación los datos del evento</p>
+  </div>
+  <div class="informacionEvento">
+    <form [formGroup]="formEvento" (ngSubmit)="registrarEvento()">
+
+      <ion-card>
+        <ion-item>
+          <ion-icon large item-start name='calendar'></ion-icon>
+          <ion-label>Fecha</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-datetime formControlName="fecha" displayFormat="DD/MM/YYYY" item-start placeholder='Día'></ion-datetime>
+        </ion-item>
+        <ion-item no-lines *ngIf="!formEvento.controls.fecha.valid && !formEvento.controls.fecha.pending && (formEvento.controls.fecha.dirty || submitAttempt)">
+          <p class='errorValidacion'>Seleccione una fecha</p>
+        </ion-item>
+        <ion-item>
+          <ion-datetime formControlName="hora_desde" displayFormat="h:mm A" item-start placeholder='Hora de inicio'></ion-datetime>
+        </ion-item>
+        <ion-item no-lines *ngIf="!formEvento.controls.hora_desde.valid && !formEvento.controls.hora_desde.pending && (formEvento.controls.hora_desde.dirty || submitAttempt)">
+          <p class='errorValidacion'>Seleccione un horario</p>
+        </ion-item>
+        <ion-item>
+          <ion-datetime formControlName="hora_hasta" displayFormat="h:mm A" item-start placeholder='Hora de fin'></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-icon large item-start name='clipboard'></ion-icon>
+          <ion-label>Datos</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Tipo de evento</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-select formControlName="id_tipo_evento" placeholder="Elija un tipo">
+            <ion-option *ngFor='let tipo_evento of tipos_eventos' value="{{tipo_evento.id}}">{{tipo_evento.descripcion}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item no-lines *ngIf="!formEvento.controls.id_tipo_evento.valid && !formEvento.controls.id_tipo_evento.pending && (formEvento.controls.id_tipo_evento.dirty || submitAttempt)">
+          <p class='errorValidacion'>Seleccione un tipo de evento</p>
+        </ion-item>
+        <ion-item>
+          <ion-label>Título</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="titulo" placeholder="Ingresa un título para el evento"></ion-input>
+        </ion-item>
+        <ion-item no-lines *ngIf="!formEvento.controls.titulo.valid && !formEvento.controls.titulo.pending && (formEvento.controls.titulo.dirty || submitAttempt)">
+          <p class='errorValidacion'>Ingrese un título correcto</p>
+        </ion-item>
+        <ion-item>
+          <ion-label>Imágen</ion-label>
+        </ion-item>
+        <ion-item>
+          <cargar-foto formControlName='imagen' class='imagenEvento' [size]='120'></cargar-foto>
+        </ion-item>
+        <ion-item>
+          <ion-label>Descripción</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-textarea formControlName="descripcion" placeholder="Ingresa una descripción del evento"></ion-textarea>
+        </ion-item>
+        <ion-item no-lines *ngIf="!formEvento.controls.descripcion.valid && !formEvento.controls.descripcion.pending && (formEvento.controls.descripcion.dirty || submitAttempt)">
+          <p class='errorValidacion'>Ingrese una descripción correcta</p>
+        </ion-item>
+
+        <ion-item actions>
+          <button type="submit" ion-button color="primary" clear item-end icon-start [disabled]="!formEvento.valid">
+            <ion-icon name='arrow-dropright-circle'></ion-icon>
+            Finalizar
+          </button>
+        </ion-item>
+      </ion-card>
+    </form>
+  </div>
+
+</ion-content>

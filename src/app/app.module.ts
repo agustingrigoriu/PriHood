@@ -48,6 +48,10 @@ import { ChatBoxMensajePage } from '../pages/comunicacion/mensajeDirecto/chatBox
 import { PublicacionesPage } from '../pages/comunicacion/publicaciones/publicaciones';
 import { EventosPage } from '../pages/eventos/eventos';
 import { ListaAmenitiesPage } from '../pages/amenities/listaAmenities/listaAmenities';
+import { DetalleEventoPage } from '../pages/eventos/detalleEvento/detalleEvento';
+import { RegistrarEventoPage } from '../pages/eventos/registrarEvento/registrarEvento';
+import { AsistenciaEventoPage } from '../pages/eventos/asistenciaEvento/asistenciaEvento';
+
 
 //Services
 import { ApiRequestService } from '../services/api.request.service';
@@ -59,6 +63,7 @@ import { VisitanteService } from '../pages/visitas/visitas.service';
 import { AmenitiesService } from '../pages/amenities/amenities.service';
 import { AlertasService } from '../pages/alertas/alertas.service';
 import { ExpensasService } from '../pages/expensas/expensas.service';
+import { EventosService } from '../pages/eventos/eventos.service';
 import { CarpoolingService } from '../pages/carpooling/carpooling.service';
 import { ComunicacionService } from '../pages/comunicacion/comunicacion.service';
 import { FotosService } from '../services/fotos.service';
@@ -107,6 +112,9 @@ const pages = [
   NuevoOfrecimientoMapaPage,
   ChatBoxMensajePage,
   PublicacionesPage,
+  DetalleEventoPage,
+  RegistrarEventoPage,
+  AsistenciaEventoPage,
   QRScannerPage
 ];
 
@@ -145,6 +153,7 @@ const pages = [
     ExpensasService,
     ComunicacionService,
     FotosService,
+    EventosService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: LOCALE_ID, useValue: "es" }
   ]

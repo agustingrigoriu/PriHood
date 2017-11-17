@@ -1,0 +1,43 @@
+.info {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  p {
+    color: #003777;
+    font-size: 1.3rem;
+  }
+}
+
+registrarEvento {
+  .card-ios, .card-md {
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-input-ios {
+    padding: 0 5px;
+  }
+
+  .datosEvento{
+    .label-ios {
+      padding: 0 0;
+      font-size: 1.6rem;
+      color: #999999;
+    }
+  }
+
+  .label-entrada {
+      padding: 0 16px;
+      font-size: 1.6rem;
+      color: #999999;
+  }
+
+}
+
+.imagenEvento {
+  div {
+    border-radius: 0% !important;
+    width: calc(100%) !important;
+    background-image: url("/assets/img/upload_image.png"); //solucionar fondo
+  }
+}
+
