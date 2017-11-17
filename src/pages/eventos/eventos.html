@@ -13,8 +13,8 @@
 
   <ion-card *ngFor='let evento of eventos'>
     <ion-item>
-      <h2 item-start>{{evento.fecha}}</h2>
-      <h2 item-end class='btn-asistir'>{{evento.hora_desde}} hs</h2>
+      <h2 item-start class='fechaEvento'><b>{{evento.fecha | date }}</b></h2>
+      <h2 item-end class='btn-asistir'>{{evento.hora_desde}} - {{evento.hora_hasta}} hs</h2>
     </ion-item>
     <img src="{{evento.imagen}}">
     <ion-card-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController, ToastController } from 'ionic-angular';
+import * as moment from 'moment';
 
 import { Evento } from '../../app/models/evento.model';
 import { DetalleEventoPage } from './detalleEvento/detalleEvento';
@@ -16,6 +17,7 @@ export class EventosPage {
 
   private eventos: any[] = [];
   private eventoSeleccionado: any;
+  private defaultDate = new Date(2017, 1, 6);
 
   constructor(private EventosService: EventosService,
     public navCtrl: NavController,
@@ -41,10 +43,24 @@ export class EventosPage {
       if (response.error) {
         this.alertaError();
       } else {
-        this.eventos = response.data;
+        this.eventos = response.data.map(this.horarioEvento.bind(this));
       }
       loading.dismiss();
     });
+  }
+
+  horarioEvento(evento: any) {
+    const [hoursD, minutesD] = evento.hora_desde.split(':');
+    const [hoursH, minutesH] = evento.hora_hasta.split(':');
+
+    const start = moment(this.defaultDate).clone().add(+hoursD, 'hours').add(+minutesD, 'minutes');
+    const end = moment(this.defaultDate).clone().add(+hoursH, 'hours').add(+minutesH, 'minutes');
+
+    return {
+      ...evento,
+      hora_desde: start.format('HH:mm'),
+      hora_hasta: end.format('HH:mm')
+    };
   }
 
   alertaError() {
