@@ -37,6 +37,9 @@ export class EventosService {
 
   confirmarAsistencia(id_evento: Number) {
     return this.request.post<any>(`eventos/asistencias/${id_evento}`);
-    
+  }
+
+  cancelarAsistencia(id_evento: Number) {
+    return this.request.delete<any>(`eventos/asistencias/${id_evento}`);
   }
 }

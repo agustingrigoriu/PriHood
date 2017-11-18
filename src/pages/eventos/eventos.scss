@@ -10,6 +10,18 @@
   color: #007aff !important;
 }
 
+.asistirEvento {
+  text-align: center;
+}
+
+.asistir {
+  color: #007aff;
+}
+
+.no-asistir .asistirEvento {
+  color: #e13838
+}
+
 eventos ion-content{
   background-color: #E1E1E1 !important;
 }

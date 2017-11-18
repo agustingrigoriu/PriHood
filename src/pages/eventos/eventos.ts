@@ -99,11 +99,32 @@ export class EventosPage {
     confirm.present();
   }
 
+  cancelarAsistencia(eventoSeleccionado: any) {
+    this.eventoSeleccionado = eventoSeleccionado;
+    let confirm = this.alertCtrl.create({
+      title: 'Cancelar asistencia',
+      message: 'Seguro de cancelar su asistencia al evento ' + eventoSeleccionado.titulo + '?',
+      buttons: [
+        {
+          text: 'Volver'
+        },
+        {
+          text: 'Seguro',
+          handler: () => {
+            this.cancelar(eventoSeleccionado.id_evento);
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
   async asistir(id_evento: number) {
     try {
       const response = await this.EventosService.confirmarAsistencia(id_evento);
       if (response.error) throw 'error';
       this.presentToast('Se ha confirmado su asistencia.');
+      this.actualizar();
     } catch (error) {
       const alertMessage = this.alertCtrl.create({
         title: 'Asistencia no confirmada',
@@ -114,6 +135,21 @@ export class EventosPage {
     }
   }
 
+  async cancelar(id_evento: number) {
+    try {
+      const response = await this.EventosService.cancelarAsistencia(id_evento);
+      if (response.error) throw 'error';
+      this.presentToast('Se ha cancelado su asistencia.');
+      this.actualizar();
+    } catch (error) {
+      const alertMessage = this.alertCtrl.create({
+        title: 'Asistencia no cancelada',
+        message: 'No es posible cancelar su asistencia',
+        buttons: ['Ok']
+      });
+      alertMessage.present();
+    }
+  }
 
   presentToast(message: string) {
     const toast = this.toastCtrl.create({
@@ -124,9 +160,7 @@ export class EventosPage {
     toast.present();
   }
 
-
   ionViewWillEnter() {
     this.actualizar();
   }
-
 }

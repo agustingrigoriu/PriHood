@@ -13,7 +13,9 @@
 
   <ion-card *ngFor='let evento of eventos'>
     <ion-item>
-      <h2 item-start class='fechaEvento'><b>{{evento.fecha | date }}</b></h2>
+      <h2 item-start class='fechaEvento'>
+        <b>{{evento.fecha | date }}</b>
+      </h2>
       <h2 item-end class='btn-asistir'>{{evento.hora_desde}} - {{evento.hora_hasta}} hs</h2>
     </ion-item>
     <img src="{{evento.imagen}}">
@@ -29,13 +31,26 @@
       </button>
       <button ion-button icon-right clear item-end (click)="asistenEvento(evento)">
         <div>Asisten </div>
+        <ion-badge item-end>{{evento.cantidad_asistentes}}</ion-badge>
       </button>
     </ion-item>
-    <ion-item>
-      <button ion-button clear item-end (click)="confirmarAsistencia(evento)">
-        <ion-badge item-end class='btn-asistir'>
-          <ion-icon name="navigate"></ion-icon> Asistir</ion-badge>
-      </button>
+    <ion-item class='asistir' *ngIf='!evento.asiste'>
+      <div class='asistirEvento'>
+        <button ion-button icon-left clear (click)='confirmarAsistencia(evento)'>
+          <div class="asistirEvento">
+            <b>Asistir</b>
+          </div>
+        </button>
+      </div>
+    </ion-item>
+    <ion-item class='no-asistir' *ngIf='evento.asiste'>
+      <div class='asistirEvento'>
+        <button ion-button icon-left clear (click)='cancelarAsistencia(evento)'>
+          <div class="asistirEvento">
+            <b>Cancelar asistencia</b>
+          </div>
+        </button>
+      </div>
     </ion-item>
   </ion-card>
 
