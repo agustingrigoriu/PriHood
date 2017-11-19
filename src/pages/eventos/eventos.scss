@@ -16,10 +16,16 @@
 
 .asistir {
   color: #007aff;
+  border-top: 1px solid #ececec;
 }
 
 .no-asistir .asistirEvento {
   color: #e13838
+}
+
+.tipo-evento {
+  font-size: 1rem;
+  color: #007aff;
 }
 
 eventos ion-content{

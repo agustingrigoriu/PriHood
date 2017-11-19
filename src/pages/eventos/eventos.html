@@ -20,6 +20,7 @@
     </ion-item>
     <img src="{{evento.imagen}}">
     <ion-card-content>
+      <h4 class='tipo-evento'>{{evento.tipo_evento}}</h4>
       <h2>{{evento.titulo}}</h2>
       <p class='txt-evento'>{{evento.descripcion}}
       </p>
@@ -38,7 +39,7 @@
       <div class='asistirEvento'>
         <button ion-button icon-left clear (click)='confirmarAsistencia(evento)'>
           <div class="asistirEvento">
-            <b>Asistir</b>
+            <b>Asistir al evento</b>
           </div>
         </button>
       </div>
