@@ -19,7 +19,7 @@ export class MenuPage {
   @ViewChild(Nav) nav: NavController;
 
   pages: Array<{ title: string, component: any, icon: string }>;
-  root = EventosPage;
+  root = ComunicacionPage;
   private userInfo;
 
   constructor(public loginService: LoginService) {

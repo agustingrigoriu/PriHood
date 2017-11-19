@@ -90,7 +90,7 @@ export class ProveedoresPage {
   onInput(textoBuscado: any) {
   }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.cargarTiposDeServicio();
     this.actualizar(this.tipo_servicio);
   }
