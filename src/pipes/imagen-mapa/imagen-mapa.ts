@@ -15,16 +15,16 @@ export class ImagenMapaPipe implements PipeTransform {
     const destino = trayectos[trayectos.length - 1];
 
     for (let trayecto of trayectos) {
-      path.push(`${trayecto.latitud},${trayecto.longitud}`);
+      path.push(`${trayecto.latitud.toString().substr(0, 6)},${trayecto.longitud.toString().substr(0, 6)}`);
     }
 
     params.push(`path=${encodeURIComponent(path.join('|'))}`);
 
-    params.push(`markers=label:A|color:red|${origen.latitud},${origen.longitud}`);
-    params.push(`markers=label:B|color:green|${destino.latitud},${destino.longitud}`);
+    params.push(`markers=label:A|color:red|${origen.latitud.toString().substr(0, 6)},${origen.longitud.toString().substr(0, 6)}`);
+    params.push(`markers=label:B|color:green|${destino.latitud.toString().substr(0, 6)},${destino.longitud.toString().substr(0, 6)}`);
 
     if (punto !== null) {
-      params.push(`markers=color:red|${punto.latitud},${punto.longitud}`);
+      params.push(`markers=color:red|${punto.latitud.toString().substr(0, 6)},${punto.longitud.toString().substr(0, 6)}`);
     }
 
     return `${mapa}?${params.join('&')}`;

@@ -39,7 +39,7 @@ export class ExpensasPage {
   }
 
   openExpensa(expensa: Expensa) {
-    window.open(expensa.url_expensa, '_blank');
+    window.open(expensa.url_expensa, '_self');
   }
 
   downloadExpensa(expensa: Expensa) {
